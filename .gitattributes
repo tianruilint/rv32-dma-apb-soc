@@ -1,0 +1,6 @@
+# Preserve raw simulator/compiler logs.
+# Their original whitespace is part of the recorded external output.
+reports/p2_soc/*.log -whitespace
+reports/upstream_friscv/*.log -whitespace
+# Patch hunk prefixes must retain their exact leading space.
+*.patch -whitespace

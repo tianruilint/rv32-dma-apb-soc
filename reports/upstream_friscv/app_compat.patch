@@ -1,0 +1,50 @@
+diff --git a/test/apps/tests/common/makefile b/test/apps/tests/common/makefile
+index 0bf0eb6..c7896c0 100644
+--- a/test/apps/tests/common/makefile
++++ b/test/apps/tests/common/makefile
+@@ -17,7 +17,7 @@ SRCS =	$(wildcard *.c) \
+ 
+ 
+ # Select architecure and ABI
+-CFLAGS +=	-march=rv32im \
++CFLAGS +=	-march=rv32im_zicsr -specs=picolibc.specs \
+ 			-mabi=ilp32 \
+ 			-O0 \
+ 			-g \
+diff --git a/test/apps/tests/coremark/Makefile b/test/apps/tests/coremark/Makefile
+index f5f8537..9303094 100644
+--- a/test/apps/tests/coremark/Makefile
++++ b/test/apps/tests/coremark/Makefile
+@@ -39,7 +39,7 @@ FORCE_REBUILD=force_rebuild
+ endif
+ 
+ # Select architecure and ABI
+-CFLAGS +=	-march=rv32im \
++CFLAGS +=	-march=rv32im_zicsr -specs=picolibc.specs \
+ 			-mabi=ilp32 \
+ 			-O1 \
+ 			-g \
+diff --git a/test/apps/tests/repl/benchmark.c b/test/apps/tests/repl/benchmark.c
+index c80ea7b..8269b30 100644
+--- a/test/apps/tests/repl/benchmark.c
++++ b/test/apps/tests/repl/benchmark.c
+@@ -7,6 +7,7 @@
+ #include "xoshiro128plusplus.h"
+ #include "pool_arena.h"
+ #include "tty.h"
++#include "printf.h"
+ 
+ // -----------------------------------------------------------------------------------------------
+ // Benchmarks global variables
+diff --git a/test/apps/tests/repl/pool_arena.c b/test/apps/tests/repl/pool_arena.c
+index d9241bd..9768a9e 100644
+--- a/test/apps/tests/repl/pool_arena.c
++++ b/test/apps/tests/repl/pool_arena.c
+@@ -4,6 +4,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include "pool_arena.h"
++#include "printf.h"
+ 
+ // -----------------------------------------------------------------------------------------------
+ // Local declarations

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "selected_soc_source": {
+    "name": "dpretet/friscv",
+    "url": "https://github.com/dpretet/friscv.git",
+    "path": "third_party/friscv",
+    "method": "git_submodule_recursive",
+    "commit": "5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba",
+    "license_observed": "MIT in FRISCV and its axi-crossbar dependency; nested dependencies retain their own notices",
+    "submodules": {
+      "dep/axi-crossbar": "7738a3811623ef4b5610082347bfecce35d95dd2",
+      "dep/axi-crossbar/deps/dcfifo": "2c7560a84bee1026a17828fad5788a8f7014bfd3",
+      "dep/axi-crossbar/deps/svlogger": "410edf2f694462cc40061d535d8a90bc4cbfcb30",
+      "dep/svlogger": "1e1f22b4da5c4cb580f163fc6611566590015ee5"
+    },
+    "tracked_source_patches": [
+      {
+        "path": "tb/upstream_friscv/friscv_io_same_cycle_write.patch",
+        "target": "rtl/friscv_io_subsystem.sv",
+        "application": "scripts/run_soc.sh copies the pinned source into ignored build/p2_soc_upstream_overlay and patches only that copy",
+        "original_source_sha256": "6a1a1bf20135df95885b5022ae05ca1a2d27809a6b30577d9810c4ef9a5ec2e9",
+        "patched_source_sha256": "fd43805a1b3e7c5b1cc50643500aaeafd5cb605d8bf9fea5834fede6c2baf2b1"
+      }
+    ],
+    "original_checkout_modified": false
+  },
+  "p2_design": {
+    "release_record": "docs/FINAL_RELEASE.md",
+    "top_module": "rtl/soc/p2_soc_top.sv",
+    "crossbar_upstream_module": "third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv",
+    "crossbar_integration_wrapper": "rtl/soc/p2_upstream_axil_fabric.sv",
+    "project_rtl": [
+      "rtl/soc/p2_axil_if.sv",
+      "rtl/soc/p2_upstream_axil_fabric.sv",
+      "rtl/soc/p2_soc_top.sv",
+      "rtl/soc/p2_dma.sv",
+      "rtl/soc/p2_axil_apb_bridge.sv",
+      "rtl/p2_apb_timer.sv"
+    ],
+    "data_width_bits": 128,
+    "address_width_bits": 32,
+    "id_width_bits": 8,
+    "bus_profile": "AXI4-Lite single-beat with 8-bit ID sideband; no AXI4 bursts",
+    "cache_enabled": true,
+    "io_map": "128'h000C1FFF_000C0000_001000FF_00100000",
+    "ram_implementation_in_tests": "1 MiB behavioral simulation model",
+    "release_test_command": "make verify"
+  }
+}

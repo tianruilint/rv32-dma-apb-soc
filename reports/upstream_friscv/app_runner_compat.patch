@@ -1,0 +1,22 @@
+--- a/test/common/functions.sh
++++ b/test/common/functions.sh
+@@ -152,8 +152,8 @@
+ #------------------------------------------------------------------------------
+ gather_result() {
+ 
+-    ec=$(grep -c "ERROR:" tc.log)
+-    msg=$(grep -ni "ERROR:" tc.log)
++    ec=$(grep -c "ERROR:" tc.log || test "$?" -eq 1)
++    msg=$(grep -ni "ERROR:" tc.log || test "$?" -eq 1)
+ 
+     if [ "$2" -eq 1 ] || [ "$ec" != 0 ]; then
+         ts_res="${ts_res}  ❌ $1\n"
+@@ -306,7 +306,7 @@
+ 
+     # Exit if execution failed.
+     # Double check the execution status within the log
+-    ec=$(grep -c "ERROR:" simulation.log)
++    ec=$(grep -c "ERROR:" simulation.log || test "$?" -eq 1)
+ 
+     echo -e "$ts_res"
+ 

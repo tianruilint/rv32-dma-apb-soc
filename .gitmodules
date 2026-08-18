@@ -1,0 +1,3 @@
+[submodule "friscv"]
+	path = third_party/friscv
+	url = https://github.com/dpretet/friscv.git
