@@ -21,6 +21,13 @@ module soc_dma_tb;
     int write_latency = 1;
     int ar_count = 0, aw_count = 0, w_count = 0, b_count = 0;
     int first_aw_cycle = -1, first_w_cycle = -1;
+    logic [31:0] stall_rng = 32'h1234abcd;
+    logic [31:0] data_rng = 32'hcafe1234;
+    int seed = 20260925;
+    bit stress = 0;
+    bit hold_b = 0;
+    int completion_clear_collisions = 0;
+    bit check_collision = 0;
     bit inject_r_error = 0, inject_b_error = 0;
     bit inject_r_badid = 0, inject_b_badid = 0;
     bit rd_pending = 0, rd_valid = 0;
@@ -42,18 +49,21 @@ module soc_dma_tb;
     logic [15:0] held_wstrb = 0;
 
     assign mem_bus.arready = !rst && !rd_pending && !rd_valid &&
-                             (mem_mode != 3 || cycle_q % 3 == 0);
+                             (mem_mode != 3 || cycle_q % 3 == 0) &&
+                             (mem_mode != 4 || stall_rng[0]) && mem_mode != 5;
     assign mem_bus.rvalid = rd_valid;
     assign mem_bus.rdata = rd_data;
     assign mem_bus.rresp = rd_resp;
     assign mem_bus.rid = rd_id;
     assign mem_bus.awready = !rst && !wr_aw_seen && !wr_valid && wr_wait == 0 &&
                              (mem_mode != 1 || cycle_q % 5 == 0) &&
-                             (mem_mode != 3 || cycle_q % 3 == 1);
+                             (mem_mode != 3 || cycle_q % 3 == 1) &&
+                             (mem_mode != 4 || stall_rng[3]) && mem_mode != 6;
     assign mem_bus.wready = !rst && !wr_w_seen && !wr_valid && wr_wait == 0 &&
                             (mem_mode != 2 || cycle_q % 5 == 0) &&
-                            (mem_mode != 3 || cycle_q % 3 == 2);
-    assign mem_bus.bvalid = wr_valid;
+                            (mem_mode != 3 || cycle_q % 3 == 2) &&
+                            (mem_mode != 4 || stall_rng[7]) && mem_mode != 7;
+    assign mem_bus.bvalid = wr_valid && !hold_b;
     assign mem_bus.bresp = wr_resp;
     assign mem_bus.bid = wr_resp_id;
 
@@ -73,6 +83,12 @@ module soc_dma_tb;
             held_w <= 0;
         end else begin
             cycle_q <= cycle_q + 1;
+            // Hierarchy is used only to confirm this directed stimulus reached
+            // the exact simultaneous W1C/completion edge, never as an oracle.
+            if (check_collision && mem_bus.bvalid && mem_bus.bready &&
+                dut.write_aw_seen_q && dut.write_w_seen_q && !dut.bvalid_q)
+                completion_clear_collisions <= completion_clear_collisions + 1;
+            stall_rng <= {stall_rng[30:0], stall_rng[31] ^ stall_rng[21] ^ stall_rng[1] ^ stall_rng[0]};
             if (held_ar)
                 assert (mem_bus.arvalid && mem_bus.araddr == held_araddr &&
                         mem_bus.arid == held_arid)
@@ -110,7 +126,7 @@ module soc_dma_tb;
                 inject_r_error <= 0;
                 inject_r_badid <= 0;
                 rd_pending <= 1;
-                rd_wait <= read_latency;
+                rd_wait <= mem_mode == 4 ? int'(stall_rng[12:10]) : read_latency;
             end
             if (rd_pending) begin
                 if (rd_wait == 0) begin
@@ -147,13 +163,17 @@ module soc_dma_tb;
                 inject_b_error <= 0;
                 inject_b_badid <= 0;
                 if (!inject_b_error && !inject_b_badid) ram[wr_addr[19:4]] <= wr_data;
-                wr_wait <= write_latency;
+                wr_wait <= mem_mode == 4 ? int'(stall_rng[18:16]) : write_latency;
+                // A zero-latency slave still owes exactly one B response. The
+                // old model only raised BVALID in the positive countdown path.
+                if ((mem_mode == 4 ? int'(stall_rng[18:16]) : write_latency) == 0)
+                    wr_valid <= 1;
             end
             if (wr_wait > 0) begin
                 wr_wait <= wr_wait - 1;
                 if (wr_wait == 1) wr_valid <= 1;
             end
-            if (wr_valid && mem_bus.bready) begin
+            if (mem_bus.bvalid && mem_bus.bready) begin
                 wr_valid <= 0;
                 b_count <= b_count + 1;
             end
@@ -167,7 +187,9 @@ module soc_dma_tb;
         input int aw_delay,
         input int w_delay,
         input int response_stall,
-        input logic [1:0] expected_resp
+        input logic [1:0] expected_resp,
+        input bit raw_strobe = 0,
+        input logic [15:0] supplied_strobes = 0
     );
         bit aw_done, w_done, got_b;
         logic [127:0] full_data;
@@ -177,6 +199,7 @@ module soc_dma_tb;
         full_data = 128'h01234567_89abcdef_fedcba98_76543210;
         full_data[beat*32 +: 32] = value;
         full_strb = 16'(byte_en) << (beat*4);
+        if (raw_strobe) full_strb = supplied_strobes;
         aw_done = 0;
         w_done = 0;
         got_b = 0;
@@ -285,7 +308,7 @@ module soc_dma_tb;
     task automatic await_terminal(output logic [31:0] status);
         bit reached;
         reached = 0;
-        for (int poll = 0; poll < 600; poll++) begin
+        for (int poll = 0; poll < 10000; poll++) begin
             ctrl_read(BASE+16, 0, 0, status);
             if (status[1] || status[2]) begin reached = 1; break; end
         end
@@ -311,7 +334,59 @@ module soc_dma_tb;
 
     logic [31:0] status, value;
     int before_reads, before_writes;
+    logic [127:0] golden [0:255];
+    function automatic logic [31:0] random_word();
+        data_rng = data_rng ^ (data_rng << 13);
+        data_rng = data_rng ^ (data_rng >> 17);
+        data_rng = data_rng ^ (data_rng << 5);
+        return data_rng;
+    endfunction
+
+    task automatic stress_copy(input int bytes, input logic [31:0] source,
+                               input logic [31:0] destination);
+        logic [127:0] guard;
+        logic [31:0] terminal_status;
+        int reads_before, writes_before;
+        guard = 128'hb5a5cafefeeddeed123456789abcdef0;
+        ram[(destination >> 4)-1] = guard;
+        if (destination + 32'(bytes) < 32'h00100000)
+            ram[(destination >> 4)+(bytes/16)] = guard;
+        for (int beat = 0; beat < bytes/16; beat++) begin
+            golden[beat] = {random_word(), random_word(), random_word(), random_word()};
+            ram[(source >> 4)+beat] = golden[beat];
+            ram[(destination >> 4)+beat] = ~golden[beat];
+        end
+        reads_before = ar_count; writes_before = aw_count;
+        program_copy(source, destination, 32'(bytes));
+        ctrl_write(BASE+12, 1, 1, int'(random_word()%7), int'(random_word()%7), 4, 0);
+        await_terminal(terminal_status);
+        assert (terminal_status == 10 && !irq)
+            else $fatal(1, "masked completion IRQ/status=%h irq=%b", terminal_status, irq);
+        assert (ar_count-reads_before == bytes/16 && aw_count-writes_before == bytes/16)
+            else $fatal(1, "wrong transfer counts in stress copy");
+        for (int beat = 0; beat < bytes/16; beat++) begin
+            assert (ram[(destination >> 4)+beat] == golden[beat] &&
+                    ram[(source >> 4)+beat] == golden[beat])
+                else $fatal(1, "random copy mismatch byte_length=%0d beat=%0d", bytes, beat);
+        end
+        assert (ram[(destination >> 4)-1] == guard)
+            else $fatal(1, "DMA overwrote guard");
+        if (destination + 32'(bytes) < 32'h00100000)
+            assert (ram[(destination >> 4)+(bytes/16)] == guard)
+                else $fatal(1, "DMA overwrote trailing guard");
+        // Pending must remember completion while masked and assert when enabled.
+        ctrl_write(BASE+12, 2, 1, 0, 0, 0, 0);
+        assert (irq) else $fatal(1, "enabling IRQ lost masked pending completion");
+        clear_status();
+        assert (!irq) else $fatal(1, "IRQ remained after W1C");
+    endtask
     initial begin
+        if ($value$plusargs("SEED=%d", seed)) begin end
+        stress = $test$plusargs("STRESS");
+        stall_rng = 32'(seed) ^ 32'h19e74921;
+        data_rng = 32'(seed) ^ 32'hb8d973e5;
+        if (stall_rng == 0) stall_rng = 1;
+        if (data_rng == 0) data_rng = 1;
         ctrl.awvalid = 0;
         ctrl.awaddr = 0;
         ctrl.awprot = 0;
@@ -492,10 +567,99 @@ module soc_dma_tb;
             else $fatal(1, "reset did not abort status=%h", status);
         $display("PASS dma_reset_abort");
         $display("PASS soc_dma_tb 8 groups");
+        if (stress) begin
+            read_latency = 0;
+            write_latency = 0;
+            mem_mode = 0;
+            // Zero additional slave latency is legal and must not deadlock.
+            stress_copy(16, 32'h00001000, 32'h00003000);
+            $display("PASS dma_zero_additional_response_latency");
+            mem_mode = 4;
+            stress_copy(4096, 32'h00040000, 32'h00050000);
+            stress_copy(16, 32'h000ffff0, 32'h00001000);
+            stress_copy(16, 32'h00001000, 32'h000ffff0);
+            for (int run = 0; run < 24; run++)
+                stress_copy(16*int'((random_word()%256)+1), 32'h00060000, 32'h00070000);
+            $display("PASS dma_random_copy_count=27 max_bytes=4096 boundary=1MiB");
+
+            // Reject holes, out-of-window aliases, misalignment, and wrong lanes.
+            before_reads = ar_count;
+            ctrl_write(BASE+20, 1, 15, 0, 3, 3, 2);
+            ctrl_read(BASE+20, 3, 2, value);
+            ctrl_write(BASE+64, 1, 15, 3, 0, 3, 2);
+            ctrl_read(BASE+64, 3, 2, value);
+            ctrl_write(BASE+1, 1, 15, 0, 0, 3, 2);
+            ctrl_read(BASE+1, 3, 2, value);
+            ctrl_write(BASE, 1, 15, 0, 0, 3, 2, 1, 16'hfff0);
+            assert (ar_count == before_reads) else $fatal(1, "bad register request caused DMA request");
+            ctrl_read(BASE, 0, 0, value);
+            for (int mask = 0; mask < 16; mask++) begin
+                logic [31:0] written, expected;
+                written = random_word();
+                expected = value;
+                for (int byte_idx = 0; byte_idx < 4; byte_idx++)
+                    if (mask[byte_idx]) expected[byte_idx*8 +: 8] = written[byte_idx*8 +: 8];
+                ctrl_write(BASE, written, 4'(mask), int'(random_word()%5), int'(random_word()%5), 4, 0);
+                ctrl_read(BASE, 4, 0, value);
+                assert (value == expected) else $fatal(1, "DMA all-byte-mask check failed mask=%h", mask);
+            end
+            $display("PASS dma_illegal_registers_all_byte_masks");
+            mem_mode = 0;
+            read_latency = 0;
+            write_latency = 0;
+            hold_b = 1;
+            program_copy(SRC, DST, 16);
+            ctrl_write(BASE+12, 3, 1, 0, 0, 0, 0);
+            wait (wr_valid && mem_bus.bready);
+            check_collision = 1;
+            fork
+                ctrl_write(BASE+16, 32'h1e, 1, 0, 0, 0, 0);
+                begin
+                    do @(posedge clk); while (!(ctrl.awvalid && ctrl.awready && ctrl.wvalid && ctrl.wready));
+                    @(negedge clk);
+                    hold_b = 0;
+                end
+            join
+            check_collision = 0;
+            ctrl_read(BASE+16, 0, 0, status);
+            assert (status == 10 && irq && completion_clear_collisions == 1)
+                else $fatal(1, "DMA W1C/completion race status=%h irq=%b collisions=%0d",
+                            status, irq, completion_clear_collisions);
+            clear_status();
+            $display("PASS dma_w1c_completion_same_cycle collisions=1");
+
+            // Reset the complete bus domain with AR stalled, AW stalled after
+            // W, W stalled after AW, a pending R, and a pending B respectively.
+            for (int phase = 0; phase < 5; phase++) begin
+                mem_mode = phase < 3 ? phase+5 : 0;
+                read_latency = phase == 3 ? 100 : 0;
+                hold_b = phase == 4;
+                program_copy(SRC, DST, 16);
+                ctrl_write(BASE+12, 3, 1, 0, 0, 0, 0);
+                case (phase)
+                    0: wait(mem_bus.arvalid && !mem_bus.arready);
+                    1: wait(mem_bus.awvalid && !mem_bus.awready && wr_w_seen);
+                    2: wait(mem_bus.wvalid && !mem_bus.wready && wr_aw_seen);
+                    3: wait(rd_pending && mem_bus.rready);
+                    4: wait(wr_valid && mem_bus.bready);
+                    default: $fatal(1, "invalid reset phase");
+                endcase
+                reset_dut();
+                hold_b = 0;
+                ctrl_read(BASE+16, 2, 0, status);
+                assert (status == 0 && !irq && !mem_bus.arvalid && !mem_bus.awvalid && !mem_bus.wvalid)
+                    else $fatal(1, "DMA reset phase=%0d left request/status", phase);
+            end
+            mem_mode = 0;
+            read_latency = 0;
+            stress_copy(16, SRC, DST);
+            $display("PASS dma_reset_each_memory_phase phases=5 recovery_copy=1");
+            $display("IP_DMA_STRESS_PASS seed=%0d random_jobs=27", seed);
+        end
         $finish;
     end
     initial begin
-        #500000;
+        #10000000;
         $fatal(1, "global timeout");
     end
 endmodule

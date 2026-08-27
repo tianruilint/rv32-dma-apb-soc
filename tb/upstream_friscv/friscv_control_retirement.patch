@@ -1,0 +1,147 @@
+--- a/rtl/friscv_control.sv
++++ b/rtl/friscv_control.sv
+@@ -675,15 +675,17 @@
+                     //
+                     if (trap_occuring) begin
+ 
+-                        // Get a new ID for the new batch
+-                        arid <= next_id(arid, MAX_ID, AXI_ID_MASK);
+-                        // Jump to trap handler
+-                        araddr <= mtvec;
++                        // The redirect must retire with the trap, not while an
++                        // older memory operation still prevents trap entry.
++                        if (!cant_trap) begin
++                            arid <= next_id(arid, MAX_ID, AXI_ID_MASK);
++                            araddr <= mtvec;
++                        end
+ 
+                     //
+                     //   - ECALL / MRET / JALR / Any branching
+                     //
+-                    end else if (inst_ready && !proc_busy &&
++                    end else if (inst_ready && !proc_busy && csr_ready &&
+                         (jump_branch || sys[`IS_ECALL] || sys[`IS_MRET]))
+                     begin
+ 
+@@ -700,7 +702,7 @@
+                     //
+                     // JAL
+                     //
+-                    end else if (inst_ready && jal) begin
++                    end else if (inst_ready && jal && !cant_jump) begin
+ 
+                         // Get a new ID for the new batch
+                         arid <= next_id(arid, MAX_ID, AXI_ID_MASK);
+@@ -709,7 +711,7 @@
+                     //
+                     //   - FENCE.i execution
+                     //
+-                    end else if (inst_ready && fence[`IS_FENCEI]) begin
++                    end else if (inst_ready && fence[`IS_FENCEI] && !cant_sys) begin
+                         // Get a new ID for the new batch
+                         arid <= next_id(arid, MAX_ID, AXI_ID_MASK);
+                         araddr <= pc;
+@@ -772,7 +774,7 @@
+                                 flush_pipe <= 1'b1;
+                             end
+ 
+-                        end else if (jal) begin
++                        end else if (jal && !cant_jump) begin
+ 
+                             `ifdef USE_SVL
+                                 log.info("JAL");
+@@ -800,7 +802,7 @@
+                                 if (USER_MODE) priv_mode <= `MMODE;
+ 
+                             // Reach an EBREAK instruction, need to stall the core
+-                            end else if (sys[`IS_EBREAK]) begin
++                            end else if (sys[`IS_EBREAK] && !cant_sys) begin
+                                 `ifdef USE_SVL
+                                 print_instruction;
+                                 log.info("EBREAK -> Stop the processor");
+@@ -822,7 +824,7 @@
+ 
+                             // Reach a FENCE.i instruction, need to flush the cache
+                             // the instruction pipeline
+-                            end else if (fence[`IS_FENCEI]) begin
++                            end else if (fence[`IS_FENCEI] && !cant_sys) begin
+                                 `ifdef USE_SVL
+                                 print_instruction;
+                                 log.info("FENCE.i -> Start iCache flushing");
+@@ -1022,7 +1024,7 @@
+                             mstatus <= mstatus_for_trap;
+ 
+                         // Reach an EBREAK instruction, need to stall the core
+-                        end else if (sys[`IS_EBREAK]) begin
++                        end else if (sys[`IS_EBREAK] && !cant_sys) begin
+ 
+                             mcause_wr <= 1'b1;
+                             mcause <= mcause_code;
+@@ -1084,13 +1086,13 @@
+     // LUI and AUIPC are executed internally, not in processing
+     assign lui_auipc = lui | auipc;
+ 
+-    assign cant_jump = (jalr | branching) && (proc_busy | !csr_ready);
++    assign cant_jump = (jal | jalr | branching) && (proc_busy | !csr_ready);
+ 
+     assign cant_process = processing & (!proc_ready | !csr_ready);
+ 
+     assign cant_lui_auipc = lui_auipc & (proc_busy | !csr_ready);
+ 
+-    assign cant_sys = |sys & (proc_busy | !csr_ready);
++    assign cant_sys = (|sys || |fence) & (proc_busy | !csr_ready);
+ 
+     assign cant_trap = (proc_busy | !csr_ready);
+ 
+@@ -1402,10 +1404,16 @@
+ 
+     // MCAUSE switching logic based on above listed priorities
+     assign mcause_code = // aync exceptions have highest priority
+-                         (sb_msip & sb_msie)    ? {1'b1, {XLEN-5{1'b0}}, 4'h3} :
+-                         (sb_mtip & sb_mtie)    ? {1'b1, {XLEN-5{1'b0}}, 4'h7} :
+-                         (sb_meip & sb_meie)    ? {1'b1, {XLEN-5{1'b0}}, 4'hB} :
+-                         // then follow sync exceptions
++                         (async_trap_occuring && sb_msip & sb_msie) ? {1'b1, {XLEN-5{1'b0}}, 4'h3} :
++                         (async_trap_occuring && sb_mtip & sb_mtie) ? {1'b1, {XLEN-5{1'b0}}, 4'h7} :
++                         (async_trap_occuring && sb_meip & sb_meie) ? {1'b1, {XLEN-5{1'b0}}, 4'hB} :
++                         // Queued processing faults belong to older retired-to-
++                         // memory instructions and precede the current fetch word.
++                         (load_access_fault)    ? {{XLEN-4{1'b0}}, 4'h5}  :
++                         (store_access_fault)   ? {{XLEN-4{1'b0}}, 4'h7}  :
++                         (load_misaligned)      ? {{XLEN-4{1'b0}}, 4'h4}  :
++                         (store_misaligned)     ? {{XLEN-4{1'b0}}, 4'h6}  :
++                         // then current instruction synchronous exceptions
+                          (inst_access_fault)    ? {{XLEN-4{1'b0}}, 4'h1}  :
+                          (illegal_instruction)  ? {{XLEN-4{1'b0}}, 4'h2}  :
+                          (csr_ro_wr)            ? {{XLEN-4{1'b0}}, 4'h2}  :
+@@ -1413,24 +1421,21 @@
+                          (ecall_umode)          ? {{XLEN-4{1'b0}}, 4'h8}  :
+                          (ecall_mmode)          ? {{XLEN-4{1'b0}}, 4'hB}  :
+                          (sys[`IS_EBREAK])      ? {{XLEN-4{1'b0}}, 4'h3}  :
+-                         (load_access_fault)    ? {{XLEN-4{1'b0}}, 4'h5}  :
+-                         (store_access_fault)   ? {{XLEN-4{1'b0}}, 4'h7}  :
+-                         (load_misaligned)      ? {{XLEN-4{1'b0}}, 4'h4}  :
+-                         (store_misaligned)     ? {{XLEN-4{1'b0}}, 4'h6}  :
+                          (inst_dec_error)       ? {{XLEN-5{1'b0}}, 5'h18} :
+                                                   '0;
+ 
+     // MTVAL: exception-specific information
+-    assign mtval_info = (inst_access_fault)    ? pc_reg      :
++    assign mtval_info = (async_trap_occuring)  ? '0          :
++                        (load_access_fault)    ? exp_addr    :
++                        (store_access_fault)   ? exp_addr    :
++                        (load_misaligned)      ? exp_addr    :
++                        (store_misaligned)     ? exp_addr    :
++                        (inst_access_fault)    ? pc_reg      :
+                         (illegal_instruction)  ? instruction :
+                         (csr_ro_wr)            ? instruction :
+                         (inst_addr_misaligned) ? pc_reg      :
+                         (sys[`IS_ECALL])       ? pc_reg      :
+                         (sys[`IS_EBREAK])      ? pc_reg      :
+-                        (load_access_fault)    ? exp_addr    :
+-                        (store_access_fault)   ? exp_addr    :
+-                        (load_misaligned)      ? exp_addr    :
+-                        (store_misaligned )    ? exp_addr    :
+                         (inst_dec_error)       ? instruction :
+                                                  '0;
+ 

@@ -1,27 +1,34 @@
-# P2：开源复用的 RV32 AXI4-Lite SoC
+# P2：开源复用的 RV32 DMA/APB SoC
 
-## 当前判断
+FRISCV CPU/cache/UART + 上游 axi-crossbar，接入 P2 DMA、AXI-Lite/APB bridge 和 timer；运行裸机 C 固件，验证 CPU/DMA 并行访问、复制、定时器、真实中断和 UART 输出。
 
-活动版本是一个能运行指定固件与验证场景的 RV32 SoC 仿真项目。它复用固定 [FRISCV](https://github.com/dpretet/friscv) CPU/cache/UART 和其 [axi-crossbar](https://github.com/dpretet/axi-crossbar) 的 AXI4-Lite 互联；新增 SoC 接线、DMA、AXI4-Lite/APB bridge、timer、固件和验证。CPU 与 crossbar 是上游作者的工作，不能列为个人原创。
+## 可以检查到的工作
 
-## 来源和保留内容
+- 七个隔离的上游 RTL 修复补丁：IO 响应、cache PROT/握手/写响应、CPU 总线异常和精确退休。
+- P2 IP 独立参考模型与随机等待、reset、error、IRQ/W1C 压力回归。
+- 9 个系统场景：256-byte DMA copy、CPU 同时访问 RAM、64 个不同 word 和 guard 核对、传输中复位、实际 CPU ISR、UART 串行解码。
 
-| 内容 | 身份 | 当前用途 |
-| --- | --- | --- |
-| `third_party/friscv/` | 上游固定 commit `5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba`，其 crossbar 依赖固定 `7738a3811623ef4b5610082347bfecce35d95dd2` | CPU/cache/IO/UART 与互联算法；保留各自许可证 |
-| `rtl/soc/p2_upstream_axil_fabric.sv`、`rtl/soc/p2_soc_top.sv` | 新增集成 | crossbar 端口映射、地址/ID 配置和 SoC 接线 |
-| `rtl/soc/p2_dma.sv`、`rtl/soc/p2_axil_apb_bridge.sv`、`rtl/p2_apb_timer.sv` | 新增 IP | 有定向测试与固件系统场景；不是上游 IP |
-| `firmware/soc/`、`tb/`、`scripts/` | 新增固件与测试 | 区分 P2 集成测试和上游原版测试 |
+## 来源
 
-## 复现活动版本
+| 内容 | 归属 |
+| --- | --- |
+| CPU、cache、IO/UART | [dpretet/friscv](https://github.com/dpretet/friscv)，固定 `5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba` |
+| 仲裁和响应路由互联 | [dpretet/axi-crossbar](https://github.com/dpretet/axi-crossbar)，固定 `7738a3811623ef4b5610082347bfecce35d95dd2` |
 
-在 WSL Ubuntu 24.04 的仓库根目录运行：
+## 一次完整验收
+
+WSL Ubuntu 24.04 的仓库根目录：
 
 ```bash
 git submodule update --init --recursive
-make verify
+bash scripts/run_release.sh
+python3 scripts/record_verification.py --check
 ```
 
-`make verify` 依次运行 P2 bridge/DMA 单元测试、复用 crossbar 的 P2 接线测试、FRISCV IO 原版失败与隔离修复测试、完整固件系统仿真。需要 WSL Ubuntu 24.04、Git、GNU Make、`patch`、Python 3、GNU coreutils（含 `timeout`/`sha256sum`）、Verilator 5.050、Icarus Verilog 12.0 和 RISC-V GNU 工具链。`build/` 是可清理、可由该命令重新生成的编译缓存；原始日志在 `reports/p2_soc/` 和 `reports/upstream_friscv/`。
+第一条运行脚本执行全部 `make verify` 目标，失败立即保留日志并停止，不跳过。结果位于 `reports/p2_soc/final-verify.log`，源文件核验清单在 `reports/p2_soc/verification-manifest.json`。所需工具和单项命令见 [发布说明](docs/FINAL_RELEASE.md)。
 
-总线是 128-bit 数据、8-bit ID sideband 的单拍 AXI4-Lite，RAM 为 1 MiB 仿真模型。FRISCV IO 同拍写漏 B 响应的修复仅应用于构建副本；固定上游源码未改。
+在安装 `requirements-figures.txt` 的 Python 环境运行 `python scripts/render_evidence.py` 可重新生成；VCD 和构建缓存位于 ignored `build/`。
+
+## 范围
+
+128-bit 单拍 AXI-Lite 风格上游扩展，带 8-bit ID sideband；不是标准 32/64-bit AXI4-Lite 完整兼容接口。32-bit APB register path；1 MiB 行为 RAM。CPU/DMA 缓冲位于 uncached 区域。为保证精确异常，当前 CPU 访存序列化。没有 full AXI4 burst、cache coherence、FPGA/ASIC 上板或物理时序/PPA 结论。变更必须重新通过门禁。协议依据见[交付说明](docs/FINAL_RELEASE.md)。

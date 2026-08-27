@@ -1,0 +1,259 @@
+--- a/rtl/friscv_memfy.sv
++++ b/rtl/friscv_memfy.sv
+@@ -161,6 +161,12 @@
+     logic                           rd_or_full;
+     logic                           rd_or_empty;
+     logic        [2           -1:0] offset;
++    // Keep the issuing instruction with each in-order AXI completion.
++    logic [`PC_W-1:0] rd_pc, wr_pc;
++    logic [`INST_W-1:0] rd_inst, wr_inst;
++    logic [XLEN-1:0] rd_addr, wr_addr;
++    logic push_wr_or, wr_or_full, wr_or_empty;
++    logic read_complete, write_complete, read_bus_fault, write_bus_fault;
+ 
+     // IO request management
+     logic        [IO_MAP_NB   -1:0] io_map_hit;
+@@ -412,7 +418,7 @@
+ 
+     // Continue to accept if IDLE.READY and didn't reach yet maximum of
+     // outstanding requests available
+-    assign memfy_ready = memfy_ready_fsm & !rd_or_full & !stall_bus;
++    assign memfy_ready = memfy_ready_fsm & !rd_or_full & !wr_or_full & !stall_bus;
+ 
+ 
+     ///////////////////////////////////////////////////////////////////////////
+@@ -421,13 +427,18 @@
+     //
+     ///////////////////////////////////////////////////////////////////////////
+ 
+-    assign push_rd_or = memfy_valid & memfy_ready & (opcode==`LOAD) & !load_misaligned;
++    assign push_rd_or = memfy_valid & memfy_ready & (opcode==`LOAD) & read_allowed;
++    assign push_wr_or = memfy_valid & memfy_ready & (opcode==`STORE) & write_allowed;
++    assign read_complete = rvalid & rready & !rd_or_empty;
++    assign write_complete = bvalid & bready & !wr_or_empty;
++    assign read_bus_fault = read_complete & rresp[1];
++    assign write_bus_fault = write_complete & bresp[1];
+ 
+     friscv_scfifo
+     #(
+         .PASS_THRU  (0),
+         .ADDR_WIDTH ($clog2(MAX_OR)),
+-        .DATA_WIDTH (10)
++        .DATA_WIDTH (10 + `PC_W + `INST_W + XLEN)
+     )
+     rd_or_fifo
+     (
+@@ -435,14 +446,25 @@
+         .aresetn  (aresetn),
+         .srst     (srst),
+         .flush    (1'b0),
+-        .data_in  ({rd, funct3, addr[1:0]}),
++        .data_in  ({rd, funct3, addr[1:0], pc, inst, addr}),
+         .push     (push_rd_or),
+         .full     (rd_or_full),
+         .afull    (),
+-        .data_out ({rd_r, funct3_r, offset}),
++        .data_out ({rd_r, funct3_r, offset, rd_pc, rd_inst, rd_addr}),
+         .pull     (rvalid & rready),
+         .empty    (rd_or_empty),
+         .aempty   ()
++    );
++
++    friscv_scfifo #(
++        .PASS_THRU(0), .ADDR_WIDTH($clog2(MAX_OR)),
++        .DATA_WIDTH(`PC_W + `INST_W + XLEN)
++    ) wr_or_fifo (
++        .aclk(aclk), .aresetn(aresetn), .srst(srst), .flush(1'b0),
++        .data_in({pc, inst, addr}), .push(push_wr_or),
++        .full(wr_or_full), .afull(),
++        .data_out({wr_pc, wr_inst, wr_addr}), .pull(write_complete),
++        .empty(wr_or_empty), .aempty()
+     );
+ 
+     always @ (posedge aclk) begin
+@@ -477,13 +499,13 @@
+             end else if (srst) begin
+                 regs_or[i] <= '0;
+             end else begin
+-                if ((memfy_valid && memfy_ready && opcode==`LOAD && !max_rd_or && rd == i[4:0] && mpu_allow[`ALW_R] && !load_misaligned) &&
+-                   !(rvalid & rready && rd_r==i[4:0]))
++                if ((push_rd_or && rd == i[4:0]) &&
++                   !(read_complete && rd_r==i[4:0]))
+                begin
+                     regs_or[i] <= regs_or[i] + 1;
+ 
+-                end else if (!(memfy_valid && memfy_ready && opcode==`LOAD && !max_rd_or && rd == i[4:0]) &&
+-                              (rvalid & rready && rd_r==i[4:0]))
++                end else if (!(push_rd_or && rd == i[4:0]) &&
++                              (read_complete && rd_r==i[4:0]))
+                 begin
+                     regs_or[i] <= regs_or[i] - 1;
+                 end
+@@ -514,19 +536,18 @@
+ 
+         end else begin
+ 
+-            // Write xfers tracker
+-            if (memfy_valid && memfy_ready && opcode==`STORE && !bvalid && !max_wr_or && write_allowed) begin
+-                wr_or_cnt <= wr_or_cnt + 1'b1;
+-            end else if (!(memfy_valid && memfy_ready && opcode==`STORE) && bvalid && bready && wr_or_cnt!={MAX_OR_W{1'b0}}) begin
+-                wr_or_cnt <= wr_or_cnt - 1'b1;
+-            end
+-
+-            // Read xfers tracker
+-            if (memfy_valid && memfy_ready && opcode==`LOAD && !memfy_rd_wr && !max_rd_or && read_allowed) begin
+-                rd_or_cnt <= rd_or_cnt + 1'b1;
+-            end else if (!(memfy_valid && memfy_ready && opcode==`LOAD) && memfy_rd_wr && rd_or_cnt!={MAX_OR_W{1'b0}}) begin
+-                rd_or_cnt <= rd_or_cnt - 1'b1;
+-            end
++            // Every completion retires its slot, including failed loads that
++            // intentionally do not write the architectural register file.
++            case ({push_wr_or, write_complete})
++                2'b10: wr_or_cnt <= wr_or_cnt + 1'b1;
++                2'b01: wr_or_cnt <= wr_or_cnt - 1'b1;
++                default: ;
++            endcase
++            case ({push_rd_or, read_complete})
++                2'b10: rd_or_cnt <= rd_or_cnt + 1'b1;
++                2'b01: rd_or_cnt <= rd_or_cnt - 1'b1;
++                default: ;
++            endcase
+ 
+             `ifdef TRACE_MEMFY
+             //synthesis translate_off
+@@ -580,7 +601,7 @@
+             memfy_rd_val <= {XLEN{1'b0}};
+         end else begin
+             // Write into RD once the read data channel handshakes
+-            memfy_rd_wr <= rvalid & rready;
++            memfy_rd_wr <= read_complete & !rresp[1];
+             memfy_rd_addr <= rd_r;
+             memfy_rd_strb <= get_rd_strb(funct3_r, offset);
+             memfy_rd_val <= get_rd_val(funct3_r, rdata, offset);
+@@ -589,7 +610,7 @@
+ 
+     end else begin : RD_WR_COMB
+ 
+-        assign memfy_rd_wr = rvalid & rready;
++        assign memfy_rd_wr = read_complete & !rresp[1];
+         assign memfy_rd_addr = rd_r;
+         assign memfy_rd_strb = get_rd_strb(funct3_r, offset);
+         assign memfy_rd_val = get_rd_val(funct3_r, rdata, offset);
+@@ -757,19 +778,22 @@
+ 
+     // Shared bus routing back to control unit
+ 
+-    assign memfy_exceptions[`LAF] = load_access_fault;
+-
+-    assign memfy_exceptions[`SAF] = store_access_fault;
++    assign memfy_exceptions[`LAF] = load_access_fault | read_bus_fault;
++
++    assign memfy_exceptions[`SAF] = store_access_fault | write_bus_fault;
+ 
+     assign memfy_exceptions[`LDMA] = load_misaligned;
+ 
+     assign memfy_exceptions[`STMA] = store_misaligned;
+ 
+-    assign memfy_exceptions[`EXP_PC +: `EXP_PC_W] = pc;
+-
+-    assign memfy_exceptions[`EXP_INST +: `EXP_INST_W] = inst;
+-
+-    assign memfy_exceptions[`EXP_ADDR +: `EXP_ADDR_W] = addr;
++    assign memfy_exceptions[`EXP_PC +: `EXP_PC_W] =
++        read_bus_fault ? rd_pc : write_bus_fault ? wr_pc : pc;
++
++    assign memfy_exceptions[`EXP_INST +: `EXP_INST_W] =
++        read_bus_fault ? rd_inst : write_bus_fault ? wr_inst : inst;
++
++    assign memfy_exceptions[`EXP_ADDR +: `EXP_ADDR_W] =
++        read_bus_fault ? rd_addr : write_bus_fault ? wr_addr : addr;
+ 
+ endmodule
+ 
+--- a/rtl/friscv_processing.sv
++++ b/rtl/friscv_processing.sv
+@@ -140,6 +140,28 @@
+     logic                        memfy_pending_write;
+      logic [NB_INT_REG      -1:0] memfy_regs_sts;
+     logic                        ls_inst;
++    // Preserve precise data exceptions by allowing one memory instruction at
++    // a time; younger ALU/M/LS instructions cannot retire before its response.
++    logic memory_inflight, memory_settle, memory_barrier, memory_issue;
++    logic pipeline_input_ready;
++    assign memory_issue = memfy_valid && memfy_ready;
++    assign memory_barrier = memory_inflight || memory_settle;
++    always @(posedge aclk or negedge aresetn) begin
++        if (!aresetn) begin
++            memory_inflight <= 1'b0;
++            memory_settle <= 1'b0;
++        end else if (srst) begin
++            memory_inflight <= 1'b0;
++            memory_settle <= 1'b0;
++        end else begin
++            memory_settle <= memory_issue ||
++                             (memory_inflight && ((rvalid && rready) || (bvalid && bready)));
++            if (memory_issue && !(|memfy_exceptions[`LDMA+:4]))
++                memory_inflight <= 1'b1;
++            else if ((rvalid && rready) || (bvalid && bready))
++                memory_inflight <= 1'b0;
++        end
++    end
+ 
+     logic                        proc_valid_p;
+     logic                        proc_ready_p;
+@@ -169,13 +191,15 @@
+             .aclk    (aclk),
+             .aresetn (aresetn),
+             .srst    (srst),
+-            .i_valid (proc_valid),
+-            .i_ready (proc_ready),
++            .i_valid (proc_valid && !memory_barrier && !memory_issue),
++            .i_ready (pipeline_input_ready),
+             .i_data  (proc_instbus),
+             .o_valid (proc_valid_p),
+             .o_ready (proc_ready_p),
+             .o_data  (proc_instbus_p)
+         );
++
++        assign proc_ready = pipeline_input_ready && !memory_barrier && !memory_issue;
+ 
+         always @ (posedge aclk or negedge aresetn) begin
+             if (!aresetn) begin
+@@ -183,7 +207,7 @@
+             end else if (srst) begin
+                 proc_busy_r <= 1'b0;
+             end else begin
+-                if (proc_valid || memfy_pending_read || div_pending) begin
++                if ((proc_valid && proc_ready) || memory_barrier || div_pending) begin
+                     proc_busy_r <= 1'b1;
+                 end else if (!proc_valid_p && proc_ready_p) begin
+                     proc_busy_r <= 1'b0;
+@@ -191,7 +215,7 @@
+             end
+         end
+ 
+-        assign proc_busy = proc_busy_r | memfy_pending_read | div_pending;
++        assign proc_busy = proc_busy_r | memfy_pending_read | memfy_pending_write | memory_barrier | div_pending;
+ 
+     end else begin: INPUT_PIPELINE_OFF
+ 
+@@ -199,8 +223,9 @@
+         assign proc_valid_p = proc_valid;
+         assign proc_ready = proc_ready_p;
+ 
+-        assign proc_busy = !proc_ready || memfy_pending_read;
++        assign proc_busy = !proc_ready || memfy_pending_read || memfy_pending_write || memory_barrier;
+         assign proc_busy_r = 1'b0;
++        assign pipeline_input_ready = 1'b0;
+ 
+     end
+     endgenerate
+@@ -227,7 +252,7 @@
+     // instruction and corrupt the expected value of the user.
+     assign memfy_hzd_free = memfy_regs_sts[rs1] & memfy_regs_sts[rs2] & memfy_regs_sts[rd];
+     assign m_hzd_free = m_regs_sts[rs1] & m_regs_sts[rs2] & m_regs_sts[rd];
+-    assign hzd_free = m_hzd_free & memfy_hzd_free;
++    assign hzd_free = m_hzd_free & memfy_hzd_free & !memory_barrier;
+ 
+ 
+     ///////////////////////////////////////////////////////////////////////////

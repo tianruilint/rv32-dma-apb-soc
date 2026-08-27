@@ -25,6 +25,16 @@ module p2_soc_top (
     p2_axil_if #(.ADDR_W(32), .DATA_W(128), .ID_W(8)) initiator[4]();
     p2_axil_if #(.ADDR_W(32), .DATA_W(128), .ID_W(8)) target[4]();
 
+`ifdef P2_PROTOCOL_CHECKS
+    // Simulation-only observers; absent from production/synthesis builds.
+    for (genvar port = 0; port < 4; port++) begin : protocol_checks
+        soc_protocol_checker #(.NAME($sformatf("source%0d", port))) source_check
+            (.clk(clk), .rst(rst), .bus(initiator[port]));
+        soc_protocol_checker #(.NAME($sformatf("target%0d", port))) target_check
+            (.clk(clk), .rst(rst), .bus(target[port]));
+    end
+`endif
+
     wire logic io_sw_irq;
     wire logic io_timer_irq;
     wire logic [31:0] apb_paddr;
@@ -32,6 +42,8 @@ module p2_soc_top (
     wire logic [31:0] apb_pwdata, apb_prdata;
     wire logic [3:0] apb_pstrb;
     wire logic apb_pready, apb_pslverr;
+    // Kept available for waveform inspection; the SoC has no debug output port.
+    wire logic [1023:0] unused_cpu_debug;
 
     // FRISCV exposes a read-only instruction master. Its unused write inputs
     // are held idle rather than left floating at the interconnect.
@@ -82,7 +94,7 @@ module p2_soc_top (
         .aclk(clk), .aresetn(~rst), .srst(rst),
         .ext_irq(dma_irq | timer_irq_out),
         .sw_irq(io_sw_irq), .timer_irq(io_timer_irq),
-        .status(cpu_status), .dbg_regs(),
+        .status(cpu_status), .dbg_regs(unused_cpu_debug),
         .imem_arvalid(initiator[0].arvalid),
         .imem_arready(initiator[0].arready),
         .imem_araddr(initiator[0].araddr),

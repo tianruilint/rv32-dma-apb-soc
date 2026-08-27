@@ -39,6 +39,11 @@
 #define RESULT_PASS       0x600D600Du
 #define RESULT_FAIL_BASE  0xBAD00000u
 #define POLL_LIMIT        20000u
+#define IRQ_TIMER_COUNT   0x000C1F10u
+#define IRQ_DMA_COUNT     0x000C1F14u
+#define IRQ_LAST_CAUSE    0x000C1F18u
+#define FOREGROUND_ADDR   0x000C1F20u
+#define FOREGROUND_VALUE  0x5A31C0DEu
 
 static inline void write32(uint32_t addr, uint32_t value) {
     *(volatile uint32_t *)(uintptr_t)addr = value;
@@ -71,6 +76,38 @@ __attribute__((noreturn)) static void fail(uint32_t reason) {
     halt();
 }
 
+#ifdef P2_INTERRUPT_DEMO
+// GCC emits the register save/restore and MRET for a machine interrupt ISR.
+// The counters are in the same uncached RAM window as the DMA buffers.
+void __attribute__((interrupt("machine"), aligned(4))) p2_interrupt(void) {
+    uint32_t cause;
+    __asm__ volatile ("csrr %0, mcause" : "=r"(cause));
+    write32(IRQ_LAST_CAUSE, cause);
+    if (cause != 0x8000000Bu) fail(11u);
+    if ((read32(TIMER_STATUS) & 1u) != 0u) {
+        write32(TIMER_STATUS, 1u);
+        if ((read32(TIMER_STATUS) & 1u) != 0u) fail(12u);
+        write32(IRQ_TIMER_COUNT, read32(IRQ_TIMER_COUNT) + 1u);
+    }
+    if ((read32(DMA_STATUS) & DMA_IRQ_PENDING) != 0u) {
+        write32(DMA_STATUS, DMA_IRQ_PENDING);
+        if ((read32(DMA_STATUS) & DMA_IRQ_PENDING) != 0u) fail(13u);
+        write32(IRQ_DMA_COUNT, read32(IRQ_DMA_COUNT) + 1u);
+    }
+}
+
+static void enable_interrupts(void) {
+    write32(IRQ_TIMER_COUNT, 0u);
+    write32(IRQ_DMA_COUNT, 0u);
+    write32(IRQ_LAST_CAUSE, 0u);
+    const uintptr_t vector = (uintptr_t)&p2_interrupt;
+    const uint32_t external = 1u << 11;
+    __asm__ volatile ("csrw mtvec, %0" :: "r"(vector) : "memory");
+    __asm__ volatile ("csrw mie, %0" :: "r"(external) : "memory");
+    __asm__ volatile ("csrsi mstatus, 8" ::: "memory");
+}
+#endif
+
 int main(void) {
     volatile uint32_t *const source = (volatile uint32_t *)(uintptr_t)SOURCE_ADDR;
     volatile uint32_t *const dest = (volatile uint32_t *)(uintptr_t)DEST_ADDR;
@@ -84,9 +121,20 @@ int main(void) {
     write32(RESULT_ADDR, 0u);
 
     // Exercise the CPU -> upstream crossbar -> P2 AXI/APB bridge -> P2 timer path.
-    // Use polling; there is no CPU interrupt-handler claim in this release.
+    // The second firmware image exercises actual CPU interrupt entry/return.
+#ifdef P2_INTERRUPT_DEMO
+    enable_interrupts();
+#endif
     write32(TIMER_PERIOD, 7u);
     if (read32(TIMER_PERIOD) != 7u) fail(7u);
+#ifdef P2_INTERRUPT_DEMO
+    write32(TIMER_CTRL, 5u);
+    for (uint32_t poll = 0; poll < POLL_LIMIT; ++poll) {
+        if (read32(IRQ_TIMER_COUNT) == 1u) break;
+        if (poll == POLL_LIMIT-1u) fail(14u);
+    }
+    if (read32(TIMER_COUNT) != 0u) fail(9u);
+#else
     write32(TIMER_CTRL, 1u);
     for (uint32_t poll = 0; poll < 1000u; ++poll) {
         if ((read32(TIMER_STATUS) & 1u) != 0u) break;
@@ -95,6 +143,7 @@ int main(void) {
     if (read32(TIMER_COUNT) != 0u) fail(9u);
     write32(TIMER_STATUS, 1u);
     if ((read32(TIMER_STATUS) & 1u) != 0u) fail(10u);
+#endif
 
     for (uint32_t i = 0; i < COPY_WORDS; ++i) {
         source[i] = pattern(i);
@@ -111,15 +160,29 @@ int main(void) {
     write32(DMA_SRC, SOURCE_ADDR);
     write32(DMA_DST, DEST_ADDR);
     write32(DMA_LEN_BYTES, COPY_WORDS * sizeof(uint32_t));
+    write32(FOREGROUND_ADDR, FOREGROUND_VALUE);
+#ifdef P2_INTERRUPT_DEMO
+    write32(DMA_CTRL, 3u);
+#else
     write32(DMA_CTRL, 1u);
+#endif
 
     for (uint32_t poll = 0; poll < POLL_LIMIT; ++poll) {
+        // Deliberate uncached CPU RAM traffic while the DMA master is active.
+        if (read32(FOREGROUND_ADDR) != FOREGROUND_VALUE) fail(17u);
         status = read32(DMA_STATUS);
         if ((status & DMA_ERROR) != 0u) fail(1u);
         if ((status & DMA_DONE) != 0u) break;
     }
     if ((status & DMA_DONE) == 0u) fail(2u);
     if ((status & DMA_BUSY) != 0u) fail(3u);
+#ifdef P2_INTERRUPT_DEMO
+    for (uint32_t poll = 0; poll < POLL_LIMIT; ++poll) {
+        if (read32(IRQ_DMA_COUNT) == 1u) break;
+        if (poll == POLL_LIMIT-1u) fail(15u);
+    }
+    if (read32(IRQ_TIMER_COUNT) != 1u || read32(IRQ_LAST_CAUSE) != 0x8000000Bu) fail(16u);
+#endif
 
     for (uint32_t i = 0; i < COPY_WORDS; ++i) {
         const uint32_t expected = pattern(i);

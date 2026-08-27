@@ -1,0 +1,13 @@
+--- a/dep/axi-crossbar/test/svut/src/functions.sv
++++ b/dep/axi-crossbar/test/svut/src/functions.sv
+@@ -96,7 +96,9 @@
+ endfunction
+ 
+ 
+-function automatic integer gen_data(
++// The address-derived pattern is unsigned. A signed integer sign-extended
++// inside the master's 128-bit scoreboard but zero-extended in FIFO tuples.
++function automatic logic [31:0] gen_data(
+     input integer value
+ );
+ 

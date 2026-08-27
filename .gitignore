@@ -6,6 +6,9 @@ __pycache__/
 *.fst
 *.log
 !reports/p2_soc/*.log
+!reports/p2_soc/system-stress/*.log
+!reports/upstream_regression/*.log
+!reports/upstream_regression/**/*.log
 !reports/upstream_friscv/*.log
 /reports/p2_soc/obj_dma/
 sim_build/

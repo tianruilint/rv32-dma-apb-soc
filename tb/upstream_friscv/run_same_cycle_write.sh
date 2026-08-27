@@ -45,6 +45,6 @@ printf 'IO_RED_EXPECTED_FAILURE missing B response; see reports/upstream_friscv/
 
 compile_io "$isolated_root/friscv" green
 vvp "$isolated_root/green.vvp" > reports/upstream_friscv/green-test.log 2>&1
-grep -Fq 'FRISCV_IO_SAME_CYCLE_WRITE_B_RESPONDED id=5a resp=0' \
-    reports/upstream_friscv/green-test.log
+python3 scripts/check_sim_log.py reports/upstream_friscv/green-test.log \
+    'FRISCV_IO_SAME_CYCLE_WRITE_B_RESPONDED id=5a resp=0'
 printf 'IO_GREEN_PASS response id=5a resp=0\n'

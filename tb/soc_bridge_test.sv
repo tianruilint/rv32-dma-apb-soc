@@ -15,6 +15,15 @@ module soc_bridge_test;
     logic [31:0] prdata = 32'b0;
     logic pslverr = 1'b0;
     int apb_completions = 0;
+    int seed = 20260925;
+    logic [31:0] rng = 32'hcafe1234;
+    logic [31:0] reference_words [0:31];
+    function automatic logic [31:0] random_word();
+        rng = rng ^ (rng << 13);
+        rng = rng ^ (rng >> 17);
+        rng = rng ^ (rng << 5);
+        return rng;
+    endfunction
 
     p2_axil_apb_bridge dut (
         .clk(clk), .rst(rst), .s_axi(axi),
@@ -95,14 +104,15 @@ module soc_bridge_test;
         if (psel) $fatal(1, "APB select held after completion");
     endtask
 
-    task automatic check_b(input logic [7:0] id, input logic [1:0] resp);
+    task automatic check_b(input logic [7:0] id, input logic [1:0] resp,
+                           input int stalls = 3);
         int guard = 0;
         while (!axi.bvalid) begin
             @(negedge clk);
             guard++;
             if (guard > 30) $fatal(1, "B timeout");
         end
-        for (int i = 0; i < 3; i++) begin
+        for (int i = 0; i <= stalls; i++) begin
             if (!axi.bvalid || axi.bid != id || axi.bresp != resp)
                 $fatal(1, "B changed under backpressure");
             @(negedge clk);
@@ -114,14 +124,14 @@ module soc_bridge_test;
     endtask
 
     task automatic check_r(input logic [7:0] id, input logic [1:0] resp,
-                           input logic [127:0] data);
+                           input logic [127:0] data, input int stalls = 3);
         int guard = 0;
         while (!axi.rvalid) begin
             @(negedge clk);
             guard++;
             if (guard > 30) $fatal(1, "R timeout");
         end
-        for (int i = 0; i < 3; i++) begin
+        for (int i = 0; i <= stalls; i++) begin
             if (!axi.rvalid || axi.rid != id || axi.rresp != resp || axi.rdata != data)
                 $fatal(1, "R changed under backpressure");
             @(negedge clk);
@@ -133,6 +143,9 @@ module soc_bridge_test;
     endtask
 
     initial begin
+        if ($value$plusargs("SEED=%d", seed)) begin end
+        rng = 32'(seed) ^ 32'h71ad3529;
+        if (rng == 0) rng = 1;
         axi.awvalid = 0; axi.awaddr = 0; axi.awprot = 0; axi.awid = 0;
         axi.wvalid = 0; axi.wdata = 0; axi.wstrb = 0; axi.bready = 0;
         axi.arvalid = 0; axi.araddr = 0; axi.arprot = 0; axi.arid = 0;
@@ -234,11 +247,70 @@ module soc_bridge_test;
         if (apb_completions != 9) $fatal(1, "round-robin arbitration lost request");
 
         $display("SOC_BRIDGE_PASS: lanes, AW/W skew, APB waits/errors, B/R stalls, reset, round-robin");
+        if ($test$plusargs("STRESS")) begin
+            for (int idx = 0; idx < 32; idx++) reference_words[idx] = random_word();
+            for (int transaction = 0; transaction < 160; transaction++) begin
+                logic [31:0] address, data, choice;
+                logic [127:0] full_data;
+                logic [15:0] strobes;
+                logic [3:0] bytes;
+                logic [7:0] id;
+                int idx, lane, aw_delay, w_delay, before_count;
+                bit bad_alignment, bad_lane, slave_error;
+                choice = random_word();
+                idx = int'(choice[4:0]);
+                lane = idx % 4;
+                bytes = choice[11:8];
+                id = choice[23:16];
+                bad_alignment = transaction % 11 == 0;
+                bad_lane = transaction % 13 == 0;
+                slave_error = transaction % 7 == 0;
+                address = 32'h00100080 + 32'(idx*4) + (bad_alignment ? 1 : 0);
+                data = random_word();
+                full_data = {random_word(), random_word(), random_word(), random_word()};
+                full_data[lane*32 +: 32] = data;
+                strobes = 16'(bytes) << (lane*4);
+                if (bad_lane) strobes = strobes | (16'h1 << (((lane+1)%4)*4));
+                aw_delay = int'(random_word()%8);
+                w_delay = int'(random_word()%8);
+                before_count = apb_completions;
+                fork
+                    begin step(aw_delay); send_aw(address, id); end
+                    begin step(w_delay); send_w(full_data, strobes); end
+                join
+                if (bad_alignment || bad_lane) begin
+                    check_b(id, 2, int'(random_word()%8));
+                    if (apb_completions != before_count || psel)
+                        $fatal(1, "random malformed write caused APB side effect");
+                end else begin
+                    wait_setup(1, address);
+                    if (pwdata != data || pstrb != bytes)
+                        $fatal(1, "random lane/strobe mismatch lane=%0d", lane);
+                    pslverr = slave_error;
+                    complete_apb(int'(random_word()%8));
+                    check_b(id, slave_error ? 2 : 0, int'(random_word()%8));
+                    pslverr = 0;
+                    if (!slave_error)
+                        for (int byte_idx = 0; byte_idx < 4; byte_idx++)
+                            if (bytes[byte_idx]) reference_words[idx][8*byte_idx +: 8] = data[8*byte_idx +: 8];
+                end
+                // Re-read the selected independent target word, including the
+                // cases whose writes were rejected or whose byte enable was 0.
+                address = 32'h00100080 + 32'(idx*4);
+                prdata = reference_words[idx];
+                send_ar(address, id ^ 8'hff);
+                wait_setup(0, address);
+                if (pstrb != 0) $fatal(1, "read APB strobes are not zero");
+                complete_apb(int'(random_word()%8));
+                check_r(id ^ 8'hff, 0, {4{reference_words[idx]}}, int'(random_word()%8));
+            end
+            $display("IP_BRIDGE_STRESS_PASS seed=%0d random_write_read_pairs=160", seed);
+        end
         $finish;
     end
 
     initial begin
-        #10000;
+        #1000000;
         $fatal(1, "global timeout");
     end
 endmodule

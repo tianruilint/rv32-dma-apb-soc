@@ -1,0 +1,213 @@
+--- a/rtl/friscv_cache_block_fetcher.sv
++++ b/rtl/friscv_cache_block_fetcher.sv
+@@ -167,12 +167,15 @@
+         if (!aresetn) begin
+             araddr_ffd <= {AXI_ADDR_W{1'b0}};
+             arid_ffd <= {AXI_ID_W{1'b0}};
++            arprot_ffd <= 3'b0;
+         end else if (srst) begin
+             araddr_ffd <= {AXI_ADDR_W{1'b0}};
+             arid_ffd <= {AXI_ID_W{1'b0}};
++            arprot_ffd <= 3'b0;
+         end else begin
+             araddr_ffd <= cache_raddr;
+             arid_ffd <= cache_rid;
++            arprot_ffd <= cache_rprot;
+         end
+     end
+ 
+--- a/rtl/friscv_csr.sv
++++ b/rtl/friscv_csr.sv
+@@ -1040,7 +1040,9 @@
+     assign csr_sb[`CSR_SB_MSTATUS+:XLEN] = mstatus;
+     assign csr_sb[`CSR_SB_MCOUNTEREN+:XLEN] = mcounteren;
+ 
++    // MIE is a one-bit flag in a historically XLEN-wide reserved slot.
+     assign csr_sb[`CSR_SB_MIE] = mstatus[3];
++    assign csr_sb[(`CSR_SB_MIE)+1+:XLEN-1] = '0;
+     assign csr_sb[`CSR_SB_MEIP] = mip[11];
+     assign csr_sb[`CSR_SB_MTIP] = mip[7];
+     assign csr_sb[`CSR_SB_MSIP] = mip[3];
+--- a/rtl/friscv_mpu.sv
++++ b/rtl/friscv_mpu.sv
+@@ -91,6 +91,10 @@
+     /////////////////////////////////////////////////////////////////////////////////////////
+ 
+     generate if (MPU_SUPPORT==0) begin: MPU_OFF
++
++    // Deterministic debug buses while protection hardware is disabled.
++    assign pmp_base = '0;
++    assign pmp_mask = '0;
+ 
+     assign imem_pmp_matchs = '0;
+     assign imem_match = 1'b0;
+--- a/rtl/friscv_div.sv
++++ b/rtl/friscv_div.sv
+@@ -108,7 +108,7 @@
+             if (computing) begin
+ 
+                 // Division is done
+-                if (step_cnt==(WIDTH-1)) begin
++                if (step_cnt==CWIDTH'(WIDTH-1)) begin
+ 
+                     o_valid <= 1'b1;
+                     if (quot_sign) quot <= inv_sign(quot_next);
+--- a/rtl/friscv_cache_memctrl.sv
++++ b/rtl/friscv_cache_memctrl.sv
+@@ -346,7 +346,7 @@
+ 
+         always @ (*) begin: GEN_WSTRB
+             for (int i=0;i<SCALE;i=i+1) begin
+-                if (i==wr_strb_pos) begin: WSTRB_ON
++                if (OFFSET_W'(i)==wr_strb_pos) begin: WSTRB_ON
+                     mem_wstrb[i*XLEN/8+:XLEN/8] = mst_wstrb;
+                 end else begin: WSTRB_OFF
+                     mem_wstrb[i*XLEN/8+:XLEN/8] = {XLEN/8{1'b0}};
+@@ -407,6 +407,12 @@
+ 
+     end else begin
+ 
++        // The read-only instruction cache cannot accept writes.
++        assign mst_awready = 1'b0;
++        assign mst_wready = 1'b0;
++        assign mst_bid = '0;
++        assign mst_bresp = 2'b0;
++        assign mst_bvalid = 1'b0;
+         assign mem_awvalid = 1'b0;
+         assign mem_awaddr = {AXI_ADDR_W{1'b0}};
+         assign mem_awlen = 8'b0;
+--- a/rtl/friscv_cache_ooo_mgt.sv
++++ b/rtl/friscv_cache_ooo_mgt.sv
+@@ -152,7 +152,7 @@
+     ////////////////////////////////////////////////////////////////////////////////
+ 
+     assign tag_avlb = (tags[2*req_tag_pt+:2] == FREE);
+-    assign next_tag = req_tag_pt | AXI_ID_MASK;
++    assign next_tag = AXI_ID_W'(req_tag_pt) | AXI_ID_MASK;
+ 
+     for (genvar i=0; i<NB_TAG; i=i+1) begin
+ 
+@@ -210,25 +210,25 @@
+         always @ (posedge aclk or negedge aresetn) begin
+             if (!aresetn) begin
+                 if (CPL_PAYLOAD)
+-                    cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
++                    cpl_ram[i] <= '0;
+                 else
+-                    cpl_ram[i] <= 2'b0;
++                    cpl_ram[i] <= '0;
+             end else if (srst) begin
+                 if (CPL_PAYLOAD)
+-                    cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
++                    cpl_ram[i] <= '0;
+                 else
+-                    cpl_ram[i] <= 2'b0;
++                    cpl_ram[i] <= '0;
+             end else begin
+                 if (cpl2_valid && cpl2_ready && cpl2_id_m==i)
+                     if (CPL_PAYLOAD)
+-                        cpl_ram[i] <= {cpl2_resp, cpl2_data};
++                        cpl_ram[i] <= CPL_W'({cpl2_resp, cpl2_data});
+                     else 
+-                        cpl_ram[i] <= cpl2_resp;
++                        cpl_ram[i] <= CPL_W'(cpl2_resp);
+                 else if (cpl1_valid && cpl1_ready && cpl1_id_m==i)
+                     if (CPL_PAYLOAD)
+-                        cpl_ram[i] <= {cpl1_resp, cpl1_data};
++                        cpl_ram[i] <= CPL_W'({cpl1_resp, cpl1_data});
+                     else 
+-                        cpl_ram[i] <= cpl1_resp;
++                        cpl_ram[i] <= CPL_W'(cpl1_resp);
+             end
+         end
+     end
+--- a/rtl/friscv_m_ext.sv
++++ b/rtl/friscv_m_ext.sv
+@@ -54,15 +54,15 @@
+ 
+     logic [2*XLEN      -1:0] mul;
+     logic [2*XLEN      -1:0] mulw;
+-    logic [2*XLEN      -1:0] mul32;
+-    logic [2*XLEN      -1:0] mul64;
++    logic [XLEN        -1:0] mul32;
++    logic [XLEN        -1:0] mul64;
+     logic                    rs1_sign;
+     logic                    rs2_sign;
+ 
+     logic [XLEN        -1:0] quot;
+     logic [XLEN        -1:0] quotu;
+     logic [XLEN        -1:0] rem;
+-    logic [XLEN        -2:0] remu;
++    logic [XLEN        -1:0] remu;
+     logic                    rd_wr_div;
+     logic                    m_valid_div;
+     logic                    signed_div;
+@@ -148,7 +148,7 @@
+ 
+     end else begin: l_NO_MULDIV64_GEN
+ 
+-        assign mul64 = {XLEN{1'b0}};
++        assign mul64 = '0;
+ 
+     end
+     endgenerate
+--- a/dep/axi-crossbar/rtl/axicb_slv_if.sv
++++ b/dep/axi-crossbar/rtl/axicb_slv_if.sv
+@@ -249,6 +249,7 @@
+         if (USER_SUPPORT>0 && AXI_BUSER_W>0) begin: BUSER_ON
+             assign {i_buser, i_bresp, i_bid} = bch;
+         end else begin: BUSER_OFF
++            assign i_buser = '0;
+             assign {i_bresp, i_bid} = bch;
+         end
+     endgenerate
+@@ -257,6 +258,7 @@
+         if (USER_SUPPORT>0 && AXI_RUSER_W>0) begin: RUSER_ON
+             assign {i_ruser, i_rdata, i_rresp, i_rid} = rch;
+         end else begin: RUSER_OFF
++            assign i_ruser = '0;
+             assign {i_rdata, i_rresp, i_rid} = rch;
+         end
+     endgenerate
+--- a/dep/axi-crossbar/rtl/axicb_mst_if.sv
++++ b/dep/axi-crossbar/rtl/axicb_mst_if.sv
+@@ -653,6 +653,7 @@
+         if (USER_SUPPORT>0 && AXI_WUSER_W>0) begin: WUSER_ON
+             assign{o_wuser, o_wstrb, o_wdata} = wch;
+         end else begin: WUSER_OFF
++            assign o_wuser = '0;
+             assign {o_wstrb, o_wdata} = wch;
+         end
+ 
+@@ -682,6 +683,31 @@
+         end
+     endgenerate
+ 
++    // AXI4-only pins are not part of the Lite channel payload. The Lite
++    // wrapper leaves them open; tie them off for deterministic elaboration.
++    generate
++        if (AXI_SIGNALING == 0) begin: LITE_UNUSED_ATTRIBUTES
++            assign o_awlen = '0;
++            assign o_awsize = '0;
++            assign o_awburst = '0;
++            assign o_awlock = '0;
++            assign o_awcache = '0;
++            assign o_awqos = '0;
++            assign o_awregion = '0;
++            assign o_arlen = '0;
++            assign o_arsize = '0;
++            assign o_arburst = '0;
++            assign o_arlock = '0;
++            assign o_arcache = '0;
++            assign o_arqos = '0;
++            assign o_arregion = '0;
++        end
++        if (!(USER_SUPPORT>0 && AXI_AUSER_W>0)) begin: UNUSED_AUSER
++            assign o_awuser = '0;
++            assign o_aruser = '0;
++        end
++    endgenerate
++
+ endmodule
+ 
+ `resetall

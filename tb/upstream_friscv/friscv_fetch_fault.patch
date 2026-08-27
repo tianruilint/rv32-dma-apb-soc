@@ -1,0 +1,274 @@
+--- a/rtl/friscv_cache_block_fetcher.sv
++++ b/rtl/friscv_cache_block_fetcher.sv
+@@ -70,7 +70,11 @@
+         input  wire  [ILEN          -1:0] cache_rdata,
+         input  wire                       block_fill,
+         input  wire                       cache_hit,
+-        input  wire                       cache_miss
++        input  wire                       cache_miss,
++        // Failed line fills complete the waiting access without caching data.
++        input  wire                       mem_error_valid,
++        input  wire [AXI_ADDR_W-1:0]       mem_error_addr,
++        input  wire [1:0]                  mem_error_resp
+     );
+ 
+     ///////////////////////////////////////////////////////////////////////////
+@@ -111,6 +115,13 @@
+     logic [3            -1:0] arprot;
+ 
+     logic                     sel_mf;
++    logic                     fetch_error;
++    logic                     fetch_complete;
++    wire [1:0] completion_resp = fetch_error ? mem_error_resp : 2'b00;
++    wire [ILEN-1:0] completion_data = fetch_error ? '0 : cache_rdata;
++    assign fetch_error = mem_error_valid && mem_error_resp[1] && !flush &&
++        (mem_error_addr[AXI_ADDR_W-1:ADDR_LSB_W] == araddr_ffd[AXI_ADDR_W-1:ADDR_LSB_W]);
++    assign fetch_complete = cache_hit || fetch_error;
+ 
+     // read data channel FIFO
+     logic                     rdc_full;
+@@ -180,7 +191,7 @@
+     end
+ 
+     // Multiplexer stage to drive missed-fetch or to-fetch requests to the blocks
+-    assign sel_mf = (fetching || cache_miss) && !flush && !cache_hit;
++    assign sel_mf = (fetching || cache_miss) && !flush && !fetch_complete;
+ 
+     // Cache read interface
+     assign cache_ren = arvalid & arready | sel_mf | (flush & arvalid);
+@@ -189,8 +200,8 @@
+     assign cache_rid =   sel_mf ? arid_ffd   : arid;
+     assign cache_rprot = sel_mf ? arprot_ffd : arprot;
+ 
+-    assign pull_rac = (!(cache_miss & !flush) & !(fetching & !cache_hit) |
+-                      ((!cache_hit & !cache_miss) & flush)) &
++    assign pull_rac = ((!(cache_miss & !flush) || fetch_error) & !(fetching & !fetch_complete) |
++                      ((!fetch_complete & !cache_miss) & flush)) &
+                       !((rdc_full | rdc_afull) & !flush);
+ 
+     assign arready = pull_rac;
+@@ -221,7 +232,7 @@
+     #(
+         .PASS_THRU  (0),
+         .ADDR_WIDTH ($clog2(OSTDREQ_NUM)),
+-        .DATA_WIDTH (ILEN+AXI_ID_W)
++        .DATA_WIDTH (ILEN+AXI_ID_W+2)
+     )
+     rdc_fifo
+     (
+@@ -229,28 +240,27 @@
+         .aresetn  (aresetn),
+         .srst     (srst),
+         .flush    (flush),
+-        .data_in  ({arid_ffd, cache_rdata}),
++        .data_in  ({arid_ffd, completion_resp, completion_data}),
+         .push     (push_rdc),
+         .full     (rdc_full),
+         .afull    (rdc_afull),
+-        .data_out ({mst_rid, mst_rdata}),
++        .data_out ({mst_rid, mst_rresp, mst_rdata}),
+         .pull     (pull_rdc),
+         .empty    (rdc_empty),
+         .aempty   ()
+     );
+ 
+-    assign push_rdc = cache_hit & !flush;
++    assign push_rdc = fetch_complete & !flush;
+     assign pull_rdc = mst_rready;
+     assign mst_rvalid = !rdc_empty;
+-    assign mst_rresp = 2'b0;
+ 
+     // read data channel will always be sinked by the requester, being always ready
+     end else begin
+ 
+-    assign mst_rvalid = cache_hit & !flush;
+-    assign mst_rresp = 2'b0;
++    assign mst_rvalid = fetch_complete & !flush;
++    assign mst_rresp = completion_resp;
+     assign mst_rid = arid_ffd; 
+-    assign mst_rdata = cache_rdata;
++    assign mst_rdata = completion_data;
+     
+     assign push_rdc = '0;
+     assign pull_rdc = '0;
+@@ -283,7 +293,7 @@
+ 
+                 // Wait for the address requests from the instruction fetcher
+                 default: begin
+-                    if (cache_miss && !flush && loader_prev == IDLE) begin
++                    if (cache_miss && !flush && !fetch_error && loader_prev == IDLE) begin
+                         loader <= LOAD;
+                     end
+                 end
+@@ -292,7 +302,9 @@
+                 LOAD: begin
+                     // Go to read the cache lines once the memory controller
+                     // wrote a new cache line, being the read completion
+-                    if (block_fill) begin
++                    if (fetch_error) begin
++                        loader <= IDLE;
++                    end else if (block_fill) begin
+                         loader <= FETCH;
+                     end else if (cache_hit) begin
+                         loader <= IDLE;
+--- a/rtl/friscv_icache.sv
++++ b/rtl/friscv_icache.sv
+@@ -180,7 +180,10 @@
+         .cache_rprot     (cache_rprot),
+         .cache_rdata     (cache_rdata),
+         .cache_hit       (cache_hit),
+-        .cache_miss      (cache_miss)
++        .cache_miss      (cache_miss),
++        .mem_error_valid (memctrl_rvalid & !memctrl_rcache & memctrl_rresp[1]),
++        .mem_error_addr  (memctrl_raddr),
++        .mem_error_resp  (memctrl_rresp)
+     );
+ 
+     friscv_cache_prefetcher
+@@ -236,7 +239,7 @@
+         .aresetn    (aresetn),
+         .srst       (srst),
+         .flush      (flushing),
+-        .p1_wen     (memctrl_rvalid & !memctrl_rcache | cache_wren),
++        .p1_wen     (memctrl_rvalid & !memctrl_rcache & !memctrl_rresp[1] | cache_wren),
+         .p1_wstrb   ({CACHE_BLOCK_W/8{1'b1}}),
+         .p1_waddr   ((cache_wren) ? cache_waddr : memctrl_raddr),
+         .p1_wdata   ((cache_wren) ? cache_wdata : memctrl_rdata_blk),
+--- a/rtl/friscv_dcache.sv
++++ b/rtl/friscv_dcache.sv
+@@ -323,7 +323,10 @@
+         .cache_rid       (fetcher_cache_rid),
+         .cache_rdata     (fetcher_cache_rdata),
+         .cache_hit       (fetcher_cache_hit),
+-        .cache_miss      (fetcher_cache_miss)
++        .cache_miss      (fetcher_cache_miss),
++        .mem_error_valid (memctrl_rvalid & !memctrl_rcache & memctrl_rresp[1]),
++        .mem_error_addr  (memctrl_raddr),
++        .mem_error_resp  (memctrl_rresp)
+     );
+ 
+     friscv_cache_prefetcher
+@@ -617,7 +620,7 @@
+         .aresetn    (aresetn),
+         .srst       (srst),
+         .flush      (flushing),
+-        .p1_wen     (memctrl_rvalid & !memctrl_rcache | cache_wren),
++        .p1_wen     (memctrl_rvalid & !memctrl_rcache & !memctrl_rresp[1] | cache_wren),
+         .p1_wstrb   ({CACHE_BLOCK_W/8{1'b1}}),
+         .p1_waddr   ((cache_wren) ? cache_waddr : memctrl_raddr),
+         .p1_wdata   ((cache_wren) ? cache_wdata : memctrl_rdata_blk),
+--- a/rtl/friscv_control.sv
++++ b/rtl/friscv_control.sv
+@@ -233,8 +233,9 @@
+     logic                   store_access_fault;
+ 
+     logic [`EXP_ADDR_W-1:0] exp_addr;
+-
+-    localparam PROC_EXP_FIFO_W = 4 + XLEN;
++    logic [`EXP_PC_W-1:0] exp_pc;
++
++    localparam PROC_EXP_FIFO_W = 4 + 2*XLEN;
+     localparam MAX_PROC_EXP = $clog2(4);
+ 
+     logic [PROC_EXP_FIFO_W-1:0] proc_exp_i;
+@@ -372,6 +373,7 @@
+     // Input stage
+     ///////////////////////////////////////////////////////////////////////////
+ 
++    logic instruction_bus_error;
+     assign push_inst = rvalid & (arid == rid);
+ 
+     generate
+@@ -388,7 +390,7 @@
+         #(
+             .PASS_THRU  (0),
+             .ADDR_WIDTH ($clog2(OSTDREQ_NUM)),
+-            .DATA_WIDTH (AXI_DATA_W)
++            .DATA_WIDTH (AXI_DATA_W+1)
+         )
+         inst_fifo
+         (
+@@ -396,11 +398,11 @@
+             .aresetn  (aresetn),
+             .srst     (srst),
+             .flush    (flush_pipe | flush_blocks),
+-            .data_in  (rdata),
++            .data_in  ({rresp[1], rdata}),
+             .push     (push_inst),
+             .full     (fifo_full),
+             .afull    (),
+-            .data_out (instruction),
++            .data_out ({instruction_bus_error, instruction}),
+             .pull     (pull_inst),
+             .empty    (fifo_empty),
+             .aempty   ()
+@@ -414,6 +416,7 @@
+     end else begin : INST_PATH
+ 
+         assign instruction = rdata;
++        assign instruction_bus_error = rresp[1];
+         assign inst_ready = push_inst;
+         assign rready = pull_inst;
+ 
+@@ -493,7 +496,7 @@
+ 
+     assign proc_valid = inst_ready & processing & (cfsm==FETCH) & csr_ready & !trap_occuring;
+ 
+-    assign csr_en = inst_ready && sys[`IS_CSR] & (cfsm==FETCH) & !proc_busy & !illegal_csr;
++    assign csr_en = inst_ready && sys[`IS_CSR] & (cfsm==FETCH) & !proc_busy & !illegal_csr & !trap_occuring;
+ 
+     assign proc_instbus[`OPCODE   +: `OPCODE_W ] = opcode;
+     assign proc_instbus[`FUNCT3   +: `FUNCT3_W ] = funct3;
+@@ -989,7 +992,9 @@
+                 if (trap_occuring && !cant_trap) begin
+ 
+                     mepc_wr <= 1'b1;
+-                    mepc <= pc_reg;
++                    // Memory faults carry the failed request's original PC.
++                    mepc <= (mcause_code==4 || mcause_code==5 || mcause_code==6 || mcause_code==7)
++                            ? exp_pc : pc_reg;
+                     mcause_wr <= 1'b1;
+                     mcause <= mcause_code;
+                     mtval_wr <= 1'b1;
+@@ -1250,9 +1255,10 @@
+     assign inst_dec_error = dec_error & (cfsm==FETCH) & inst_ready;
+ 
+     // Is fetching instruction on forbidden memory region
+-    assign inst_access_fault = !mpu_allow[`ALW_X] &
++    assign inst_access_fault = (!mpu_allow[`ALW_X] &
+                                   (priv_mode == `UMODE ||
+-                                   priv_mode == `MMODE & mpu_allow[`ALW_L]);
++                                   priv_mode == `MMODE & mpu_allow[`ALW_L])) |
++                               (instruction_bus_error & inst_ready & (cfsm==FETCH));
+ 
+     //////////////////////////////////////////////////////////////////////
+     // Stores the incoming excpetions from processing. Can't handle
+@@ -1298,13 +1304,15 @@
+                          proc_exceptions[`STMA] ,
+                          proc_exceptions[`LAF]  ,
+                          proc_exceptions[`SAF]  ,
++                         proc_exceptions[`EXP_PC +: `EXP_PC_W],
+                          proc_exceptions[`EXP_ADDR +: `EXP_ADDR_W]} ;
+ 
+     assign exp_addr = proc_exp_o[0+:XLEN];
+-    assign store_access_fault = proc_exp_o[XLEN+0] & !proc_exp_empty;
+-    assign load_access_fault = proc_exp_o[XLEN+1] & !proc_exp_empty;
+-    assign store_misaligned = proc_exp_o[XLEN+2] & !proc_exp_empty;
+-    assign load_misaligned = proc_exp_o[XLEN+3] & !proc_exp_empty;
++    assign exp_pc = proc_exp_o[XLEN+:XLEN];
++    assign store_access_fault = proc_exp_o[2*XLEN+0] & !proc_exp_empty;
++    assign load_access_fault = proc_exp_o[2*XLEN+1] & !proc_exp_empty;
++    assign store_misaligned = proc_exp_o[2*XLEN+2] & !proc_exp_empty;
++    assign load_misaligned = proc_exp_o[2*XLEN+3] & !proc_exp_empty;
+ 
+     //////////////////////////////////////////////////////////////////////
+ 
+@@ -1413,7 +1421,7 @@
+                                                   '0;
+ 
+     // MTVAL: exception-specific information
+-    assign mtval_info = (inst_access_fault)    ? instruction :
++    assign mtval_info = (inst_access_fault)    ? pc_reg      :
+                         (illegal_instruction)  ? instruction :
+                         (csr_ro_wr)            ? instruction :
+                         (inst_addr_misaligned) ? pc_reg      :

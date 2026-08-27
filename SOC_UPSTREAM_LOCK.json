@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "selected_soc_source": {
     "name": "dpretet/friscv",
     "url": "https://github.com/dpretet/friscv.git",
@@ -16,13 +16,35 @@
     "tracked_source_patches": [
       {
         "path": "tb/upstream_friscv/friscv_io_same_cycle_write.patch",
-        "target": "rtl/friscv_io_subsystem.sv",
-        "application": "scripts/run_soc.sh copies the pinned source into ignored build/p2_soc_upstream_overlay and patches only that copy",
-        "original_source_sha256": "6a1a1bf20135df95885b5022ae05ca1a2d27809a6b30577d9810c4ef9a5ec2e9",
-        "patched_source_sha256": "fd43805a1b3e7c5b1cc50643500aaeafd5cb605d8bf9fea5834fede6c2baf2b1"
+        "sha256": "32db421913552aa792091c1c86bfc2fb73c47894da4f6b46a3a685ccf8726d47"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_warning_hardening.patch",
+        "sha256": "6201fdffa8cbed2bb5c517f94186be14eb71c784e446b9ad1f2059f5cb43d99a"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_fetch_fault.patch",
+        "sha256": "2f48d4af6a71e1e5cb297543c1650c26d83361ad978d6cb09c12918cd8da6e54"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_memfy_fault.patch",
+        "sha256": "6513ac5d5fc3a4b574975f54262ee61f13afb32c0756dc753c07c7d38d0c0dfc"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_cache_write_handshake.patch",
+        "sha256": "ce45a662cbb8ace85e15771155b43efc1e9274872d31f29c6573e9182857a9bc"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_cache_write_response.patch",
+        "sha256": "2bb8fa0449d78e4fbbaf35ecaff87335c2335dab8cffd601516ae35945316e4c"
+      },
+      {
+        "path": "tb/upstream_friscv/friscv_control_retirement.patch",
+        "sha256": "ff79c1d39ed34133f96b31e50ca690b11a9c96195ed7e10ac01c8610fdd181c5"
       }
     ],
-    "original_checkout_modified": false
+    "original_checkout_modified": false,
+    "patch_application": "scripts/prepare_upstream.py: isolated build/p2_upstream_hardened; individual upstream/overlay file SHA256 in reports/p2_soc/upstream-manifest.json"
   },
   "p2_design": {
     "release_record": "docs/FINAL_RELEASE.md",
@@ -40,10 +62,11 @@
     "data_width_bits": 128,
     "address_width_bits": 32,
     "id_width_bits": 8,
-    "bus_profile": "AXI4-Lite single-beat with 8-bit ID sideband; no AXI4 bursts",
+    "bus_profile": "128-bit upstream AXI-Lite-style single-beat extension with 8-bit ID; not standard 32/64-bit AXI4-Lite compliant; no bursts",
     "cache_enabled": true,
     "io_map": "128'h000C1FFF_000C0000_001000FF_00100000",
     "ram_implementation_in_tests": "1 MiB behavioral simulation model",
-    "release_test_command": "make verify"
+    "release_test_command": "bash scripts/run_release.sh (make verify)",
+    "memory_retirement": "serialized for precise exceptions"
   }
 }

@@ -1,0 +1,171 @@
+--- a/dep/axi-crossbar/test/svut/src/slv_monitor.sv
++++ b/dep/axi-crossbar/test/svut/src/slv_monitor.sv
+@@ -236,13 +236,14 @@
+ 
+     assign awready = awready_lfsr[0] & ~b_full & ~w_full;
+ 
+-    assign exp_awsize = gen_size(awaddr);
+-    assign exp_awburst = gen_burst(awaddr);
+-    assign exp_awlock = gen_lock(awaddr);
+-    assign exp_awcache = gen_cache(awaddr);
++    assign exp_awlen = (AXI_SIGNALING>0) ? {3'h0, awaddr[4:0]} : '0;
++    assign exp_awsize = (AXI_SIGNALING>0) ? gen_size(awaddr) : '0;
++    assign exp_awburst = (AXI_SIGNALING>0) ? gen_burst(awaddr) : '0;
++    assign exp_awlock = (AXI_SIGNALING>0) ? gen_lock(awaddr) : '0;
++    assign exp_awcache = (AXI_SIGNALING>0) ? gen_cache(awaddr) : '0;
+     assign exp_awprot = gen_prot(awaddr);
+-    assign exp_awqos = gen_qos(awaddr);
+-    assign exp_awregion = gen_region(awaddr);
++    assign exp_awqos = (AXI_SIGNALING>0) ? gen_qos(awaddr) : '0;
++    assign exp_awregion = (AXI_SIGNALING>0) ? gen_region(awaddr) : '0;
+     assign exp_awuser = gen_auser(awaddr);
+ 
+     always @ (posedge aclk or negedge aresetn) begin
+@@ -254,28 +255,31 @@
+         end else begin
+             
+             if (awvalid && awready) begin
+-                if (awsize != exp_awsize[2:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awburst != exp_awburst[1:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awlock != exp_awlock[1:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awcache != exp_awcache[3:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awprot != exp_awprot[2:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awqos != exp_awqos[3:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (awregion != exp_awregion[3:0])
+-                    awsideband_error <= 1'b1;
+-
+-                if (USER_SUPPORT>0 && awuser != exp_awuser[AXI_AUSER_W-1:0])
++                if (awlen !== exp_awlen)
++                    awsideband_error <= 1'b1;
++
++                if (awsize !== exp_awsize[2:0])
++                    awsideband_error <= 1'b1;
++
++                if (awburst !== exp_awburst[1:0])
++                    awsideband_error <= 1'b1;
++
++                if (awlock !== exp_awlock[1:0])
++                    awsideband_error <= 1'b1;
++
++                if (awcache !== exp_awcache[3:0])
++                    awsideband_error <= 1'b1;
++
++                if (awprot !== exp_awprot[2:0])
++                    awsideband_error <= 1'b1;
++
++                if (awqos !== exp_awqos[3:0])
++                    awsideband_error <= 1'b1;
++
++                if (awregion !== exp_awregion[3:0])
++                    awsideband_error <= 1'b1;
++
++                if (USER_SUPPORT>0 && awuser !== exp_awuser[AXI_AUSER_W-1:0])
+                     awsideband_error <= 1'b1;
+ 
+             end else begin
+@@ -565,6 +569,19 @@
+ 
+     assign arready = arready_lfsr[0] & ~r_full;
+ 
++    // AXI4-only fields are not transported in Lite mode. The P2 RTL overlay
++    // drives those compatibility pins to zero; PROT remains real Lite payload.
++    // Read-side expected values were previously undriven, hiding all AR checks.
++    assign exp_arsize = (AXI_SIGNALING>0) ? gen_size(araddr) : '0;
++    assign exp_arburst = (AXI_SIGNALING>0) ? gen_burst(araddr) : '0;
++    assign exp_arlock = (AXI_SIGNALING>0) ? gen_lock(araddr) : '0;
++    assign exp_arcache = (AXI_SIGNALING>0) ? gen_cache(araddr) : '0;
++    assign exp_arqos = (AXI_SIGNALING>0) ? gen_qos(araddr) : '0;
++    assign exp_arregion = (AXI_SIGNALING>0) ? gen_region(araddr) : '0;
++    assign exp_arlen = (AXI_SIGNALING>0) ? {3'h0, araddr[4:0]} : '0;
++    assign exp_arprot = gen_prot(araddr);
++    assign exp_aruser = gen_auser(araddr);
++
+     lfsr32
+     #(
+         .KEY (KEY)
+@@ -587,28 +604,31 @@
+         end else begin
+             
+             if (arvalid && arready) begin
+-                if (arsize != exp_arsize[2:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arburst != exp_arburst[1:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arlock != exp_arlock[1:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arcache != exp_arcache[3:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arprot != exp_arprot[2:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arqos != exp_arqos[3:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (arregion != exp_arregion[3:0])
+-                    arsideband_error <= 1'b1;
+-
+-                if (USER_SUPPORT>0 && aruser != exp_aruser[AXI_AUSER_W-1:0])
++                if (arlen !== exp_arlen)
++                    arsideband_error <= 1'b1;
++
++                if (arsize !== exp_arsize[2:0])
++                    arsideband_error <= 1'b1;
++
++                if (arburst !== exp_arburst[1:0])
++                    arsideband_error <= 1'b1;
++
++                if (arlock !== exp_arlock[1:0])
++                    arsideband_error <= 1'b1;
++
++                if (arcache !== exp_arcache[3:0])
++                    arsideband_error <= 1'b1;
++
++                if (arprot !== exp_arprot[2:0])
++                    arsideband_error <= 1'b1;
++
++                if (arqos !== exp_arqos[3:0])
++                    arsideband_error <= 1'b1;
++
++                if (arregion !== exp_arregion[3:0])
++                    arsideband_error <= 1'b1;
++
++                if (USER_SUPPORT>0 && aruser !== exp_aruser[AXI_AUSER_W-1:0])
+                     arsideband_error <= 1'b1;
+ 
+             end else begin
+@@ -666,7 +686,7 @@
+         .aresetn  (aresetn),
+         .srst     (srst),
+         .flush    (1'b0),
+-        .data_in  ({gen_data(araddr),arlen,arid,araddr}),
++        .data_in  ({AXI_DATA_W'(gen_data(araddr)),arlen,arid,araddr}),
+         .push     (arvalid & arready),
+         .full     (r_full),
+         .data_out ({rdata_r,arlen_r,arid_r,araddr_r}),
+--- a/dep/axi-crossbar/test/svut/src/mst_driver.sv
++++ b/dep/axi-crossbar/test/svut/src/mst_driver.sv
+@@ -318,7 +318,7 @@
+         .aresetn  (aresetn),
+         .srst     (srst),
+         .flush    (1'b0),
+-        .data_in  ({awlen, gen_data(awaddr)}),
++        .data_in  ({awlen, AXI_DATA_W'(gen_data(awaddr))}),
+         .push     (awvalid & awready),
+         .full     (w_full),
+         .data_out ({awlen_w, wdata_w}),
