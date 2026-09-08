@@ -15,7 +15,10 @@ sim_build/
 obj_dir/
 build/
 docs/private_context/
+docs/private/
+docs/_context/
 *.pem
 *.key
 .env
 .env.*
+/deliverables/

@@ -19,7 +19,7 @@ FRISCV RV32IM CPU 运行裸机 C 固件，经上游 AXI4-Lite crossbar 访问 RA
 
 新增 RTL 保留根目录 `CERN-OHL-S-2.0` 许可标识；上游保留各自 MIT 和递归依赖 notice。[SOC_UPSTREAM_LOCK.json](../SOC_UPSTREAM_LOCK.json)列出版本。
 
-构建程序 [prepare_upstream.py](../scripts/prepare_upstream.py)校验 pin 与原版 RTL，按固定顺序生成 `build/p2_upstream_hardened/`。不直接修改 `third_party/friscv`，不修改或引入 P1 CPU，不推送发布。
+构建程序 [prepare_upstream.py](../scripts/prepare_upstream.py)校验 pin 与原版 RTL，按固定顺序生成 `build/p2_upstream_hardened/`。固定 `third_party/friscv` 保持原始内容。
 
 ## 4. 复现与验收
 

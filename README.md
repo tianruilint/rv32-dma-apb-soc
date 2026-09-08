@@ -1,4 +1,6 @@
-# P2：开源复用的 RV32 DMA/APB SoC
+# RV32 DMA/APB SoC
+
+GitHub 仓库：[`tianruilint/rv32-dma-apb-soc`](https://github.com/tianruilint/rv32-dma-apb-soc)。这是一个运行裸机固件、支持 DMA 搬运与 APB 外设访问的 RV32IM SoC 仿真工程。
 
 FRISCV CPU/cache/UART + 上游 axi-crossbar，接入 P2 DMA、AXI-Lite/APB bridge 和 timer；运行裸机 C 固件，验证 CPU/DMA 并行访问、复制、定时器、真实中断和 UART 输出。
 
@@ -14,6 +16,18 @@ FRISCV CPU/cache/UART + 上游 axi-crossbar，接入 P2 DMA、AXI-Lite/APB bridg
 | --- | --- |
 | CPU、cache、IO/UART | [dpretet/friscv](https://github.com/dpretet/friscv)，固定 `5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba` |
 | 仲裁和响应路由互联 | [dpretet/axi-crossbar](https://github.com/dpretet/axi-crossbar)，固定 `7738a3811623ef4b5610082347bfecce35d95dd2` |
+| SoC 接线、DMA、bridge、timer、固件、验证和修复补丁 | 新增/修改；具体贡献与修改范围见发布说明 |
+
+上游源码和许可证保留不变。构建时对独立副本应用补丁。
+
+## 获取与复现
+
+```bash
+git clone --recurse-submodules https://github.com/tianruilint/rv32-dma-apb-soc.git
+cd rv32-dma-apb-soc
+```
+
+所需工具版本见[交付说明](docs/FINAL_RELEASE.md#4-复现与验收)。完成环境准备后，`make soc-system` 运行 9 个整机场景；完整发布验收使用下一节的命令。
 
 ## 一次完整验收
 
