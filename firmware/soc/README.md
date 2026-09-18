@@ -26,3 +26,9 @@ SoC must drive UART CTS high for transmission.
 This build confirms the firmware image and instruction encoding. It does not
 prove execution, the uncached buffer map, DMA behavior, or UART output; those
 need the integrated SoC simulation.
+
+The build also produces `p2_irq_demo.mem` with `P2_INTERRUPT_DEMO` enabled.
+That image installs a machine-mode trap handler, enables the external interrupt,
+services the APB timer and DMA sources, checks `mcause=0x8000000b`, acknowledges
+the sources, and returns with `MRET`. The integrated IRQ scenarios independently
+check one service of each source, deasserted IRQ, copied data, guards, and UART.

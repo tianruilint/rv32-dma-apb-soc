@@ -114,7 +114,7 @@
                           (inst_access_fault)    ? {{XLEN-4{1'b0}}, 4'h1}  :
                           (illegal_instruction)  ? {{XLEN-4{1'b0}}, 4'h2}  :
                           (csr_ro_wr)            ? {{XLEN-4{1'b0}}, 4'h2}  :
-@@ -1413,24 +1421,21 @@
+@@ -1413,30 +1421,33 @@
                           (ecall_umode)          ? {{XLEN-4{1'b0}}, 4'h8}  :
                           (ecall_mmode)          ? {{XLEN-4{1'b0}}, 4'hB}  :
                           (sys[`IS_EBREAK])      ? {{XLEN-4{1'b0}}, 4'h3}  :
@@ -145,3 +145,16 @@
                          (inst_dec_error)       ? instruction :
                                                   '0;
  
+     // Trigger the trap handling execution in main FSM
+ 
+-    assign async_trap_occuring = (sb_msip&sb_msie | sb_mtip&sb_mtie | sb_meip&sb_meie&!clr_meip) & sb_mie;
++    // A queued fault belongs to an older memory instruction. Deliver it before
++    // an interrupt, keeping the interrupt pending for MRET. The control CSR
++    // writes commit one cycle later; do not re-enter while MSTATUS is pending.
++    assign async_trap_occuring =
++        (sb_msip&sb_msie | sb_mtip&sb_mtie | sb_meip&sb_meie&!clr_meip) &
++        sb_mie & !mstatus_wr &
++        !(load_access_fault | store_access_fault | load_misaligned | store_misaligned);
+ 
+     assign sync_trap_occuring = csr_ro_wr            |
+                                 inst_addr_misaligned |

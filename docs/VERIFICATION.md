@@ -18,4 +18,4 @@ python3 scripts/record_verification.py --check
 
 ## 固定范围
 
-系统为 128-bit Lite-style 单拍扩展、8-bit ID sideband，不宣称标准 32/64-bit AXI4-Lite 完整兼容或 AXI4 burst。RAM 为 1 MiB 行为模型，DMA 缓冲 uncached，CPU 访存序列化。周期数是仿真验收点，不是 Fmax 或吞吐基准。
+系统为 128-bit Lite-style 单拍扩展、8-bit ID sideband，不宣称标准 32/64-bit AXI4-Lite 完整兼容或 AXI4 burst。RAM 为 1 MiB 行为模型，DMA 缓冲 uncached，CPU 访存序列化。周期数是仿真验收点，不是 Fmax 或通用吞吐基准。

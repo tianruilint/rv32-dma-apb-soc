@@ -40,7 +40,7 @@
       },
       {
         "path": "tb/upstream_friscv/friscv_control_retirement.patch",
-        "sha256": "ff79c1d39ed34133f96b31e50ca690b11a9c96195ed7e10ac01c8610fdd181c5"
+        "sha256": "e71d6f01b6adfc34dfdae00928b1c06e4349b47ba62a0cb7865b6e38e24b96b0"
       }
     ],
     "original_checkout_modified": false,

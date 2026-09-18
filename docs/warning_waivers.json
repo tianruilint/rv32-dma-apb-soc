@@ -20,7 +20,7 @@
         "build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv": "4f82675e88c588b923e565c2b96b3563b07ff5a2ef032a2a2b92d801628b6e8d",
         "build/p2_upstream_hardened/rtl/friscv_cache_io_fetcher.sv": "e6d2612f558f682f319f29a2544f19c6e7837baac52b44567279f646a7d3aecb",
         "build/p2_upstream_hardened/rtl/friscv_cache_pusher.sv": "31a4dc9532daf09c4910aef5af368f75b5cac5ee8785e56d279c5ff5465656bd",
-        "build/p2_upstream_hardened/rtl/friscv_control.sv": "ac2e897541613d9eab591e7f9352d32fba00de9bee30444182562bb0bea49a05",
+        "build/p2_upstream_hardened/rtl/friscv_control.sv": "ef4825c9042d01d4c35245312b2122c39f8674f313cd94d2bdd0c26120cc87ad",
         "build/p2_upstream_hardened/rtl/friscv_dcache.sv": "b5c2e595e78166c6d3686155282a3b44c31b558496c4e3dfe26813af86987569",
         "build/p2_upstream_hardened/rtl/friscv_icache.sv": "74d1464ecb2a6a192ede64de5d638fd0f972028b817f852a243ea081f2227528",
         "build/p2_upstream_hardened/rtl/friscv_rv32i_core.sv": "6707f6bb3352993381ff6a4a2de9aa288446d42bd44b99a11b6c1542b77ea489",

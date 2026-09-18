@@ -37,7 +37,7 @@ python3 scripts/record_verification.py --check
 | P2 DMA | 每 seed 27 个压力 job；16..4096-byte、地址边界、五通道等待/复位、错误响应、IRQ/W1C 碰撞和恢复 |
 | P2 bridge | 共 480 对随机读写，加定向 lane/strobe/等待/错误/复位场景 |
 | CPU 数据异常 | memfy 39 项检查；cache 开启、pipeline 0/1，60 个完整 CPU 故障与年轻指令场景 |
-| CPU 取指/控制异常 | cache 开/关 × 两类响应错误、恢复重取；屏蔽 IRQ 的异常优先级 |
+| CPU 取指/控制异常 | cache 开/关 × 两类响应错误、恢复重取；屏蔽 IRQ 的异常优先级；新增 enabled IRQ/fault 碰撞 48 场景 |
 | SoC | 普通 RAM、5 个延迟 seed、DMA 中途复位、2 个真实 CPU ISR 场景；共 9 个 |
 | 上游矩阵 | 原版 WBA 11、补丁 WBA 11、RV32I 39、RV32M 8、REPL/CoreMark 2、32/128-bit crossbar 各 9；89 次配置化执行（含重复基线及双宽度），单独统计 |
 

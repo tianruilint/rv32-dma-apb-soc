@@ -7,6 +7,7 @@ FRISCV CPU/cache/UART + 上游 axi-crossbar，接入 P2 DMA、AXI-Lite/APB bridg
 ## 可以检查到的工作
 
 - 七个隔离的上游 RTL 修复补丁：IO 响应、cache PROT/握手/写响应、CPU 总线异常和精确退休。
+- IRQ 与旧访存错误碰撞回归：48 个 load/store、响应错误、pipeline、direct/vector 和 IRQ 时序组合；检查异常保存、pending IRQ、真实 handler/MRET 与程序恢复。
 - P2 IP 独立参考模型与随机等待、reset、error、IRQ/W1C 压力回归。
 - 9 个系统场景：256-byte DMA copy、CPU 同时访问 RAM、64 个不同 word 和 guard 核对、传输中复位、实际 CPU ISR、UART 串行解码。
 

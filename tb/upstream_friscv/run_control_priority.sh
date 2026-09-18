@@ -30,4 +30,5 @@ for variant in before after; do
   fi
   cat "reports/upstream_friscv/control-priority-$variant-test.log"
 done
+bash tb/upstream_friscv/run_core_irq_fault.sh
 echo CONTROL_PRIORITY_RED_GREEN_PASS
