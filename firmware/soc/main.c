@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: CERN-OHL-S-2.0
 #include <stdint.h>
 
-// Memory map is summarized in docs/FINAL_RELEASE.md. The two buffers,
+// Memory map is summarized in docs/DESIGN.md. The two buffers,
 // guard words and terminal result all fall inside the uncached CPU window.
 #define SOURCE_ADDR       0x000C0000u
 #define DEST_ADDR         0x000C1000u

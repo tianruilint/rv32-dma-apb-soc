@@ -1,49 +1,106 @@
 # RV32 DMA/APB SoC
 
-GitHub 仓库：[`tianruilint/rv32-dma-apb-soc`](https://github.com/tianruilint/rv32-dma-apb-soc)。这是一个运行裸机固件、支持 DMA 搬运与 APB 外设访问的 RV32IM SoC 仿真工程。
+A simulation SoC that runs bare-metal C on the open-source
+[FRISCV](https://github.com/dpretet/friscv) RV32IM core. I added a DMA engine,
+an AXI-Lite-to-APB bridge, an APB timer, the SoC top level and address map,
+firmware, and the verification environment. While stress-testing the system
+I also found and patched several bugs in the third-party CPU and cache.
 
-FRISCV CPU/cache/UART + 上游 axi-crossbar，接入 P2 DMA、AXI-Lite/APB bridge 和 timer；运行裸机 C 固件，验证 CPU/DMA 并行访问、复制、定时器、真实中断和 UART 输出。
+## What runs
 
-## 可以检查到的工作
+1. Firmware fills a 256-byte source buffer, programs the APB timer, and starts
+   the DMA.
+2. While the DMA copies, the CPU keeps reading RAM over the same crossbar.
+3. The CPU checks all 64 destination words plus the guard words on both
+   sides, then prints `P2_DMA_PASS` over the UART.
+4. A second firmware image enables machine external interrupts. Timer and DMA
+   interrupts are handled by C ISRs, which check `mcause`, clear the source and
+   return through `MRET`.
 
-- 七个隔离的上游 RTL 修复补丁：IO 响应、cache PROT/握手/写响应、CPU 总线异常和精确退休。
-- IRQ 与旧访存错误碰撞回归：48 个 load/store、响应错误、pipeline、direct/vector 和 IRQ 时序组合；检查异常保存、pending IRQ、真实 handler/MRET 与程序恢复。
-- P2 IP 独立参考模型与随机等待、reset、error、IRQ/W1C 压力回归。
-- 9 个系统场景：256-byte DMA copy、CPU 同时访问 RAM、64 个不同 word 和 guard 核对、传输中复位、实际 CPU ISR、UART 串行解码。
+## Who wrote what
 
-## 来源
-
-| 内容 | 归属 |
+| Part | Source |
 | --- | --- |
-| CPU、cache、IO/UART | [dpretet/friscv](https://github.com/dpretet/friscv)，固定 `5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba` |
-| 仲裁和响应路由互联 | [dpretet/axi-crossbar](https://github.com/dpretet/axi-crossbar)，固定 `7738a3811623ef4b5610082347bfecce35d95dd2` |
-| SoC 接线、DMA、bridge、timer、固件、验证和修复补丁 | 新增/修改；具体贡献与修改范围见发布说明 |
+| RV32IM CPU, I/D caches, UART/GPIO | [dpretet/friscv](https://github.com/dpretet/friscv) (MIT), pinned submodule `5bf6d1d` |
+| AXI-Lite crossbar (arbitration, routing, DECERR) | [dpretet/axi-crossbar](https://github.com/dpretet/axi-crossbar) (MIT), pinned `7738a38` |
+| SoC top, address/ID map, crossbar wrapper | this project: `rtl/soc/p2_soc_top.sv`, `p2_upstream_axil_fabric.sv` |
+| DMA engine | this project: `rtl/soc/p2_dma.sv` |
+| AXI-Lite → APB bridge | this project: `rtl/soc/p2_axil_apb_bridge.sv` |
+| APB timer | this project: `rtl/p2_apb_timer.sv` |
+| Firmware, testbenches, protocol checker, scripts | this project: `firmware/`, `tb/`, `scripts/` |
+| Fixes to FRISCV / crossbar test models | this project: `tb/upstream_friscv/*.patch`, applied to a build copy only |
 
-上游源码和许可证保留不变。构建时对独立副本应用补丁。
+The submodule is never edited. `scripts/prepare_upstream.py` copies it into
+`build/` and applies the patches in a fixed order.
 
-## 获取与复现
+## The IP blocks
+
+**DMA.** Copies 16–4096 bytes between 16-byte-aligned, non-overlapping RAM
+regions using 128-bit single-beat reads and writes. Registers: SRC, DST, LEN,
+CTRL (START, IRQ_EN) and STATUS (BUSY, plus sticky W1C DONE / ERROR /
+IRQ_PENDING / START_REJECT). A START while busy returns SLVERR. A bus error
+ends the job with ERROR set. A hardware event wins over a same-cycle W1C.
+
+**AXI-Lite → APB bridge.** Accepts AW and W in either order, selects one
+32-bit lane of the 128-bit bus by `addr[3:2]`, rejects strobes outside that
+lane before touching APB, holds the APB transfer through PREADY wait states,
+forwards PSLVERR, and holds the AXI response under backpressure.
+
+**APB timer.** CTRL, PERIOD, read-only COUNT and W1C STATUS. Periodic and
+one-shot modes, byte strobes, interrupt mask. A new expiry wins over a
+same-cycle W1C.
+
+Details and the memory map: [docs/DESIGN.md](docs/DESIGN.md).
+
+## Bugs found in the third-party RTL
+
+| Area | Bug | Fix |
+| --- | --- | --- |
+| IO subsystem | AW and W in the same cycle → write happens but no B response | one-line state fix |
+| D-cache | write hit reports success before the real B response and updates the line first; SLVERR/DECERR lost | every write waits for B, line updated only on OKAY |
+| D-cache | AWREADY gated by tag availability but WREADY not → deadlock under B backpressure; AWPROT dropped | paired AW/W handshake; PROT queued with address |
+| I-cache / fetch | bus error on fetch executed as an instruction and cached | error propagated as instruction access fault, no cache fill |
+| Load/store unit | RRESP/BRESP ignored; failed load writes the register | precise load/store access faults with the right `mepc`/`mtval` |
+| Control | younger JAL/EBREAK/FENCE.I retire before an older faulting load/store | wait for outstanding memory ops before redirecting |
+| Control | enabled interrupt preempts an older queued memory fault; one-cycle re-entry window on MSTATUS write | older synchronous fault first; IRQ stays pending and is taken after `MRET` |
+
+Write-ups: [IP audit](docs/IP_BUG_AUDIT.md),
+[upstream regression and fault fixes](docs/UPSTREAM_REGRESSION.md),
+[warning audit](docs/WARNING_AUDIT.md).
+
+## Verification
+
+- Unit/stress tests for the DMA, bridge and timer against independent
+  reference models, with random wait states, backpressure, reset and error
+  injection (3 seeds).
+- 9 firmware-driven system scenarios on Verilator: baseline, 5 random-delay
+  seeds, reset during DMA, and 2 interrupt scenarios.
+- A protocol checker on 8 bus interfaces: payload and VALID must stay stable
+  until READY.
+- CPU fault regressions: 60 load/store-fault cases with younger instructions
+  in flight, and 48 interrupt-vs-fault collision cases.
+
+## Running it
+
+WSL Ubuntu 24.04 with Git, GNU Make, Python 3, Verilator 5.050, Icarus
+Verilog 12.0 and a RISC-V GCC 13.2 toolchain.
 
 ```bash
 git clone --recurse-submodules https://github.com/tianruilint/rv32-dma-apb-soc.git
 cd rv32-dma-apb-soc
+make soc-system                  # the 9 system scenarios
+bash scripts/run_release.sh      # everything (make verify), stops on first failure
 ```
 
-所需工具版本见[交付说明](docs/FINAL_RELEASE.md#4-复现与验收)。完成环境准备后，`make soc-system` 运行 9 个整机场景；完整发布验收使用下一节的命令。
+## Limits
 
-## 一次完整验收
+- The 128-bit bus is the upstream AXI-Lite-style single-beat extension with
+  an ID sideband. It is not standard 32/64-bit AXI4-Lite, and there are no bursts.
+- RAM is a 1 MiB behavioural model. The DMA buffers are in an uncached region,
+  with no cache coherence.
+- To keep faults precise, the patched CPU serialises memory instructions.
+- Simulation only: no FPGA, synthesis or timing results for the SoC.
 
-WSL Ubuntu 24.04 的仓库根目录：
+## License
 
-```bash
-git submodule update --init --recursive
-bash scripts/run_release.sh
-python3 scripts/record_verification.py --check
-```
-
-第一条运行脚本执行全部 `make verify` 目标，失败立即保留日志并停止，不跳过。结果位于 `reports/p2_soc/final-verify.log`，源文件核验清单在 `reports/p2_soc/verification-manifest.json`。所需工具和单项命令见 [发布说明](docs/FINAL_RELEASE.md)。
-
-在安装 `requirements-figures.txt` 的 Python 环境运行 `python scripts/render_evidence.py` 可重新生成；VCD 和构建缓存位于 ignored `build/`。
-
-## 范围
-
-128-bit 单拍 AXI-Lite 风格上游扩展，带 8-bit ID sideband；不是标准 32/64-bit AXI4-Lite 完整兼容接口。32-bit APB register path；1 MiB 行为 RAM。CPU/DMA 缓冲位于 uncached 区域。为保证精确异常，当前 CPU 访存序列化。没有 full AXI4 burst、cache coherence、FPGA/ASIC 上板或物理时序/PPA 结论。变更必须重新通过门禁。协议依据见[交付说明](docs/FINAL_RELEASE.md)。
+New RTL is CERN-OHL-S-2.0 (see `LICENSE`). Upstream code keeps its MIT notices.

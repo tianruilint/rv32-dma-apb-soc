@@ -47,7 +47,7 @@
     "patch_application": "scripts/prepare_upstream.py: isolated build/p2_upstream_hardened; individual upstream/overlay file SHA256 in reports/p2_soc/upstream-manifest.json"
   },
   "p2_design": {
-    "release_record": "docs/FINAL_RELEASE.md",
+    "release_record": "docs/DESIGN.md",
     "top_module": "rtl/soc/p2_soc_top.sv",
     "crossbar_upstream_module": "third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv",
     "crossbar_integration_wrapper": "rtl/soc/p2_upstream_axil_fabric.sv",
