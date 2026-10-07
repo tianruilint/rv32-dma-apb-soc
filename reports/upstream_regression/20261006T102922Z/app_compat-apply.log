@@ -1,0 +1,4 @@
+patching file test/apps/tests/common/makefile
+patching file test/apps/tests/coremark/Makefile
+patching file test/apps/tests/repl/benchmark.c
+patching file test/apps/tests/repl/pool_arena.c

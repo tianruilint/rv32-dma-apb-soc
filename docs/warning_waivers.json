@@ -1,5 +1,6 @@
 {
   "schema": 1,
+  "reviewed_on": "2026-10-05",
   "verilator": "5.050",
   "profiles": {
     "system": {

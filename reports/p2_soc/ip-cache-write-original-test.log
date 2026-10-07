@@ -1,0 +1,3 @@
+[6480000] %Fatal: cache_write_backpressure_tb.sv:117: Assertion failed in cache_write_backpressure_tb.issue: write acceptance timeout index=21 AW/W=21/22 extAW/W/B=18/18/18 completed=17 tags=55
+%Error: tb/upstream_friscv/cache_write_backpressure_tb.sv:117: Verilog $stop
+Aborting...

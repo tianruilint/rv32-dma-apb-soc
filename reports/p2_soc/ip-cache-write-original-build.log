@@ -1,0 +1,56 @@
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_memctrl.sv:349:22: Operator EQ expects 32 bits on the RHS, but RHS's VARREF 'wr_strb_pos' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.mem_ctrl'
+  349 |                 if (i==wr_strb_pos) begin: WSTRB_ON
+      |                      ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.050
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:155:34: Operator OR expects 8 bits on the LHS, but LHS's VARREF 'req_tag_pt' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.wr_ooo_mgt'
+  155 |     assign next_tag = req_tag_pt | AXI_ID_MASK;
+      |                                  ^
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:213:32: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'cache_write_backpressure_tb.dut.wr_ooo_mgt'
+  213 |                     cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
+      |                                ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.050
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:218:32: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'cache_write_backpressure_tb.dut.wr_ooo_mgt'
+  218 |                     cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
+      |                                ^~
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:224:36: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'cache_write_backpressure_tb.dut.wr_ooo_mgt'
+  224 |                         cpl_ram[i] <= {cpl2_resp, cpl2_data};
+      |                                    ^~
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:229:36: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'cache_write_backpressure_tb.dut.wr_ooo_mgt'
+  229 |                         cpl_ram[i] <= {cpl1_resp, cpl1_data};
+      |                                    ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:215:32: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's CONST '2'h0' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.RD_OOO_INSTANCE.rd_ooo_mgt'
+  215 |                     cpl_ram[i] <= 2'b0;
+      |                                ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:220:32: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's CONST '2'h0' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.RD_OOO_INSTANCE.rd_ooo_mgt'
+  220 |                     cpl_ram[i] <= 2'b0;
+      |                                ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:226:36: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's VARREF 'cpl2_resp' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.RD_OOO_INSTANCE.rd_ooo_mgt'
+  226 |                         cpl_ram[i] <= cpl2_resp;
+      |                                    ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:231:36: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's VARREF 'cpl1_resp' generates 2 bits.
+                                                                           : ... note: In instance 'cache_write_backpressure_tb.dut.RD_OOO_INSTANCE.rd_ooo_mgt'
+  231 |                         cpl_ram[i] <= cpl1_resp;
+      |                                    ^~
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/cache_write_regression/original'
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/local/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+python3 /usr/local/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcache_write_backpressure_tb.cpp Vcache_write_backpressure_tb___024root__0.cpp Vcache_write_backpressure_tb__main.cpp Vcache_write_backpressure_tb__ConstPool__0__Slow.cpp Vcache_write_backpressure_tb___024root__Slow.cpp Vcache_write_backpressure_tb___024root__0__Slow.cpp Vcache_write_backpressure_tb__Syms__Slow.cpp > Vcache_write_backpressure_tb__ALL.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o Vcache_write_backpressure_tb__ALL.o Vcache_write_backpressure_tb__ALL.cpp
+g++    verilated.o verilated_timing.o verilated_threads.o Vcache_write_backpressure_tb__ALL.a    -pthread -lpthread -latomic   -o Vcache_write_backpressure_tb
+rm Vcache_write_backpressure_tb__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/cache_write_regression/original'
+- V e r i l a t i o n   R e p o r t: Verilator 5.050 2026-07-01 rev v5.050
+- Verilator: Built from 12.320 MB sources in 42 modules, into 0.226 MB in 7 C++ files needing 0.001 MB
+- Verilator: Walltime 3.943 s (elab=0.029, cvt=0.041, bld=3.801); cpu 0.145 s on 4 threads; allocated 369.629 MB

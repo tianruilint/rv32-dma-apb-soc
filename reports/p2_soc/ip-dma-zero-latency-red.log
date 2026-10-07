@@ -1,0 +1,12 @@
+PASS dma_256b_lanes_stalls_irq_w1c
+PASS dma_aw_w_skew
+PASS dma_invalid_length_overlap_range
+PASS dma_4k_sequence_crossing
+PASS dma_busy_start
+PASS dma_resp_and_id_errors
+PASS dma_byte_strobe_and_busy_register_protection
+PASS dma_reset_abort
+PASS soc_dma_tb 8 groups
+[412330000] %Fatal: soc_dma_tb.sv:303: Assertion failed in soc_dma_tb.await_terminal: DMA terminal status timeout
+%Error: tb/soc_dma_tb.sv:303: Verilog $stop
+Aborting...

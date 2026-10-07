@@ -1,0 +1,8 @@
+TIMER_CASE_PASS seed=20260925 waits=0 checks=2584 transfers=845 errors=239 w1c_event_collisions=1 reset_aborts=1
+TIMER_CASE_PASS seed=20260925 waits=1 checks=3429 transfers=845 errors=231 w1c_event_collisions=2 reset_aborts=1
+TIMER_CASE_PASS seed=20260925 waits=3 checks=5119 transfers=845 errors=216 w1c_event_collisions=1 reset_aborts=1
+IP_TIMER_STRESS_PASS cases=3
+- tb/soc_timer_stress_tb.sv:224: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 51us; walltime 0.009 s; speed 5.738 ms/s
+- Verilator: cpu 0.009 s on 1 threads; allocated 6 MB

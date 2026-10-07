@@ -34,8 +34,8 @@ def load_trace(name):
 def architecture():
     fig, ax = plt.subplots(figsize=(14, 7))
     ax.set(xlim=(0, 14), ylim=(0, 7)); ax.axis("off")
-    ax.text(.2, 6.7, "P2 RV32 SoC | source and data path", fontsize=23, weight="bold", color=INK)
-    ax.text(.2, 6.23, "Architecture diagram derived from the checked-in top level. Blue = reused upstream; green = P2 integration/IP.", fontsize=10)
+    ax.text(.2, 6.7, "RV32 DMA/APB SoC | source and data path", fontsize=23, weight="bold", color=INK)
+    ax.text(.2, 6.23, "Architecture diagram derived from the checked-in top level. Blue = reused upstream; green = this project (integration and IP).", fontsize=10)
     def box(x, y, w, h, title, detail, color):
         ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle="round,pad=0.12",linewidth=1.5,edgecolor=color,facecolor="white"))
         ax.text(x+w/2,y+h*.72,title,ha="center",va="center",color=color,weight="bold",fontsize=13)
@@ -44,12 +44,12 @@ def architecture():
         ax.add_patch(FancyArrowPatch(a,b,arrowstyle="-|>",mutation_scale=15,color=color,lw=1.7))
         if label: ax.text((a[0]+b[0])/2,(a[1]+b[1])/2+.12,label,ha="center",fontsize=9,color=color)
     box(.35,4.4,3,1.35,"FRISCV CPU + caches","RV32IM + Zicsr\nInstruction / data masters",BLUE)
-    box(.35,1.5,3,1.4,"P2 DMA","128-bit single-beat copy\nControl slave + RAM master",GREEN)
-    box(4.65,2.0,3.2,3.6,"Upstream AXI-Lite\ncrossbar","dpretet/axi-crossbar\n3 active initiators / 4 targets\nP2 address + ID mapping",BLUE)
+    box(.35,1.5,3,1.4,"DMA engine","128-bit single-beat copy\nControl slave + RAM master",GREEN)
+    box(4.65,2.0,3.2,3.6,"Upstream AXI-Lite\ncrossbar","dpretet/axi-crossbar\n3 active initiators / 4 targets\nSoC address + ID mapping",BLUE)
     box(9.0,4.8,4.1,.85,"External RAM model","1 MiB behavioral simulation RAM",INK)
     box(9.0,3.5,4.1,.85,"FRISCV IO / UART","GPIO / CLINT / serial TX",BLUE)
-    box(9.0,2.2,4.1,.85,"P2 DMA control","SRC / DST / LENGTH / STATUS",GREEN)
-    box(9.0,.9,4.1,.85,"P2 APB bridge + timer","128-bit AXI-Lite to 32-bit APB",GREEN)
+    box(9.0,2.2,4.1,.85,"DMA control","SRC / DST / LENGTH / STATUS",GREEN)
+    box(9.0,.9,4.1,.85,"APB bridge + timer","128-bit AXI-Lite to 32-bit APB",GREEN)
     arrow((3.47,5.08),(4.5,5.08),"I / D")
     arrow((3.47,2.2),(4.5,2.7),"DMA")
     for y in (5.2,3.9,2.6,1.3):

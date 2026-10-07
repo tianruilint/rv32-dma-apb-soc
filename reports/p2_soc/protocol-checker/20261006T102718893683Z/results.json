@@ -1,0 +1,442 @@
+{
+  "started_utc": "2026-10-06T10:27:18.894149+00:00",
+  "source_sha256": {
+    "rtl/soc/p2_axil_if.sv": "3ca6d73667ca16e8a1342188d22d00401d589a39d44431fd3d99b8b55a1e89b9",
+    "tb/soc_protocol_checker.sv": "21da88cea956a07228cc22f4138da9e1f28c24f4c21904fbd6185edefdff5331",
+    "tb/soc_protocol_checker_test.sv": "7d05f3f468c06efe1d419cc06faf952db798feaebde995a99a3e5a4d8a56704d",
+    "scripts/test_soc_protocol_checker.py": "eac87d0f854db2d8fe50e3fcbcbeac6db5cbb854fa3a8dcef87fc112de1f2e9d"
+  },
+  "executions": [
+    {
+      "command": [
+        "verilator",
+        "--version"
+      ],
+      "started_utc": "2026-10-06T10:27:18.894311+00:00",
+      "ended_utc": "2026-10-06T10:27:19.030243+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/verilator-version.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/verilator-version.stderr.log"
+    },
+    {
+      "command": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "4",
+        "-DCHECK_PROTOCOL_DRAIN",
+        "--top-module",
+        "soc_protocol_checker_test",
+        "--Mdir",
+        "build/protocol-checker/20261006T102718893683Z",
+        "rtl/soc/p2_axil_if.sv",
+        "tb/soc_protocol_checker.sv",
+        "tb/soc_protocol_checker_test.sv"
+      ],
+      "started_utc": "2026-10-06T10:27:19.030608+00:00",
+      "ended_utc": "2026-10-06T10:27:23.618685+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/build.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/build.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=0"
+      ],
+      "started_utc": "2026-10-06T10:27:23.619016+00:00",
+      "ended_utc": "2026-10-06T10:27:23.622926+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-00-ordered_pairing_and_response_reordering.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-00-ordered_pairing_and_response_reordering.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=1"
+      ],
+      "started_utc": "2026-10-06T10:27:23.623552+00:00",
+      "ended_utc": "2026-10-06T10:27:23.627151+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-01-response_before_its_write_data.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-01-response_before_its_write_data.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=2"
+      ],
+      "started_utc": "2026-10-06T10:27:23.627773+00:00",
+      "ended_utc": "2026-10-06T10:27:23.631297+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-02-unsolicited_write_response.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-02-unsolicited_write_response.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=3"
+      ],
+      "started_utc": "2026-10-06T10:27:23.631691+00:00",
+      "ended_utc": "2026-10-06T10:27:23.634746+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-03-duplicate_read_response.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-03-duplicate_read_response.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=4"
+      ],
+      "started_utc": "2026-10-06T10:27:23.635102+00:00",
+      "ended_utc": "2026-10-06T10:27:23.638729+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-04-undrained_read.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-04-undrained_read.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=5"
+      ],
+      "started_utc": "2026-10-06T10:27:23.639061+00:00",
+      "ended_utc": "2026-10-06T10:27:23.642701+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-05-unpaired_write_address.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-05-unpaired_write_address.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=6"
+      ],
+      "started_utc": "2026-10-06T10:27:23.643043+00:00",
+      "ended_utc": "2026-10-06T10:27:23.647136+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-06-live_endpoint_may_finish_with_outstanding_read.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-06-live_endpoint_may_finish_with_outstanding_read.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=7"
+      ],
+      "started_utc": "2026-10-06T10:27:23.647487+00:00",
+      "ended_utc": "2026-10-06T10:27:23.651071+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-07-reset_cancels_old_requests.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-07-reset_cancels_old_requests.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=8"
+      ],
+      "started_utc": "2026-10-06T10:27:23.651418+00:00",
+      "ended_utc": "2026-10-06T10:27:23.654986+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-08-write_data_before_address.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-08-write_data_before_address.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=9"
+      ],
+      "started_utc": "2026-10-06T10:27:23.655331+00:00",
+      "ended_utc": "2026-10-06T10:27:23.658609+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-09-write_payload_changes_while_stalled.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-09-write_payload_changes_while_stalled.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=10"
+      ],
+      "started_utc": "2026-10-06T10:27:23.659034+00:00",
+      "ended_utc": "2026-10-06T10:27:23.662774+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-10-duplicate_write_response.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-10-duplicate_write_response.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=11"
+      ],
+      "started_utc": "2026-10-06T10:27:23.663089+00:00",
+      "ended_utc": "2026-10-06T10:27:23.666234+00:00",
+      "exit_code": 0,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-11-multiple_writes_with_same_id.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-11-multiple_writes_with_same_id.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=12"
+      ],
+      "started_utc": "2026-10-06T10:27:23.666558+00:00",
+      "ended_utc": "2026-10-06T10:27:23.669961+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-12-unpaired_write_data.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-12-unpaired_write_data.stderr.log"
+    },
+    {
+      "command": [
+        "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+        "+CASE=13"
+      ],
+      "started_utc": "2026-10-06T10:27:23.670289+00:00",
+      "ended_utc": "2026-10-06T10:27:23.673941+00:00",
+      "exit_code": 1,
+      "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-13-undrained_write_response.stdout.log",
+      "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-13-undrained_write_response.stderr.log"
+    }
+  ],
+  "cases": [
+    {
+      "case": 0,
+      "name": "ordered_pairing_and_response_reordering",
+      "expected_error": null,
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=0"
+        ],
+        "started_utc": "2026-10-06T10:27:23.619016+00:00",
+        "ended_utc": "2026-10-06T10:27:23.622926+00:00",
+        "exit_code": 0,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-00-ordered_pairing_and_response_reordering.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-00-ordered_pairing_and_response_reordering.stderr.log"
+      }
+    },
+    {
+      "case": 1,
+      "name": "response_before_its_write_data",
+      "expected_error": "unsolicited B id=02",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=1"
+        ],
+        "started_utc": "2026-10-06T10:27:23.623552+00:00",
+        "ended_utc": "2026-10-06T10:27:23.627151+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-01-response_before_its_write_data.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-01-response_before_its_write_data.stderr.log"
+      }
+    },
+    {
+      "case": 2,
+      "name": "unsolicited_write_response",
+      "expected_error": "unsolicited B id=07",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=2"
+        ],
+        "started_utc": "2026-10-06T10:27:23.627773+00:00",
+        "ended_utc": "2026-10-06T10:27:23.631297+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-02-unsolicited_write_response.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-02-unsolicited_write_response.stderr.log"
+      }
+    },
+    {
+      "case": 3,
+      "name": "duplicate_read_response",
+      "expected_error": "unsolicited R id=08",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=3"
+        ],
+        "started_utc": "2026-10-06T10:27:23.631691+00:00",
+        "ended_utc": "2026-10-06T10:27:23.634746+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-03-duplicate_read_response.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-03-duplicate_read_response.stderr.log"
+      }
+    },
+    {
+      "case": 4,
+      "name": "undrained_read",
+      "expected_error": "outstanding responses id=09 R=1 B=0",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=4"
+        ],
+        "started_utc": "2026-10-06T10:27:23.635102+00:00",
+        "ended_utc": "2026-10-06T10:27:23.638729+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-04-undrained_read.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-04-undrained_read.stderr.log"
+      }
+    },
+    {
+      "case": 5,
+      "name": "unpaired_write_address",
+      "expected_error": "unmatched write requests AW=1 W=0",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=5"
+        ],
+        "started_utc": "2026-10-06T10:27:23.639061+00:00",
+        "ended_utc": "2026-10-06T10:27:23.642701+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-05-unpaired_write_address.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-05-unpaired_write_address.stderr.log"
+      }
+    },
+    {
+      "case": 6,
+      "name": "live_endpoint_may_finish_with_outstanding_read",
+      "expected_error": null,
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=6"
+        ],
+        "started_utc": "2026-10-06T10:27:23.643043+00:00",
+        "ended_utc": "2026-10-06T10:27:23.647136+00:00",
+        "exit_code": 0,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-06-live_endpoint_may_finish_with_outstanding_read.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-06-live_endpoint_may_finish_with_outstanding_read.stderr.log"
+      }
+    },
+    {
+      "case": 7,
+      "name": "reset_cancels_old_requests",
+      "expected_error": null,
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=7"
+        ],
+        "started_utc": "2026-10-06T10:27:23.647487+00:00",
+        "ended_utc": "2026-10-06T10:27:23.651071+00:00",
+        "exit_code": 0,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-07-reset_cancels_old_requests.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-07-reset_cancels_old_requests.stderr.log"
+      }
+    },
+    {
+      "case": 8,
+      "name": "write_data_before_address",
+      "expected_error": null,
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=8"
+        ],
+        "started_utc": "2026-10-06T10:27:23.651418+00:00",
+        "ended_utc": "2026-10-06T10:27:23.654986+00:00",
+        "exit_code": 0,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-08-write_data_before_address.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-08-write_data_before_address.stderr.log"
+      }
+    },
+    {
+      "case": 9,
+      "name": "write_payload_changes_while_stalled",
+      "expected_error": "W changed under backpressure",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=9"
+        ],
+        "started_utc": "2026-10-06T10:27:23.655331+00:00",
+        "ended_utc": "2026-10-06T10:27:23.658609+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-09-write_payload_changes_while_stalled.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-09-write_payload_changes_while_stalled.stderr.log"
+      }
+    },
+    {
+      "case": 10,
+      "name": "duplicate_write_response",
+      "expected_error": "unsolicited B id=10",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=10"
+        ],
+        "started_utc": "2026-10-06T10:27:23.659034+00:00",
+        "ended_utc": "2026-10-06T10:27:23.662774+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-10-duplicate_write_response.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-10-duplicate_write_response.stderr.log"
+      }
+    },
+    {
+      "case": 11,
+      "name": "multiple_writes_with_same_id",
+      "expected_error": null,
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=11"
+        ],
+        "started_utc": "2026-10-06T10:27:23.663089+00:00",
+        "ended_utc": "2026-10-06T10:27:23.666234+00:00",
+        "exit_code": 0,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-11-multiple_writes_with_same_id.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-11-multiple_writes_with_same_id.stderr.log"
+      }
+    },
+    {
+      "case": 12,
+      "name": "unpaired_write_data",
+      "expected_error": "unmatched write requests AW=0 W=1",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=12"
+        ],
+        "started_utc": "2026-10-06T10:27:23.666558+00:00",
+        "ended_utc": "2026-10-06T10:27:23.669961+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-12-unpaired_write_data.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-12-unpaired_write_data.stderr.log"
+      }
+    },
+    {
+      "case": 13,
+      "name": "undrained_write_response",
+      "expected_error": "outstanding responses id=12 R=0 B=1",
+      "passed": true,
+      "execution": {
+        "command": [
+          "/home/terrylin/work/rv32-dma-apb-soc/build/protocol-checker/20261006T102718893683Z/Vsoc_protocol_checker_test",
+          "+CASE=13"
+        ],
+        "started_utc": "2026-10-06T10:27:23.670289+00:00",
+        "ended_utc": "2026-10-06T10:27:23.673941+00:00",
+        "exit_code": 1,
+        "stdout": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-13-undrained_write_response.stdout.log",
+        "stderr": "reports/p2_soc/protocol-checker/20261006T102718893683Z/case-13-undrained_write_response.stderr.log"
+      }
+    }
+  ],
+  "verilator": "Verilator 5.050 2026-07-01 rev v5.050",
+  "ended_utc": "2026-10-06T10:27:23.674279+00:00",
+  "passed": true
+}

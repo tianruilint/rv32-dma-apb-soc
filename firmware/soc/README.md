@@ -1,4 +1,4 @@
-# P2 SoC DMA demonstration firmware
+# SoC DMA demonstration firmware
 
 Build from the repository root with `make -C firmware/soc`. The freestanding
 RV32IM_Zicsr program starts at byte address `0x00010000`; the linker puts its
@@ -11,7 +11,7 @@ has one 32-digit hex word per line. Within each word, the least significant
 hex byte is the lowest addressed byte. `bin_to_mem128.py` checks a full
 roundtrip against the linked binary after writing the file.
 
-The program first programs and polls the P2 APB timer through the P2 bridge,
+The program first programs and polls the APB timer through the AXI-Lite-to-APB bridge,
 checking PERIOD, expiration, COUNT and W1C STATUS. It then fills 64 distinct
 source words at `0x000C0000`, zeros 64
 destination words at `0x000C1000`, initializes four guard words, and starts

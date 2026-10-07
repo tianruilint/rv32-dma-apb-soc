@@ -32,6 +32,10 @@ upstream timer port does not give valid scores.
 
 ### Load/store unit ignores bus errors
 
+The original `friscv_memfy` ignored RRESP/BRESP. On SLVERR it still wrote
+`0xdeadbeef` into the destination register, the CPU never trapped, and a
+younger instruction retired.
+
 `friscv_memfy_fault.patch` keeps the PC, instruction and address of each
 outstanding request. SLVERR/DECERR raise a load/store access fault, and a
 failed load does not write back. Memory instructions are serialised so that
@@ -47,8 +51,13 @@ checks:
 
 ### Younger JAL retires before the older fault
 
+Serialising in the load/store unit was not enough. The control unit's JAL
+path did not check the memory-busy condition, so a younger JAL wrote its
+link register before the older load faulted. Before the control patch,
+the ADDI cases passed and the first JAL case failed.
 `friscv_control_retirement.patch` makes JAL, EBREAK and FENCE.I wait. It
 also makes a queued older fault win over a younger synchronous exception.
+After the patch, 30/30 cases pass in each pipeline mode.
 
 ### IRQ preempts an older fault
 
@@ -56,5 +65,23 @@ See [VERIFICATION.md](VERIFICATION.md#the-irqfault-fix).
 
 ### Crossbar testbench model issues (no RTL change)
 
+- 128-bit runs failed 0/9 because the test pattern generator returned a
+  signed integer: `0x80808080` was sign-extended on one side and
+  zero-extended on the other. `axi_crossbar_bfm_width.patch` makes it an
+  unsigned 32-bit value.
+- After the undriven AXI4-only outputs were tied to zero, the slave monitor
+  failed because it expected full-AXI fields in Lite mode. Before that, the
+  outputs were X, and `!=` silently passed them.
   `axi_crossbar_bfm_contract.patch` checks Lite fields only in Lite mode,
   fills in the missing AR expectations, and uses `!==` so that X is caught.
+  Three deliberately broken interfaces confirm that the monitor now catches
+  each problem.
+
+### Mistakes in my own scripts
+
+- An early REPL run waited for the wrong exit string, so a passing simulation
+  was marked failed. The expected string now matches the source.
+- The upstream argument parser swallowed `--tc` when `--novcd` came before
+  it, so two ISA groups exited before simulating. The flag now goes last.
+- Shell checks of the form `[[ ... ]] && grep` do not fail under `set -e`.
+  The runners now use explicit `if ...; then exit 1`.

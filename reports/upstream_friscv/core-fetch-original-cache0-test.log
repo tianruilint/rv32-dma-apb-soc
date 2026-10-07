@@ -1,0 +1,3 @@
+[40050000] %Fatal: core_fetch_fault_tb.sv:75: Assertion failed in core_fetch_fault_tb.unnamedblk1.wait_trap: FETCH_FAULT_NOT_TRAPPED resp=2 mcause=00000000 x5=00000001
+%Error: tb/upstream_friscv/core_fetch_fault_tb.sv:75: Verilog $stop
+Aborting...

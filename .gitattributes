@@ -13,3 +13,6 @@ reports/p2_soc/system-stress/*.log -whitespace
 reports/upstream_regression/**/*.log -whitespace
 # Patch hunk prefixes must retain their exact leading space.
 *.patch -whitespace
+# Preserve verification inputs and generated evidence exactly across checkouts.
+docs/warning_waivers.json -text
+reports/** -text

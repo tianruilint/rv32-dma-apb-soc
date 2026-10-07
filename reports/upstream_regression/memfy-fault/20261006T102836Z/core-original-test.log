@@ -1,0 +1,3 @@
+[40050000] %Fatal: core_data_fault_tb.sv:129: Assertion failed in core_data_fault_tb.unnamedblk1.wait_trap: DATA_FAULT_NOT_TRAPPED store=0 resp=2 mcause=00000000 x5=deadbeef x6=00000066
+%Error: tb/upstream_friscv/core_data_fault_tb.sv:129: Verilog $stop
+Aborting...

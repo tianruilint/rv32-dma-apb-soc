@@ -21,6 +21,10 @@ already handles both.
 bash tb/upstream_friscv/run_same_cycle_write.sh
 ```
 
+Original: GPIO reads back `0x12345678`, but there is no B within 30 cycles.
+Patched: `BID=0x5a`, `BRESP=OKAY`, stable under backpressure, completes once.
+Logs: `reports/upstream_friscv/{red,green}-{build,test}.log`.
+
 ## Other runners
 
 | Script | Bug it demonstrates |

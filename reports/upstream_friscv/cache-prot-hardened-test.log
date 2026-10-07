@@ -1,0 +1,2 @@
+CACHE_PROT_REPLAY_PASS all_8_PROT_values held_3_cycles
+tb/upstream_friscv/cache_prot_replay_tb.sv:61: $finish called at 640000 (1ps)

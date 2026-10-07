@@ -1,0 +1,53 @@
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+CORE_IRQ_FAULT_PASS cases=24 pipeline=0 synchronous_first irq_retained MRET_interrupt_resume
+- tb/upstream_friscv/core_irq_fault_tb.sv:206: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 32us; walltime 0.006 s; speed 5.489 ms/s
+- Verilator: cpu 0.006 s on 1 threads; allocated 7 MB

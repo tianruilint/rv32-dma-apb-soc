@@ -1,0 +1,77 @@
+{
+  "kind": "derived from measured simulation traces; architecture is descriptive",
+  "matplotlib": "3.11.2",
+  "uart_decoded": "P2_DMA_PASS\n",
+  "inputs": [
+    {
+      "path": "reports/evidence/system-seed7.csv",
+      "sha256": "831d60fee194a5ff861dbfb8b384853c6fb240ab67ba13c50af777edd09653d8"
+    },
+    {
+      "path": "reports/p2_soc/system-stress/summary.json",
+      "sha256": "036d6c49d214cc9e37512f110760d51bdfb9b0b4ffb7057e32b67e38892abca8"
+    },
+    {
+      "path": "rtl/soc/p2_soc_top.sv",
+      "sha256": "041a37dc0877ea9c3bef13c99dd412ef4a119cabb97b7e1fb0b8d237ed4fcdfe"
+    },
+    {
+      "path": "rtl/soc/p2_upstream_axil_fabric.sv",
+      "sha256": "6a86239754634626d4a8fe6baf79d7bba171ce5057372af31025b20696c19ff0"
+    },
+    {
+      "path": "reports/p2_soc/upstream-manifest.json",
+      "sha256": "4ab50f0c9c5bf2ccb22e6da897a0c97185f9b6ef588eaae4382ff0511b0b3996"
+    },
+    {
+      "path": "scripts/render_evidence.py",
+      "sha256": "038fd9b7db1e78c5302e83f0cb728990a979b95c34bbaddb4c046eba41fb5b7f"
+    },
+    {
+      "path": "reports/p2_soc/verification-manifest.json",
+      "sha256": "514b86093cef7af9ddd825cd511233e308768de1dbf87713fb93ed3459e674dc"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "reports/evidence/apb-waveform.png",
+      "sha256": "16c7feb420077e1af1a58ba40105077e4808663d4b24cad292a077c9d5b98aea"
+    },
+    {
+      "path": "reports/evidence/apb-waveform.svg",
+      "sha256": "e096c9735e26948e9f5ea5217c66e21dba4c78cee67106617e70a94a0612a0ca"
+    },
+    {
+      "path": "reports/evidence/architecture.png",
+      "sha256": "bc6c433a7fbd45ca728c4afe2a42fc12e26b4ad85932b0fd230d83098d225609"
+    },
+    {
+      "path": "reports/evidence/architecture.svg",
+      "sha256": "43fdb09b1205fc87f576f59164c722e42c78eeb9bb070bc080a92f25b8065fbc"
+    },
+    {
+      "path": "reports/evidence/dma-waveform.png",
+      "sha256": "8c9d4c3c25903fa4a5541198eded654eb593198b42e73d8c6250bd7b2483c0f3"
+    },
+    {
+      "path": "reports/evidence/dma-waveform.svg",
+      "sha256": "ade9a9e53a1456330c558e7c599ae8dc7fb98992edfa79a2ebc66b5e9a7f0358"
+    },
+    {
+      "path": "reports/evidence/system-regression.png",
+      "sha256": "388c1cdd1be6a8bfdd536516fac37bb26fd2222b3da94b05241a1b9128b3df8b"
+    },
+    {
+      "path": "reports/evidence/system-regression.svg",
+      "sha256": "819ff40f42228a5b4307af621114fdd89b20fb8445e5837c52198a537130af88"
+    },
+    {
+      "path": "reports/evidence/uart-evidence.png",
+      "sha256": "d4988942cd9cb02ccd16e95b83cc86c7cc73e682dd6a08eec3a682cac11c5edb"
+    },
+    {
+      "path": "reports/evidence/uart-evidence.svg",
+      "sha256": "31e2b7189079ec13f150d37c57f6ad31fe27236de6b3cc2355efc926f341d520"
+    }
+  ]
+}

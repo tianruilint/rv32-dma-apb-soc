@@ -1,0 +1,2 @@
+FATAL: tb/upstream_friscv/cache_prot_replay_tb.sv:56: CACHE_PROT_REPLAY_FAIL expected=0 got=x
+       Time: 51000  Scope: cache_prot_replay_tb.$ivl_for_loop1

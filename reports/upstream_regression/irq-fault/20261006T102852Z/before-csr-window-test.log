@@ -1,0 +1,4 @@
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+[650000] %Fatal: core_irq_fault_tb.sv:179: Assertion failed in core_irq_fault_tb.unnamedblk1.unnamedblk2.wait_recovery.unnamedblk3: IRQ_FAULT_PENDING_LOST pipeline=1 store=0 vector=0 irq_advance=0 cause=8000000b
+%Error: tb/upstream_friscv/core_irq_fault_tb.sv:179: Verilog $stop
+Aborting...

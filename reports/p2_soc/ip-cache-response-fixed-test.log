@@ -1,0 +1,9 @@
+CACHE_WRITE_RESPONSE_CASE_PASS resp=2 data=badc0ffe strobes=f preserved_or_updated=11223344
+CACHE_WRITE_RESPONSE_CASE_PASS resp=3 data=deadbeef strobes=f preserved_or_updated=11223344
+CACHE_WRITE_RESPONSE_CASE_PASS resp=0 data=aabbccdd strobes=5 preserved_or_updated=11bb33dd
+CACHE_WRITE_RESPONSE_CASE_PASS resp=0 data=55667788 strobes=f preserved_or_updated=55667788
+CACHE_WRITE_RESPONSE_PASS delayed_B=4 error_preserves_cache=2 successful_updates=2 response_stall=5
+- tb/upstream_friscv/cache_write_response_tb.sv:107: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 2us; walltime 0.000 s; speed 14.927 ms/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 6 MB

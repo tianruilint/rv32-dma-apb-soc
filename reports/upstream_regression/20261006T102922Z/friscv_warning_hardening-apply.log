@@ -1,0 +1,9 @@
+patching file rtl/friscv_cache_block_fetcher.sv
+patching file rtl/friscv_csr.sv
+patching file rtl/friscv_mpu.sv
+patching file rtl/friscv_div.sv
+patching file rtl/friscv_cache_memctrl.sv
+patching file rtl/friscv_cache_ooo_mgt.sv
+patching file rtl/friscv_m_ext.sv
+patching file dep/axi-crossbar/rtl/axicb_slv_if.sv
+patching file dep/axi-crossbar/rtl/axicb_mst_if.sv

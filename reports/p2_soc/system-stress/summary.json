@@ -1,0 +1,161 @@
+[
+  {
+    "name": "baseline",
+    "seed": 0,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=0",
+      "+TRACE_CSV=reports/evidence/system-baseline.csv"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/baseline.log",
+    "marker": "SOC_SYSTEM_PASS cycles=6570 DMA R/W=16/16 RAM R/W=208/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=6 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 6570
+  },
+  {
+    "name": "seed1",
+    "seed": 1,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=1"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/seed1.log",
+    "marker": "SOC_SYSTEM_PASS cycles=8435 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=9 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 8435
+  },
+  {
+    "name": "seed7",
+    "seed": 7,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=7",
+      "+TRACE_CSV=reports/evidence/system-seed7.csv",
+      "+VCD=build/p2-system-seed7.vcd"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/seed7.log",
+    "marker": "SOC_SYSTEM_PASS cycles=8374 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=9 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 8374
+  },
+  {
+    "name": "seed23",
+    "seed": 23,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=23"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/seed23.log",
+    "marker": "SOC_SYSTEM_PASS cycles=8343 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=10 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 8343
+  },
+  {
+    "name": "seed97",
+    "seed": 97,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=97"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/seed97.log",
+    "marker": "SOC_SYSTEM_PASS cycles=8405 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=9 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 8405
+  },
+  {
+    "name": "seed20260925",
+    "seed": 20260925,
+    "reset_during_dma": false,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=20260925"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/seed20260925.log",
+    "marker": "SOC_SYSTEM_PASS cycles=8442 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=9 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 8442
+  },
+  {
+    "name": "reset_during_dma",
+    "seed": 7,
+    "reset_during_dma": true,
+    "irq_mode": false,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_dma_demo.mem",
+      "+RAM_STALL_SEED=7",
+      "+RESET_DURING_DMA"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/reset_during_dma.log",
+    "marker": "SOC_SYSTEM_PASS cycles=12587 DMA R/W=16/16 RAM R/W=211/152 timer R/W=4/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=9 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 12587
+  },
+  {
+    "name": "irq_baseline",
+    "seed": 0,
+    "reset_during_dma": false,
+    "irq_mode": true,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_irq_demo.mem",
+      "+RAM_STALL_SEED=0",
+      "+IRQ_MODE"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/irq_baseline.log",
+    "marker": "SOC_SYSTEM_PASS cycles=7586 DMA R/W=16/16 RAM R/W=244/191 timer R/W=5/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=6 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 7586
+  },
+  {
+    "name": "irq_seed7",
+    "seed": 7,
+    "reset_during_dma": false,
+    "irq_mode": true,
+    "command": [
+      "/home/terrylin/work/rv32-dma-apb-soc/build/p2_soc_obj/Vsoc_system_test",
+      "+PROGRAM_HEX=build/p2_soc_fw/p2_irq_demo.mem",
+      "+RAM_STALL_SEED=7",
+      "+IRQ_MODE"
+    ],
+    "exit_code": 0,
+    "passed": true,
+    "log": "reports/p2_soc/system-stress/irq_seed7.log",
+    "marker": "SOC_SYSTEM_PASS cycles=9708 DMA R/W=16/16 RAM R/W=246/191 timer R/W=5/3 CPU source writes=64 post-DMA dest reads=64 CPU RAM reads during DMA=10 UART=P2_DMA_PASS",
+    "error_markers": 0,
+    "cycles": 9708
+  }
+]

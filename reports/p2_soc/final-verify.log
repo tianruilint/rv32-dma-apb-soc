@@ -1,0 +1,347 @@
+python3 scripts/test_soc_protocol_checker.py
+CHECKER_SELFTEST ordered_pairing_and_response_reordering PASS exit=0
+CHECKER_SELFTEST response_before_its_write_data PASS exit=1
+CHECKER_SELFTEST unsolicited_write_response PASS exit=1
+CHECKER_SELFTEST duplicate_read_response PASS exit=1
+CHECKER_SELFTEST undrained_read PASS exit=1
+CHECKER_SELFTEST unpaired_write_address PASS exit=1
+CHECKER_SELFTEST live_endpoint_may_finish_with_outstanding_read PASS exit=0
+CHECKER_SELFTEST reset_cancels_old_requests PASS exit=0
+CHECKER_SELFTEST write_data_before_address PASS exit=0
+CHECKER_SELFTEST write_payload_changes_while_stalled PASS exit=1
+CHECKER_SELFTEST duplicate_write_response PASS exit=1
+CHECKER_SELFTEST multiple_writes_with_same_id PASS exit=0
+CHECKER_SELFTEST unpaired_write_data PASS exit=1
+CHECKER_SELFTEST undrained_write_response PASS exit=1
+PROTOCOL_CHECKER_RESULTS reports/p2_soc/protocol-checker/20261006T102718893683Z
+PROTOCOL_CHECKER_SELFTEST_PASS cases=14 expected_rejections=9
+bash scripts/run_soc_units.sh
+SIM_LOG_PASS reports/p2_soc/bridge-test.log: SOC_BRIDGE_PASS
+SIM_LOG_PASS reports/p2_soc/dma-test.log: PASS soc_dma_tb 8 groups
+bash scripts/run_ip_stress.sh
+SIM_LOG_PASS reports/p2_soc/ip-timer-seed-1.log: IP_TIMER_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-dma-seed-1.log: IP_DMA_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-bridge-seed-1.log: IP_BRIDGE_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-timer-seed-20260925.log: IP_TIMER_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-dma-seed-20260925.log: IP_DMA_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-bridge-seed-20260925.log: IP_BRIDGE_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-timer-seed-314159265.log: IP_TIMER_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-dma-seed-314159265.log: IP_DMA_STRESS_PASS
+SIM_LOG_PASS reports/p2_soc/ip-bridge-seed-314159265.log: IP_BRIDGE_STRESS_PASS
+IP_STRESS_PASS seeds=3 timer_wait_configs=3 dma_random_jobs_per_seed=27 bridge_pairs_per_seed=160
+bash scripts/run_upstream_xbar.sh
+WARNING_AUDIT_PASS profile=upstream-crossbar raw=142 exact_reviewed=142 functional=0
+Remaining diagnostics are visible and individually justified; this is not zero raw warnings.
+SIM_LOG_PASS reports/p2_soc/upstream-xbar-test.log: P2_UPSTREAM_XBAR_PASS
+bash tb/upstream_friscv/run_same_cycle_write.sh
+IO_RED_EXPECTED_FAILURE missing B response; see reports/upstream_friscv/red-test.log
+SIM_LOG_PASS reports/upstream_friscv/green-test.log: FRISCV_IO_SAME_CYCLE_WRITE_B_RESPONDED id=5a resp=0
+IO_GREEN_PASS response id=5a resp=0
+bash tb/upstream_friscv/run_cache_prot_replay.sh
+FATAL: tb/upstream_friscv/cache_prot_replay_tb.sv:56: CACHE_PROT_REPLAY_FAIL expected=0 got=x
+       Time: 51000  Scope: cache_prot_replay_tb.$ivl_for_loop1
+CACHE_PROT_REPLAY_PASS all_8_PROT_values held_3_cycles
+tb/upstream_friscv/cache_prot_replay_tb.sv:61: $finish called at 640000 (1ps)
+CACHE_PROT_RED_GREEN_PASS original_reproduced=1 hardened_pass=1
+bash tb/upstream_friscv/run_cache_write_backpressure.sh
+[6480000] %Fatal: cache_write_backpressure_tb.sv:117: Assertion failed in cache_write_backpressure_tb.issue: write acceptance timeout index=21 AW/W=21/22 extAW/W/B=18/18/18 completed=17 tags=55
+%Error: tb/upstream_friscv/cache_write_backpressure_tb.sv:117: Verilog $stop
+Aborting...
+CACHE_WRITE_BACKPRESSURE_PASS writes=24 completions=24 tag_wraps=6 AW_W_skew=8 AWPROT=all_nonzero
+CACHE_WRITE_BACKPRESSURE_PASS writes=24 completions=24 tag_wraps=6 AW_W_skew=8 AWPROT=all_nonzero
+- tb/upstream_friscv/cache_write_backpressure_tb.sv:148: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 2us; walltime 0.000 s; speed 13.383 ms/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 6 MB
+CACHE_WRITE_RED_GREEN_PASS original_deadlock_reproduced=1 hardened_write_and_prot_pass=1
+bash tb/upstream_friscv/run_cache_write_response.sh
+[80000] %Fatal: cache_write_response_tb.sv:77: Assertion failed in cache_write_response_tb.check_write.unnamedblk1_1: CACHE_WRITE_EARLY_COMPLETION_FAIL B withheld app_valid=0 cache=badc0ffe expected_old=11223344
+%Error: tb/upstream_friscv/cache_write_response_tb.sv:77: Verilog $stop
+Aborting...
+CACHE_WRITE_RESPONSE_CASE_PASS resp=2 data=badc0ffe strobes=f preserved_or_updated=11223344
+CACHE_WRITE_RESPONSE_CASE_PASS resp=3 data=deadbeef strobes=f preserved_or_updated=11223344
+CACHE_WRITE_RESPONSE_CASE_PASS resp=0 data=aabbccdd strobes=5 preserved_or_updated=11bb33dd
+CACHE_WRITE_RESPONSE_CASE_PASS resp=0 data=55667788 strobes=f preserved_or_updated=55667788
+CACHE_WRITE_RESPONSE_PASS delayed_B=4 error_preserves_cache=2 successful_updates=2 response_stall=5
+- tb/upstream_friscv/cache_write_response_tb.sv:107: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 2us; walltime 0.000 s; speed 14.927 ms/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 6 MB
+CACHE_WRITE_RESPONSE_RED_GREEN_PASS original_early_completion=1 delayed_and_error_responses_fixed=1
+bash tb/upstream_friscv/run_core_fetch_fault.sh
+[40050000] %Fatal: core_fetch_fault_tb.sv:75: Assertion failed in core_fetch_fault_tb.unnamedblk1.wait_trap: FETCH_FAULT_NOT_TRAPPED resp=2 mcause=00000000 x5=00000001
+%Error: tb/upstream_friscv/core_fetch_fault_tb.sv:75: Verilog $stop
+Aborting...
+[40050000] %Fatal: core_fetch_fault_tb.sv:75: Assertion failed in core_fetch_fault_tb.unnamedblk1.wait_trap: FETCH_FAULT_NOT_TRAPPED resp=2 mcause=00000000 x5=00000001
+%Error: tb/upstream_friscv/core_fetch_fault_tb.sv:75: Verilog $stop
+Aborting...
+FETCH_FAULT_CASE_PASS resp=2 mcause=00000001 mepc=00000200 mtval=00000200 x5=00000000
+FETCH_FAULT_RECOVERY_PASS cache=0 resp=2 mret_refetched_valid_instruction
+FETCH_FAULT_CASE_PASS resp=3 mcause=00000001 mepc=00000200 mtval=00000200 x5=00000000
+FETCH_FAULT_RECOVERY_PASS cache=0 resp=3 mret_refetched_valid_instruction
+CORE_FETCH_FAULT_PASS cache=0 SLVERR_DECERR precise_mepc_mtval no_bad_retirement
+- tb/upstream_friscv/core_fetch_fault_tb.sv:89: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 420ns; walltime 0.000 s; speed 2.223 ms/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 6 MB
+FETCH_FAULT_CASE_PASS resp=2 mcause=00000001 mepc=00000200 mtval=00000200 x5=00000000
+FETCH_FAULT_RECOVERY_PASS cache=1 resp=2 mret_refetched_valid_instruction
+FETCH_FAULT_CASE_PASS resp=3 mcause=00000001 mepc=00000200 mtval=00000200 x5=00000000
+FETCH_FAULT_RECOVERY_PASS cache=1 resp=3 mret_refetched_valid_instruction
+CORE_FETCH_FAULT_PASS cache=1 SLVERR_DECERR precise_mepc_mtval no_bad_retirement
+- tb/upstream_friscv/core_fetch_fault_tb.sv:89: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 1us; walltime 0.000 s; speed 4.042 ms/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 7 MB
+CORE_FETCH_RED_GREEN_PASS original_reproduced=1 hardened_pass=1
+bash tb/upstream_friscv/run_core_data_fault.sh
+FATAL: tb/upstream_friscv/friscv_memfy_fault_tb.sv:32: MEMFY_FAULT_FAIL error response raises LOAD access fault
+       Time: 101000  Scope: friscv_memfy_fault_tb.check
+MEMFY_FAULT_PASS checks=39
+tb/upstream_friscv/friscv_memfy_fault_tb.sv:110: $finish called at 591000 (1ps)
+[40050000] %Fatal: core_data_fault_tb.sv:129: Assertion failed in core_data_fault_tb.unnamedblk1.wait_trap: DATA_FAULT_NOT_TRAPPED store=0 resp=2 mcause=00000000 x5=deadbeef x6=00000066
+%Error: tb/upstream_friscv/core_data_fault_tb.sv:129: Verilog $stop
+Aborting...
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+CORE_DATA_FAULT_PASS cases=30 pipeline=0 cache_enabled SLVERR_DECERR exact_mepc_mtval younger_ALU_JAL_EBREAK_FENCEI_ECALL retry_cache_clean
+- tb/upstream_friscv/core_data_fault_tb.sv:133: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 26us; walltime 0.002 s; speed 10.559 ms/s
+- Verilator: cpu 0.002 s on 1 threads; allocated 7 MB
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+CORE_DATA_FAULT_PASS cases=30 pipeline=1 cache_enabled SLVERR_DECERR exact_mepc_mtval younger_ALU_JAL_EBREAK_FENCEI_ECALL retry_cache_clean
+- tb/upstream_friscv/core_data_fault_tb.sv:133: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 27us; walltime 0.003 s; speed 10.749 ms/s
+- Verilator: cpu 0.003 s on 1 threads; allocated 7 MB
+CORE_DATA_RED_GREEN_PASS original_reproduced=1 hardened_pass=2 reports=reports/upstream_regression/memfy-fault/20261006T102836Z
+bash tb/upstream_friscv/run_control_priority.sh
+FATAL: tb/upstream_friscv/masked_irq_priority_tb.sv:44: MASKED_IRQ_PRIORITY_FAIL expected=00000001 got=80000007
+       Time: 70000  Scope: masked_irq_priority_tb.$ivl_for_loop1
+SIM_LOG_PASS reports/upstream_friscv/control-priority-after-test.log: MASKED_IRQ_PRIORITY_PASS
+MASKED_IRQ_PRIORITY_PASS MIE=0 MTIP=1 MTIE=1 mcause=1 mepc=mtval=0x200
+tb/upstream_friscv/masked_irq_priority_tb.sv:48: $finish called at 70000 (1ps)
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+[650000] %Fatal: core_irq_fault_tb.sv:179: Assertion failed in core_irq_fault_tb.unnamedblk1.unnamedblk2.wait_recovery.unnamedblk3: IRQ_FAULT_PENDING_LOST pipeline=1 store=0 vector=0 irq_advance=0 cause=8000000b
+%Error: tb/upstream_friscv/core_irq_fault_tb.sv:179: Verilog $stop
+Aborting...
+[660000] %Fatal: core_irq_fault_tb.sv:168: Assertion failed in core_irq_fault_tb.unnamedblk1.unnamedblk2.wait_recovery.unnamedblk3: IRQ_OVERRIDES_OLDER_FAULT pipeline=1 store=1 vector=0 irq_advance=0 resp=2 cause=8000000b mepc=00000024 mtval=00000000
+%Error: tb/upstream_friscv/core_irq_fault_tb.sv:168: Verilog $stop
+Aborting...
+SIM_LOG_PASS reports/upstream_regression/irq-fault/20261006T102852Z/after-pipe0-test.log: CORE_IRQ_FAULT_PASS cases=24 pipeline=0
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=0 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=0 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=0 store=1 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+CORE_IRQ_FAULT_PASS cases=24 pipeline=0 synchronous_first irq_retained MRET_interrupt_resume
+- tb/upstream_friscv/core_irq_fault_tb.sv:206: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 32us; walltime 0.006 s; speed 5.489 ms/s
+- Verilator: cpu 0.006 s on 1 threads; allocated 7 MB
+SIM_LOG_PASS reports/upstream_regression/irq-fault/20261006T102852Z/after-pipe1-test.log: CORE_IRQ_FAULT_PASS cases=24 pipeline=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=0 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=0 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=0 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=0 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=0 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=3 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=6 resp=2 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=0 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=0 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=3 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=3 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+IRQ_FAULT_FIRST_SYNC_PASS pipeline=1 store=1 vector=1 irq_advance=6 mepc=00000020 mtval=00100020
+IRQ_FAULT_CASE_PASS pipeline=1 store=1 vector=1 irq_advance=6 resp=3 first_mepc=00000020 first_mtval=00100020 sync_isr=1 irq_isr=1 mret_resume=1
+CORE_IRQ_FAULT_PASS cases=24 pipeline=1 synchronous_first irq_retained MRET_interrupt_resume
+- tb/upstream_friscv/core_irq_fault_tb.sv:206: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 33us; walltime 0.003 s; speed 9.882 ms/s
+- Verilator: cpu 0.003 s on 1 threads; allocated 7 MB
+CORE_IRQ_FAULT_RED_GREEN_PASS original_reproduced=2 hardened_cases=48 reports=reports/upstream_regression/irq-fault/20261006T102852Z
+CONTROL_PRIORITY_RED_GREEN_PASS
+bash scripts/run_soc.sh
+WARNING_AUDIT_PASS profile=system raw=481 exact_reviewed=481 functional=0
+Remaining diagnostics are visible and individually justified; this is not zero raw warnings.
+SYSTEM_SCENARIO baseline PASS exit=0
+SYSTEM_SCENARIO seed1 PASS exit=0
+SYSTEM_SCENARIO seed7 PASS exit=0
+SYSTEM_SCENARIO seed23 PASS exit=0
+SYSTEM_SCENARIO seed97 PASS exit=0
+SYSTEM_SCENARIO seed20260925 PASS exit=0
+SYSTEM_SCENARIO reset_during_dma PASS exit=0
+SYSTEM_SCENARIO irq_baseline PASS exit=0
+SYSTEM_SCENARIO irq_seed7 PASS exit=0
+SYSTEM_MATRIX_PASS 9/9
+python3 scripts/test_warning_gate.py
+WARNING_GATE_REJECTED new-unused-warning
+WARNING_GATE_REJECTED missing-warning
+WARNING_GATE_REJECTED source-drift
+WARNING_GATE_REJECTED forbidden-functional-waiver
+WARNING_GATE_NEGATIVE_PASS 4 rejection cases; no RTL modified
+python3 scripts/run_upstream_regression.py
+Cloning into '/home/terrylin/work/rv32-dma-apb-soc/build/deps/svut'...
+HEAD is now at d75f9ee Fix: Path module calling changed without encoding specified, will be deprecated in Python 3.14 (#33) Fix: One regex issued a warning on "reg" change for "logic"
+Preparing fresh isolated sources in /home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z
+RUN wba-original: bash ./run.sh --tb platform --simulator icarus --novcd
+PASS wba-original exit=0 cases=11/11 elapsed=115.827s
+RUN wba-patched: bash ./run.sh --tb platform --simulator icarus --novcd
+PASS wba-patched exit=0 cases=11/11 elapsed=110.254s
+RUN isa-rv32ui: bash ./run.sh --tb platform --simulator icarus --tc ./tests/rv32ui-p*.v --novcd
+PASS isa-rv32ui exit=0 cases=39/39 elapsed=348.772s
+RUN isa-rv32um: bash ./run.sh --tb platform --simulator icarus --tc ./tests/rv32um-p*.v --novcd
+PASS isa-rv32um exit=0 cases=8/8 elapsed=69.415s
+RUN app-repl: bash ./run.sh --tc tests/repl.v
+PASS app-repl exit=0 cases=1/1 elapsed=47.277s
+RUN app-coremark: bash ./run.sh --tc tests/coremark.v
+PASS app-coremark exit=0 cases=1/1 elapsed=49.388s
+RUN crossbar-32: bash ./run.sh --tc ./tb_config/p2-width-32.cfg --max-traffic 1024 --timeout 2000000 --no-vcd --no-debug-log
+PASS crossbar-32 exit=0 cases=9/9 elapsed=27.709s
+RUN crossbar-128: bash ./run.sh --tc ./tb_config/p2-width-128.cfg --max-traffic 1024 --timeout 2000000 --no-vcd --no-debug-log
+PASS crossbar-128 exit=0 cases=9/9 elapsed=51.49s
+UPSTREAM_REGRESSION PASS report=/home/terrylin/work/rv32-dma-apb-soc/reports/upstream_regression/20261006T102922Z
+python3 tb/upstream_friscv/run_crossbar_bfm_contract.py
+PASS 128-original-monitor-red exit=1
+PASS 128-contract-fixed exit=0
+PASS 32-contract-fixed exit=0
+PASS negative-lite-attribute exit=1
+PASS negative-arprot exit=1
+PASS negative-unknown exit=1
+CROSSBAR_BFM_CONTRACT_PASS reports/upstream_regression/crossbar-bfm/20261006T104302Z
+RELEASE_VERIFY_EXIT=0

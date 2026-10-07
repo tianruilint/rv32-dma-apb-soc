@@ -1,0 +1,4 @@
+FRISCV_IO_AW_W_HANDSHAKE id=5a
+FRISCV_IO_GPIO_AFTER_WRITE=12345678
+FATAL: tb/upstream_friscv/friscv_io_write_red_tb.sv:71: FRISCV_IO_SAME_CYCLE_WRITE_MISSING_B
+       Time: 365000  Scope: friscv_io_write_red_tb

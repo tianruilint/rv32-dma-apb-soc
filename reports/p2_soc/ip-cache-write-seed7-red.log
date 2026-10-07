@@ -1,0 +1,202 @@
+SOC_RAM_INIT build/p2_soc_fw/p2_dma_demo.mem
+SOC_RAM_STALL_SEED 7
+SOC_RAM_READ addr=00010000 id=80
+SOC_RAM_READ addr=00010010 id=80
+SOC_RAM_READ addr=00010020 id=80
+SOC_RAM_READ addr=00010030 id=81
+SOC_RAM_READ addr=00010070 id=82
+SOC_RAM_READ addr=00010080 id=82
+SOC_RAM_WRITE addr=0007fffc strb=f000 id=10
+SOC_RAM_READ addr=00010090 id=82
+SOC_RAM_READ addr=000100a0 id=82
+SOC_RAM_WRITE addr=000c1f00 strb=000f id=14
+SOC_RAM_READ addr=000100b0 id=82
+SOC_RAM_READ addr=000100c0 id=82
+SOC_RAM_READ addr=000100d0 id=82
+SOC_RAM_READ addr=000100e0 id=82
+SOC_RAM_READ addr=000100f0 id=83
+SOC_RAM_READ addr=00010100 id=83
+SOC_RAM_READ addr=00010110 id=83
+SOC_RAM_READ addr=00010120 id=83
+SOC_RAM_READ addr=00010130 id=83
+SOC_RAM_READ addr=00010140 id=83
+SOC_RAM_WRITE addr=000c0000 strb=000f id=10
+SOC_RAM_READ addr=00010150 id=83
+SOC_RAM_WRITE addr=000c1000 strb=000f id=11
+SOC_RAM_WRITE addr=000c0004 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1004 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0008 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1008 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c000c strb=f000 id=16
+SOC_RAM_WRITE addr=000c100c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0010 strb=000f id=10
+SOC_RAM_WRITE addr=000c1010 strb=000f id=11
+SOC_RAM_WRITE addr=000c0014 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1014 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0018 strb=0f00 id=14
+SOC_RAM_READ addr=00010160 id=84
+SOC_RAM_WRITE addr=000c1018 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c001c strb=f000 id=16
+SOC_RAM_WRITE addr=000c101c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0020 strb=000f id=10
+SOC_RAM_WRITE addr=000c1020 strb=000f id=11
+SOC_RAM_WRITE addr=000c0024 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1024 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0028 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1028 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c002c strb=f000 id=16
+SOC_RAM_WRITE addr=000c102c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0030 strb=000f id=10
+SOC_RAM_WRITE addr=000c1030 strb=000f id=11
+SOC_RAM_WRITE addr=000c0034 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1034 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0038 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1038 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c003c strb=f000 id=16
+SOC_RAM_WRITE addr=000c103c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0040 strb=000f id=10
+SOC_RAM_WRITE addr=000c1040 strb=000f id=11
+SOC_RAM_WRITE addr=000c0044 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1044 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0048 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1048 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c004c strb=f000 id=16
+SOC_RAM_WRITE addr=000c104c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0050 strb=000f id=10
+SOC_RAM_WRITE addr=000c1050 strb=000f id=11
+SOC_RAM_WRITE addr=000c0054 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1054 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0058 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1058 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c005c strb=f000 id=16
+SOC_RAM_WRITE addr=000c105c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0060 strb=000f id=10
+SOC_RAM_WRITE addr=000c1060 strb=000f id=11
+SOC_RAM_WRITE addr=000c0064 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1064 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0068 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1068 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c006c strb=f000 id=16
+SOC_RAM_WRITE addr=000c106c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0070 strb=000f id=10
+SOC_RAM_WRITE addr=000c1070 strb=000f id=11
+SOC_RAM_WRITE addr=000c0074 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1074 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0078 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1078 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c007c strb=f000 id=16
+SOC_RAM_WRITE addr=000c107c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0080 strb=000f id=10
+SOC_RAM_WRITE addr=000c1080 strb=000f id=11
+SOC_RAM_WRITE addr=000c0084 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1084 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0088 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1088 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c008c strb=f000 id=16
+SOC_RAM_WRITE addr=000c108c strb=f000 id=17
+SOC_RAM_WRITE addr=000c0090 strb=000f id=10
+SOC_RAM_WRITE addr=000c1090 strb=000f id=11
+SOC_RAM_WRITE addr=000c0094 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c1094 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c0098 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c1098 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c009c strb=f000 id=16
+SOC_RAM_WRITE addr=000c109c strb=f000 id=17
+SOC_RAM_WRITE addr=000c00a0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10a0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00a4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10a4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00a8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10a8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00ac strb=f000 id=16
+SOC_RAM_WRITE addr=000c10ac strb=f000 id=17
+SOC_RAM_WRITE addr=000c00b0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10b0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00b4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10b4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00b8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10b8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00bc strb=f000 id=16
+SOC_RAM_WRITE addr=000c10bc strb=f000 id=17
+SOC_RAM_WRITE addr=000c00c0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10c0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00c4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10c4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00c8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10c8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00cc strb=f000 id=16
+SOC_RAM_WRITE addr=000c10cc strb=f000 id=17
+SOC_RAM_WRITE addr=000c00d0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10d0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00d4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10d4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00d8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10d8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00dc strb=f000 id=16
+SOC_RAM_WRITE addr=000c10dc strb=f000 id=17
+SOC_RAM_WRITE addr=000c00e0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10e0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00e4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10e4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00e8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10e8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00ec strb=f000 id=16
+SOC_RAM_WRITE addr=000c10ec strb=f000 id=17
+SOC_RAM_WRITE addr=000c00f0 strb=000f id=10
+SOC_RAM_WRITE addr=000c10f0 strb=000f id=11
+SOC_RAM_WRITE addr=000c00f4 strb=00f0 id=12
+SOC_RAM_WRITE addr=000c10f4 strb=00f0 id=13
+SOC_RAM_WRITE addr=000c00f8 strb=0f00 id=14
+SOC_RAM_WRITE addr=000c10f8 strb=0f00 id=15
+SOC_RAM_WRITE addr=000c00fc strb=f000 id=16
+SOC_RAM_WRITE addr=000c10fc strb=f000 id=17
+SOC_RAM_READ addr=00010170 id=82
+SOC_RAM_WRITE addr=000c0100 strb=000f id=10
+SOC_RAM_READ addr=00010180 id=82
+SOC_RAM_WRITE addr=000c0ffc strb=f000 id=11
+SOC_RAM_READ addr=00010190 id=82
+SOC_RAM_WRITE addr=000c1100 strb=000f id=12
+SOC_RAM_READ addr=000101a0 id=82
+SOC_RAM_WRITE addr=000c1ffc strb=f000 id=13
+SOC_RAM_READ addr=000101b0 id=82
+SOC_RAM_READ addr=000101c0 id=82
+SOC_RAM_READ addr=000101d0 id=82
+SOC_RAM_READ addr=000101e0 id=82
+SOC_RAM_READ addr=000101f0 id=83
+SOC_RAM_READ addr=000c0000 id=20
+SOC_RAM_READ addr=00010200 id=83
+SOC_RAM_WRITE addr=000c1000 strb=ffff id=20
+SOC_RAM_READ addr=000c0010 id=20
+SOC_RAM_READ addr=00010210 id=83
+SOC_RAM_WRITE addr=000c1010 strb=ffff id=20
+SOC_RAM_READ addr=000c0020 id=20
+SOC_RAM_WRITE addr=000c1020 strb=ffff id=20
+SOC_RAM_READ addr=000c0030 id=20
+SOC_RAM_WRITE addr=000c1030 strb=ffff id=20
+SOC_RAM_READ addr=000c0040 id=20
+SOC_RAM_WRITE addr=000c1040 strb=ffff id=20
+SOC_RAM_READ addr=000c0050 id=20
+SOC_RAM_WRITE addr=000c1050 strb=ffff id=20
+SOC_RAM_READ addr=000c0060 id=20
+SOC_RAM_WRITE addr=000c1060 strb=ffff id=20
+SOC_RAM_READ addr=000c0070 id=20
+SOC_RAM_WRITE addr=000c1070 strb=ffff id=20
+SOC_RAM_READ addr=000c0080 id=20
+SOC_RAM_WRITE addr=000c1080 strb=ffff id=20
+SOC_RAM_READ addr=000c0090 id=20
+SOC_RAM_WRITE addr=000c1090 strb=ffff id=20
+SOC_RAM_READ addr=000c00a0 id=20
+SOC_RAM_WRITE addr=000c10a0 strb=ffff id=20
+SOC_RAM_READ addr=000c00b0 id=20
+SOC_RAM_WRITE addr=000c10b0 strb=ffff id=20
+SOC_RAM_READ addr=000c00c0 id=20
+SOC_RAM_WRITE addr=000c10c0 strb=ffff id=20
+SOC_RAM_READ addr=000c00d0 id=20
+SOC_RAM_WRITE addr=000c10d0 strb=ffff id=20
+SOC_RAM_READ addr=000c00e0 id=20
+SOC_RAM_WRITE addr=000c10e0 strb=ffff id=20
+SOC_RAM_READ addr=000c00f0 id=20
+SOC_RAM_WRITE addr=000c10f0 strb=ffff id=20
+[5000120000] %Fatal: soc_system_test.sv:159: Assertion failed in soc_system_test.run_test: SOC timeout result=00000000 UART= DMA R/W=16/16
+%Error: tb/soc_system_test.sv:159: Verilog $stop
+Aborting...

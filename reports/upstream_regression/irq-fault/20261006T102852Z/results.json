@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "red_reproductions": 2,
+  "green_cases": 48,
+  "executions": [
+    {
+      "variant": "before-csr-window",
+      "exit_code": 1,
+      "green_cases": 0
+    },
+    {
+      "variant": "before-priority",
+      "exit_code": 1,
+      "green_cases": 0
+    },
+    {
+      "variant": "after-pipe0",
+      "exit_code": 0,
+      "green_cases": 24
+    },
+    {
+      "variant": "after-pipe1",
+      "exit_code": 0,
+      "green_cases": 24
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+INFO: Start AXI-Crossbar Random Testsuite
+PID: 6924
+
+       ______    ____  ________
+      / ___/ |  / / / / /_  __/
+      \__ \| | / / / / / / /  
+     ___/ /| |/ / /_/ / / /   
+    /____/ |___/\____/ /_/
+
+    v1.10.0
+
+SVUT (@ 18:44:24) Run with Icarus Verilog
+
+SVUT (@ 18:44:24) Start axicb_crossbar_top_testbench.sv
+
+SVUT (@ 18:44:24) iverilog -g2012 -Wall -o svut.out -DOR_TIMEOUT=500 -DAXI_ADDR_W=32 -DAXI_ID_W=8 -DAXI_DATA_W=128 -DMST_PIPELINE=1 -DSLV_PIPELINE=1 -DAXI_SIGNALING=0 -DUSER_SUPPORT=0 -DMST0_CDC=0 -DMST1_CDC=0 -DMST2_CDC=0 -DMST3_CDC=0 -DSLV0_CDC=0 -DSLV1_CDC=0 -DSLV2_CDC=0 -DSLV3_CDC=0 -DMST0_OSTDREQ_NUM=0 -DMST0_OSTDREQ_SIZE=0 -DMST0_PRIORITY=0 -DMST1_OSTDREQ_NUM=0 -DMST1_OSTDREQ_SIZE=0 -DMST1_PRIORITY=0 -DMST2_OSTDREQ_NUM=0 -DMST2_OSTDREQ_SIZE=0 -DMST2_PRIORITY=0 -DMST3_OSTDREQ_NUM=0 -DMST3_OSTDREQ_SIZE=0 -DMST3_PRIORITY=0 -DSLV0_START_ADDR=0 -DSLV0_END_ADDR=4095 -DSLV1_START_ADDR=4096 -DSLV1_END_ADDR=8191 -DSLV2_START_ADDR=8192 -DSLV2_END_ADDR=12287 -DSLV3_START_ADDR=12288 -DSLV3_END_ADDR=16383 -DSLV0_OSTDREQ_NUM=0 -DSLV0_OSTDREQ_SIZE=0 -DSLV1_OSTDREQ_NUM=0 -DSLV1_OSTDREQ_SIZE=0 -DSLV2_OSTDREQ_NUM=0 -DSLV2_OSTDREQ_SIZE=0 -DSLV3_OSTDREQ_NUM=0 -DSLV3_OSTDREQ_SIZE=0 -DMST0_ROUTES=15 -DMST1_ROUTES=15 -DMST2_ROUTES=15 -DMST3_ROUTES=15 -DTIMEOUT=2000000 -DMAX_TRAFFIC=1024 -DTSNAME=p2-width-128 -DNOVCD=1 -f files.f  src/axicb_crossbar_top_testbench.sv 
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- compilation unit
+
+SVUT (@ 18:44:24) vvp svut.out 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Testbench Configuration:
+------------------------
+
+  - Configuration: p2-width-128
+  - Testbench timeout: 2000000 cycles
+  - Outstanding request timeout: 500 cycles
+  - Maximum traffic: 1024
+  - AXI_ADDR_W: 32
+  - AXI_DATA_W: 128
+  - AXI_ID_W: 8
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+[0;34mINFO: Start testsuite << p2-width-128 >> (@ 0.0ns) (src/axicb_crossbar_top_testbench.sv:1682)[0m
+
+[0;34mINFO: Starting << Test 0: Single Master Driver vs a Single Slave Monitor >> (@ 0.0ns) (src/axicb_crossbar_top_testbench.sv:1685)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 170.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 0: Single Master Driver vs a Single Slave Monitor >> fail (@ 250.0ns) (src/axicb_crossbar_top_testbench.sv:1694)[0m
+
+[0;34mINFO: Starting << Test 1: Single Master Driver vs Two Slave Monitors >> (@ 250.0ns) (src/axicb_crossbar_top_testbench.sv:1696)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 418.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 1: Single Master Driver vs Two Slave Monitors >> fail (@ 498.0ns) (src/axicb_crossbar_top_testbench.sv:1705)[0m
+
+[0;34mINFO: Starting << Test 2: Two Master Drivers vs a Single Slave Monitor >> (@ 498.0ns) (src/axicb_crossbar_top_testbench.sv:1707)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 662.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 2: Two Master Drivers vs a Single Slave Monitor >> fail (@ 742.0ns) (src/axicb_crossbar_top_testbench.sv:1716)[0m
+
+[0;34mINFO: Starting << Test 3: Three Master Drivers vs a Single Slave Monitor >> (@ 742.0ns) (src/axicb_crossbar_top_testbench.sv:1718)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 906.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 3: Three Master Drivers vs a Single Slave Monitor >> fail (@ 986.0ns) (src/axicb_crossbar_top_testbench.sv:1727)[0m
+
+[0;34mINFO: Starting << Test 4: Four Master Drivers vs a Single Slave Monitor >> (@ 986.0ns) (src/axicb_crossbar_top_testbench.sv:1730)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 1146.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 4: Four Master Drivers vs a Single Slave Monitor >> fail (@ 1226.0ns) (src/axicb_crossbar_top_testbench.sv:1739)[0m
+
+[0;34mINFO: Starting << Test 5: Two Master Drivers vs Two Slave Monitors >> (@ 1226.0ns) (src/axicb_crossbar_top_testbench.sv:1741)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 1390.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 5: Two Master Drivers vs Two Slave Monitors >> fail (@ 1470.0ns) (src/axicb_crossbar_top_testbench.sv:1750)[0m
+
+[0;34mINFO: Starting << Test 6: Three Master Drivers vs Two Slave Monitors >> (@ 1470.0ns) (src/axicb_crossbar_top_testbench.sv:1752)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 1634.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 6: Three Master Drivers vs Two Slave Monitors >> fail (@ 1714.0ns) (src/axicb_crossbar_top_testbench.sv:1761)[0m
+
+[0;34mINFO: Starting << Test 7: Four Master Drivers vs Two Slave Monitors >> (@ 1714.0ns) (src/axicb_crossbar_top_testbench.sv:1763)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 1874.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 7: Four Master Drivers vs Two Slave Monitors >> fail (@ 1954.0ns) (src/axicb_crossbar_top_testbench.sv:1772)[0m
+
+[0;34mINFO: Starting << Test 8: Four Master Drivers vs Four Slave Monitors >> (@ 1954.0ns) (src/axicb_crossbar_top_testbench.sv:1774)[0m
+[1;31mERROR: Error detected during execution (ASSERT) (@ 2114.0ns) (src/axicb_crossbar_top_testbench.sv:1644)[0m
+Errors: 10
+[1;31mFAILURE: << Test 8: Four Master Drivers vs Four Slave Monitors >> fail (@ 2194.0ns) (src/axicb_crossbar_top_testbench.sv:1783)[0m
+
+[0;34mINFO: Stop testsuite 'p2-width-128' (@ 2194.0ns) (src/axicb_crossbar_top_testbench.sv:1785)[0m
+[1;31m
+Failling test(s): 'Single Master Driver vs a Single Slave Monitor' 'Single Master Driver vs Two Slave Monitors' 'Two Master Drivers vs a Single Slave Monitor' 'Three Master Drivers vs a Single Slave Monitor' 'Four Master Drivers vs a Single Slave Monitor' 'Two Master Drivers vs Two Slave Monitors' 'Three Master Drivers vs Two Slave Monitors' 'Four Master Drivers vs Two Slave Monitors' 'Four Master Drivers vs Four Slave Monitors'
+
+  [1;33m- Warning number:  0[0m
+  [1;35m- Critical number: 0[0m
+  [1;31m- Error number:    9[0m
+  [1;31m- STATUS: 0/9 test(s) passed[0m
+
+src/axicb_crossbar_top_testbench.sv:1807: $finish called at 2194000 (1ps)
+
+SVUT (@ 18:44:24) Stop axicb_crossbar_top_testbench.sv
+
+SVUT (@ 18:44:24) Elapsed time: 0:00:00.466376
+
+
+INFO: Check testsuite status
+error count: 9
+test_ret: 0
+[0;31mERROR: Testsuite failed![0m
+Failling test(s): 'Single Master Driver vs a Single Slave Monitor' 'Single Master Driver vs Two Slave Monitors' 'Two Master Drivers vs a Single Slave Monitor' 'Three Master Drivers vs a Single Slave Monitor' 'Four Master Drivers vs a Single Slave Monitor' 'Two Master Drivers vs Two Slave Monitors' 'Three Master Drivers vs Two Slave Monitors' 'Four Master Drivers vs Two Slave Monitors' 'Four Master Drivers vs Four Slave Monitors'
+Fails:

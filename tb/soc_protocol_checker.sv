@@ -12,6 +12,7 @@ module soc_protocol_checker #(
     int unsigned read_ids[256];
     int unsigned write_ids[256];
     int unsigned write_data;
+    logic [7:0] write_order[$];
     int unsigned ar_count, aw_count, b_count, r_count;
     int unsigned aw_stalls, w_stalls, ar_stalls, b_stalls, r_stalls;
 
@@ -43,6 +44,7 @@ module soc_protocol_checker #(
         if (rst) begin
             foreach (read_ids[i]) begin read_ids[i] = 0; write_ids[i] = 0; end
             write_data = 0;
+            write_order.delete();
             ar_count = 0; aw_count = 0; b_count = 0; r_count = 0;
             aw_stalls = 0; w_stalls = 0; ar_stalls = 0;
             b_stalls = 0; r_stalls = 0;
@@ -51,19 +53,25 @@ module soc_protocol_checker #(
                 read_ids[bus.arid]++; ar_count++;
             end
             if (bus.awvalid && bus.awready) begin
-                write_ids[bus.awid]++; aw_count++;
+                write_order.push_back(bus.awid); aw_count++;
             end
             if (bus.wvalid && bus.wready) write_data++;
+            // W has no ID: pair accepted data with AW in request order before
+            // allowing a B response for that AWID. W may arrive before AW.
+            if (write_order.size() != 0 && write_data != 0) begin
+                write_ids[write_order.pop_front()]++;
+                write_data--;
+            end
             if (bus.rvalid) begin
                 if (read_ids[bus.rid] == 0)
                     $fatal(1, "%s unsolicited R id=%02x", NAME, bus.rid);
                 if (bus.rready) begin read_ids[bus.rid]--; r_count++; end
             end
             if (bus.bvalid) begin
-                if (write_ids[bus.bid] == 0 || write_data == 0)
+                if (write_ids[bus.bid] == 0)
                     $fatal(1, "%s unsolicited B id=%02x", NAME, bus.bid);
                 if (bus.bready) begin
-                    write_ids[bus.bid]--; write_data--; b_count++;
+                    write_ids[bus.bid]--; b_count++;
                 end
             end
             if (bus.awvalid && !bus.awready) aw_stalls++;
@@ -74,6 +82,19 @@ module soc_protocol_checker #(
         end
     end
     /* verilator lint_on BLKSEQ */
+    // Call only after the stimulus stops and the endpoint has been drained.
+    // The SoC CPU keeps fetching at $finish, so final is not such a boundary.
+    task automatic check_drained;
+        if (write_order.size() != 0 || write_data != 0)
+            $fatal(1, "%s unmatched write requests AW=%0d W=%0d", NAME,
+                write_order.size(), write_data);
+        foreach (read_ids[i]) begin
+            if (read_ids[i] != 0 || write_ids[i] != 0)
+                $fatal(1, "%s outstanding responses id=%02x R=%0d B=%0d",
+                    NAME, i, read_ids[i], write_ids[i]);
+        end
+    endtask
+
     final $display("PROTOCOL_COUNTS %s AR/R=%0d/%0d AW/B=%0d/%0d stalls AW/W/AR/B/R=%0d/%0d/%0d/%0d/%0d",
         NAME, ar_count, r_count, aw_count, b_count,
         aw_stalls, w_stalls, ar_stalls, b_stalls, r_stalls);

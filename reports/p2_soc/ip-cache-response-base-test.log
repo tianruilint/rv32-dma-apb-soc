@@ -1,0 +1,3 @@
+[80000] %Fatal: cache_write_response_tb.sv:77: Assertion failed in cache_write_response_tb.check_write.unnamedblk1_1: CACHE_WRITE_EARLY_COMPLETION_FAIL B withheld app_valid=0 cache=badc0ffe expected_old=11223344
+%Error: tb/upstream_friscv/cache_write_response_tb.sv:77: Verilog $stop
+Aborting...

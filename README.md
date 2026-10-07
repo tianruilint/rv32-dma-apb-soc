@@ -6,6 +6,8 @@ an AXI-Lite-to-APB bridge, an APB timer, the SoC top level and address map,
 firmware, and the verification environment. While stress-testing the system
 I also found and patched several bugs in the third-party CPU and cache.
 
+![Architecture](reports/evidence/architecture.png)
+
 ## What runs
 
 1. Firmware fills a 256-byte source buffer, programs the APB timer, and starts
@@ -14,7 +16,7 @@ I also found and patched several bugs in the third-party CPU and cache.
 3. The CPU checks all 64 destination words plus the guard words on both
    sides, then prints `P2_DMA_PASS` over the UART.
 4. A second firmware image enables machine external interrupts. Timer and DMA
-   interrupts are handled by C ISRs, which check `mcause`, clear the source and
+   interrupts are handled by a shared C ISR, which check `mcause`, clear the source and
    return through `MRET`.
 
 ## Who wrote what
@@ -54,6 +56,9 @@ Details and the memory map: [docs/DESIGN.md](docs/DESIGN.md).
 
 ## Bugs found in the third-party RTL
 
+Each fix is a separate patch with a test that fails on the original source
+and passes after the patch. Summary:
+
 | Area | Bug | Fix |
 | --- | --- | --- |
 | IO subsystem | AW and W in the same cycle → write happens but no B response | one-line state fix |
@@ -70,6 +75,10 @@ Write-ups: [IP audit](docs/IP_BUG_AUDIT.md),
 
 ## Verification
 
+Latest complete release regression and regenerated evidence: **2026-10-06**.
+The [verification manifest](reports/p2_soc/verification-manifest.json) binds
+the exact source files, patches and raw results.
+
 - Unit/stress tests for the DMA, bridge and timer against independent
   reference models, with random wait states, backpressure, reset and error
   injection (3 seeds).
@@ -79,6 +88,11 @@ Write-ups: [IP audit](docs/IP_BUG_AUDIT.md),
   until READY.
 - CPU fault regressions: 60 load/store-fault cases with younger instructions
   in flight, and 48 interrupt-vs-fault collision cases.
+- The pinned upstream FRISCV ISA/CoreMark/crossbar suites, re-run with the
+  patches applied.
+
+Results and how to read them: [docs/VERIFICATION.md](docs/VERIFICATION.md).
+Waveforms and UART decode: [reports/evidence](reports/evidence/README.md).
 
 ## Running it
 

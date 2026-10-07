@@ -1,0 +1,31 @@
+{
+  "started_utc": "20261006T102922Z",
+  "friscv": "5bf6d1d0e63c99278763eb3803e7fc717ea2f1ba",
+  "axi_crossbar": "7738a3811623ef4b5610082347bfecce35d95dd2",
+  "svut": "d75f9ee5a4adecbb92faa7295e3cfbd111bc4df3",
+  "groups": [
+    "wba",
+    "isa",
+    "apps",
+    "crossbar"
+  ],
+  "patches": {
+    "reports/upstream_friscv/app_compat.patch": "4f13b0c8e583729fdffcc15880ba194ae28132fe3a76b31316d8f0d2e3ad1bc5",
+    "reports/upstream_friscv/app_runner_compat.patch": "37acbe20f0383b8f5cfe97d37cc7d388226d9d033225ea7d9bfb606424628235",
+    "tb/upstream_friscv/friscv_io_same_cycle_write.patch": "32db421913552aa792091c1c86bfc2fb73c47894da4f6b46a3a685ccf8726d47",
+    "tb/upstream_friscv/friscv_warning_hardening.patch": "6201fdffa8cbed2bb5c517f94186be14eb71c784e446b9ad1f2059f5cb43d99a",
+    "tb/upstream_friscv/friscv_fetch_fault.patch": "2f48d4af6a71e1e5cb297543c1650c26d83361ad978d6cb09c12918cd8da6e54",
+    "tb/upstream_friscv/friscv_memfy_fault.patch": "6513ac5d5fc3a4b574975f54262ee61f13afb32c0756dc753c07c7d38d0c0dfc",
+    "tb/upstream_friscv/friscv_cache_write_handshake.patch": "ce45a662cbb8ace85e15771155b43efc1e9274872d31f29c6573e9182857a9bc",
+    "tb/upstream_friscv/friscv_cache_write_response.patch": "2bb8fa0449d78e4fbbaf35ecaff87335c2335dab8cffd601516ae35945316e4c",
+    "tb/upstream_friscv/friscv_control_retirement.patch": "e71d6f01b6adfc34dfdae00928b1c06e4349b47ba62a0cb7865b6e38e24b96b0",
+    "tb/upstream_friscv/axi_crossbar_bfm_width.patch": "d0417e7c574e791baa5bbd8150d620fdbc4bf7669c6b501ecc47089affce04bf",
+    "tb/upstream_friscv/axi_crossbar_bfm_contract.patch": "8fa1a0f80954236490da22edfe6ad9186e8adf7d3bf9b1ac36e66a14432b1939"
+  },
+  "tools": {
+    "python": "Python 3.12.3",
+    "verilator": "Verilator 5.050 2026-07-01 rev v5.050",
+    "gcc": "13.2.0",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  }
+}

@@ -1,0 +1,4 @@
+patching file rtl/friscv_cache_block_fetcher.sv
+patching file rtl/friscv_icache.sv
+patching file rtl/friscv_dcache.sv
+patching file rtl/friscv_control.sv

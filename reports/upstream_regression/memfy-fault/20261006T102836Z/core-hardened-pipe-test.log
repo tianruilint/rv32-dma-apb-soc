@@ -1,0 +1,35 @@
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=0 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=0 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=0 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=1 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=1 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=1 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=2 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=2 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=2 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=3 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=3 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=3 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=2 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=0 cache_hit=0 younger_kind=4 resp=3 mcause=00000005 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=2 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=0 younger_kind=4 resp=3 mcause=00000007 mepc=00000010 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=2 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+DATA_FAULT_CASE_PASS store=1 cache_hit=1 younger_kind=4 resp=3 mcause=00000007 mepc=00000014 mtval=00100020 retry=12345678 younger_regs=0
+CORE_DATA_FAULT_PASS cases=30 pipeline=1 cache_enabled SLVERR_DECERR exact_mepc_mtval younger_ALU_JAL_EBREAK_FENCEI_ECALL retry_cache_clean
+- tb/upstream_friscv/core_data_fault_tb.sv:133: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 27us; walltime 0.003 s; speed 10.749 ms/s
+- Verilator: cpu 0.003 s on 1 threads; allocated 7 MB

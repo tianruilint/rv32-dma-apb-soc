@@ -1,0 +1,2 @@
+MASKED_IRQ_PRIORITY_PASS MIE=0 MTIP=1 MTIE=1 mcause=1 mepc=mtval=0x200
+tb/upstream_friscv/masked_irq_priority_tb.sv:48: $finish called at 70000 (1ps)

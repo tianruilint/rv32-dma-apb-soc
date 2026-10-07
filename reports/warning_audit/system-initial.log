@@ -1,0 +1,2039 @@
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:527:10: Instance pin connected by name with empty reference: 'icache_arlen'
+  527 |         .icache_arlen      (),
+      |          ^~~~~~~~~~~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.050
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:528:10: Instance pin connected by name with empty reference: 'icache_arsize'
+  528 |         .icache_arsize     (),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:529:10: Instance pin connected by name with empty reference: 'icache_arburst'
+  529 |         .icache_arburst    (),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:530:10: Instance pin connected by name with empty reference: 'icache_arlock'
+  530 |         .icache_arlock     (),
+      |          ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:531:10: Instance pin connected by name with empty reference: 'icache_arcache'
+  531 |         .icache_arcache    (),
+      |          ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:532:10: Instance pin connected by name with empty reference: 'icache_arqos'
+  532 |         .icache_arqos      (),
+      |          ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:533:10: Instance pin connected by name with empty reference: 'icache_arregion'
+  533 |         .icache_arregion   (),
+      |          ^~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:809:14: Instance pin connected by name with empty reference: 'dcache_awlen'
+  809 |             .dcache_awlen    (),
+      |              ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:810:14: Instance pin connected by name with empty reference: 'dcache_awsize'
+  810 |             .dcache_awsize   (),
+      |              ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:811:14: Instance pin connected by name with empty reference: 'dcache_awburst'
+  811 |             .dcache_awburst  (),
+      |              ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:812:14: Instance pin connected by name with empty reference: 'dcache_awlock'
+  812 |             .dcache_awlock   (),
+      |              ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:813:14: Instance pin connected by name with empty reference: 'dcache_awcache'
+  813 |             .dcache_awcache  (),
+      |              ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:815:14: Instance pin connected by name with empty reference: 'dcache_awqos'
+  815 |             .dcache_awqos    (),
+      |              ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:816:14: Instance pin connected by name with empty reference: 'dcache_awregion'
+  816 |             .dcache_awregion (),
+      |              ^~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:820:14: Instance pin connected by name with empty reference: 'dcache_wlast'
+  820 |             .dcache_wlast    (),
+      |              ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:830:14: Instance pin connected by name with empty reference: 'dcache_arlen'
+  830 |             .dcache_arlen    (),
+      |              ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:831:14: Instance pin connected by name with empty reference: 'dcache_arsize'
+  831 |             .dcache_arsize   (),
+      |              ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:832:14: Instance pin connected by name with empty reference: 'dcache_arburst'
+  832 |             .dcache_arburst  (),
+      |              ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:833:14: Instance pin connected by name with empty reference: 'dcache_arlock'
+  833 |             .dcache_arlock   (),
+      |              ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:834:14: Instance pin connected by name with empty reference: 'dcache_arcache'
+  834 |             .dcache_arcache  (),
+      |              ^~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:836:14: Instance pin connected by name with empty reference: 'dcache_arqos'
+  836 |             .dcache_arqos    (),
+      |              ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_rv32i_core.sv:837:14: Instance pin connected by name with empty reference: 'dcache_arregion'
+  837 |             .dcache_arregion (),
+      |              ^~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_control.sv:402:14: Instance pin connected by name with empty reference: 'afull'
+  402 |             .afull    (),
+      |              ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_control.sv:406:14: Instance pin connected by name with empty reference: 'aempty'
+  406 |             .aempty   ()
+      |              ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_control.sv:1275:10: Instance pin connected by name with empty reference: 'full'
+ 1275 |         .full     (),
+      |          ^~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_control.sv:1276:10: Instance pin connected by name with empty reference: 'afull'
+ 1276 |         .afull    (),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_control.sv:1280:10: Instance pin connected by name with empty reference: 'aempty'
+ 1280 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_memfy.sv:441:10: Instance pin connected by name with empty reference: 'afull'
+  441 |         .afull    (),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_memfy.sv:445:10: Instance pin connected by name with empty reference: 'aempty'
+  445 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_dcache.sv:590:10: Instance pin connected by name with empty reference: 'cpl2_ready'
+  590 |         .cpl2_ready         (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_dcache.sv:599:10: Instance pin connected by name with empty reference: 'slv_data'
+  599 |         .slv_data           ()
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_dcache.sv:635:10: Instance pin connected by name with empty reference: 'p2_rdata'
+  635 |         .p2_rdata   (),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_dcache.sv:655:10: Instance pin connected by name with empty reference: 'flush_ack'
+  655 |         .flush_ack    (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:254:10: Instance pin connected by name with empty reference: 'p2_rdata'
+  254 |         .p2_rdata   (),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:255:10: Instance pin connected by name with empty reference: 'p2_hit'
+  255 |         .p2_hit     (),
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:256:10: Instance pin connected by name with empty reference: 'p2_miss'
+  256 |         .p2_miss    ()
+      |          ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:320:10: Instance pin connected by name with empty reference: 'mst_rdata'
+  320 |         .mst_rdata      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:323:10: Instance pin connected by name with empty reference: 'mst_awready'
+  323 |         .mst_awready    (),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:329:10: Instance pin connected by name with empty reference: 'mst_wready'
+  329 |         .mst_wready     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:332:10: Instance pin connected by name with empty reference: 'mst_bvalid'
+  332 |         .mst_bvalid     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:334:10: Instance pin connected by name with empty reference: 'mst_bid'
+  334 |         .mst_bid        (),
+      |          ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:335:10: Instance pin connected by name with empty reference: 'mst_bresp'
+  335 |         .mst_bresp      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:337:10: Instance pin connected by name with empty reference: 'mem_awvalid'
+  337 |         .mem_awvalid    (),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:339:10: Instance pin connected by name with empty reference: 'mem_awaddr'
+  339 |         .mem_awaddr     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:340:10: Instance pin connected by name with empty reference: 'mem_awlen'
+  340 |         .mem_awlen      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:341:10: Instance pin connected by name with empty reference: 'mem_awsize'
+  341 |         .mem_awsize     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:342:10: Instance pin connected by name with empty reference: 'mem_awburst'
+  342 |         .mem_awburst    (),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:343:10: Instance pin connected by name with empty reference: 'mem_awlock'
+  343 |         .mem_awlock     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:344:10: Instance pin connected by name with empty reference: 'mem_awcache'
+  344 |         .mem_awcache    (),
+      |          ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:345:10: Instance pin connected by name with empty reference: 'mem_awprot'
+  345 |         .mem_awprot     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:346:10: Instance pin connected by name with empty reference: 'mem_awqos'
+  346 |         .mem_awqos      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:347:10: Instance pin connected by name with empty reference: 'mem_awregion'
+  347 |         .mem_awregion   (),
+      |          ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:348:10: Instance pin connected by name with empty reference: 'mem_awid'
+  348 |         .mem_awid       (),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:349:10: Instance pin connected by name with empty reference: 'mem_wvalid'
+  349 |         .mem_wvalid     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:351:10: Instance pin connected by name with empty reference: 'mem_wlast'
+  351 |         .mem_wlast      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:352:10: Instance pin connected by name with empty reference: 'mem_wdata'
+  352 |         .mem_wdata      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:353:10: Instance pin connected by name with empty reference: 'mem_wstrb'
+  353 |         .mem_wstrb      (),
+      |          ^~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_icache.sv:355:10: Instance pin connected by name with empty reference: 'mem_bready'
+  355 |         .mem_bready     (),
+      |          ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:157:10: Instance pin connected by name with empty reference: 'afull'
+  157 |         .afull    (),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:161:10: Instance pin connected by name with empty reference: 'aempty'
+  161 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:236:10: Instance pin connected by name with empty reference: 'aempty'
+  236 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_io_fetcher.sv:96:10: Instance pin connected by name with empty reference: 'afull'
+   96 |         .afull    (),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_io_fetcher.sv:100:10: Instance pin connected by name with empty reference: 'aempty'
+  100 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_pusher.sv:219:10: Instance pin connected by name with empty reference: 'aempty'
+  219 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_pusher.sv:244:10: Instance pin connected by name with empty reference: 'aempty'
+  244 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_pusher.sv:279:10: Instance pin connected by name with empty reference: 'afull'
+  279 |         .afull    (),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_pusher.sv:283:10: Instance pin connected by name with empty reference: 'aempty'
+  283 |         .aempty   ()
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_memctrl.sv:242:14: Instance pin connected by name with empty reference: 'afull'
+  242 |             .afull    (),
+      |              ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_memctrl.sv:246:14: Instance pin connected by name with empty reference: 'aempty'
+  246 |             .aempty   ()
+      |              ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_cache_memctrl.sv:373:14: Instance pin connected by name with empty reference: 'afull'
+  373 |             .afull    (),
+      |              ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_uart.sv:281:10: Instance pin connected by name with empty reference: 'afull'
+  281 |         .afull    (         ),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_uart.sv:285:10: Instance pin connected by name with empty reference: 'aempty'
+  285 |         .aempty   (         )
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_uart.sv:466:10: Instance pin connected by name with empty reference: 'afull'
+  466 |         .afull    (         ),
+      |          ^~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_uart.sv:470:10: Instance pin connected by name with empty reference: 'aempty'
+  470 |         .aempty   (         )
+      |          ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/rtl/friscv_m_ext.sv:192:10: Instance pin connected by name with empty reference: 'zero_div'
+  192 |         .zero_div        (),
+      |          ^~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:338:6: Instance pin connected by name with empty reference: 'awfull'
+  338 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:344:6: Instance pin connected by name with empty reference: 'arempty'
+  344 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:370:6: Instance pin connected by name with empty reference: 'awfull'
+  370 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:376:6: Instance pin connected by name with empty reference: 'arempty'
+  376 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:402:6: Instance pin connected by name with empty reference: 'awfull'
+  402 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:408:6: Instance pin connected by name with empty reference: 'arempty'
+  408 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:434:6: Instance pin connected by name with empty reference: 'awfull'
+  434 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:440:6: Instance pin connected by name with empty reference: 'arempty'
+  440 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:466:6: Instance pin connected by name with empty reference: 'awfull'
+  466 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:472:6: Instance pin connected by name with empty reference: 'arempty'
+  472 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:204:6: Instance pin connected by name with empty reference: 'awfull'
+  204 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:210:6: Instance pin connected by name with empty reference: 'arempty'
+  210 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:236:6: Instance pin connected by name with empty reference: 'awfull'
+  236 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:242:6: Instance pin connected by name with empty reference: 'arempty'
+  242 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:268:6: Instance pin connected by name with empty reference: 'awfull'
+  268 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:274:6: Instance pin connected by name with empty reference: 'arempty'
+  274 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:300:6: Instance pin connected by name with empty reference: 'awfull'
+  300 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:306:6: Instance pin connected by name with empty reference: 'arempty'
+  306 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:332:6: Instance pin connected by name with empty reference: 'awfull'
+  332 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:338:6: Instance pin connected by name with empty reference: 'arempty'
+  338 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:620:6: Instance pin connected by name with empty reference: 'slv0_rlast'
+  620 |     .slv0_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:667:6: Instance pin connected by name with empty reference: 'slv1_rlast'
+  667 |     .slv1_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:714:6: Instance pin connected by name with empty reference: 'slv2_rlast'
+  714 |     .slv2_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:761:6: Instance pin connected by name with empty reference: 'slv3_rlast'
+  761 |     .slv3_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:769:6: Instance pin connected by name with empty reference: 'mst0_awlen'
+  769 |     .mst0_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:770:6: Instance pin connected by name with empty reference: 'mst0_awsize'
+  770 |     .mst0_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:771:6: Instance pin connected by name with empty reference: 'mst0_awburst'
+  771 |     .mst0_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:772:6: Instance pin connected by name with empty reference: 'mst0_awlock'
+  772 |     .mst0_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:773:6: Instance pin connected by name with empty reference: 'mst0_awcache'
+  773 |     .mst0_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:775:6: Instance pin connected by name with empty reference: 'mst0_awqos'
+  775 |     .mst0_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:776:6: Instance pin connected by name with empty reference: 'mst0_awregion'
+  776 |     .mst0_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:781:6: Instance pin connected by name with empty reference: 'mst0_wlast'
+  781 |     .mst0_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:793:6: Instance pin connected by name with empty reference: 'mst0_arlen'
+  793 |     .mst0_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:794:6: Instance pin connected by name with empty reference: 'mst0_arsize'
+  794 |     .mst0_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:795:6: Instance pin connected by name with empty reference: 'mst0_arburst'
+  795 |     .mst0_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:796:6: Instance pin connected by name with empty reference: 'mst0_arlock'
+  796 |     .mst0_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:797:6: Instance pin connected by name with empty reference: 'mst0_arcache'
+  797 |     .mst0_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:799:6: Instance pin connected by name with empty reference: 'mst0_arqos'
+  799 |     .mst0_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:800:6: Instance pin connected by name with empty reference: 'mst0_arregion'
+  800 |     .mst0_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:816:6: Instance pin connected by name with empty reference: 'mst1_awlen'
+  816 |     .mst1_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:817:6: Instance pin connected by name with empty reference: 'mst1_awsize'
+  817 |     .mst1_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:818:6: Instance pin connected by name with empty reference: 'mst1_awburst'
+  818 |     .mst1_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:819:6: Instance pin connected by name with empty reference: 'mst1_awlock'
+  819 |     .mst1_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:820:6: Instance pin connected by name with empty reference: 'mst1_awcache'
+  820 |     .mst1_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:822:6: Instance pin connected by name with empty reference: 'mst1_awqos'
+  822 |     .mst1_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:823:6: Instance pin connected by name with empty reference: 'mst1_awregion'
+  823 |     .mst1_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:828:6: Instance pin connected by name with empty reference: 'mst1_wlast'
+  828 |     .mst1_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:840:6: Instance pin connected by name with empty reference: 'mst1_arlen'
+  840 |     .mst1_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:841:6: Instance pin connected by name with empty reference: 'mst1_arsize'
+  841 |     .mst1_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:842:6: Instance pin connected by name with empty reference: 'mst1_arburst'
+  842 |     .mst1_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:843:6: Instance pin connected by name with empty reference: 'mst1_arlock'
+  843 |     .mst1_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:844:6: Instance pin connected by name with empty reference: 'mst1_arcache'
+  844 |     .mst1_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:846:6: Instance pin connected by name with empty reference: 'mst1_arqos'
+  846 |     .mst1_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:847:6: Instance pin connected by name with empty reference: 'mst1_arregion'
+  847 |     .mst1_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:863:6: Instance pin connected by name with empty reference: 'mst2_awlen'
+  863 |     .mst2_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:864:6: Instance pin connected by name with empty reference: 'mst2_awsize'
+  864 |     .mst2_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:865:6: Instance pin connected by name with empty reference: 'mst2_awburst'
+  865 |     .mst2_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:866:6: Instance pin connected by name with empty reference: 'mst2_awlock'
+  866 |     .mst2_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:867:6: Instance pin connected by name with empty reference: 'mst2_awcache'
+  867 |     .mst2_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:869:6: Instance pin connected by name with empty reference: 'mst2_awqos'
+  869 |     .mst2_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:870:6: Instance pin connected by name with empty reference: 'mst2_awregion'
+  870 |     .mst2_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:875:6: Instance pin connected by name with empty reference: 'mst2_wlast'
+  875 |     .mst2_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:887:6: Instance pin connected by name with empty reference: 'mst2_arlen'
+  887 |     .mst2_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:888:6: Instance pin connected by name with empty reference: 'mst2_arsize'
+  888 |     .mst2_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:889:6: Instance pin connected by name with empty reference: 'mst2_arburst'
+  889 |     .mst2_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:890:6: Instance pin connected by name with empty reference: 'mst2_arlock'
+  890 |     .mst2_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:891:6: Instance pin connected by name with empty reference: 'mst2_arcache'
+  891 |     .mst2_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:893:6: Instance pin connected by name with empty reference: 'mst2_arqos'
+  893 |     .mst2_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:894:6: Instance pin connected by name with empty reference: 'mst2_arregion'
+  894 |     .mst2_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:910:6: Instance pin connected by name with empty reference: 'mst3_awlen'
+  910 |     .mst3_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:911:6: Instance pin connected by name with empty reference: 'mst3_awsize'
+  911 |     .mst3_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:912:6: Instance pin connected by name with empty reference: 'mst3_awburst'
+  912 |     .mst3_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:913:6: Instance pin connected by name with empty reference: 'mst3_awlock'
+  913 |     .mst3_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:914:6: Instance pin connected by name with empty reference: 'mst3_awcache'
+  914 |     .mst3_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:916:6: Instance pin connected by name with empty reference: 'mst3_awqos'
+  916 |     .mst3_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:917:6: Instance pin connected by name with empty reference: 'mst3_awregion'
+  917 |     .mst3_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:922:6: Instance pin connected by name with empty reference: 'mst3_wlast'
+  922 |     .mst3_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:934:6: Instance pin connected by name with empty reference: 'mst3_arlen'
+  934 |     .mst3_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:935:6: Instance pin connected by name with empty reference: 'mst3_arsize'
+  935 |     .mst3_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:936:6: Instance pin connected by name with empty reference: 'mst3_arburst'
+  936 |     .mst3_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:937:6: Instance pin connected by name with empty reference: 'mst3_arlock'
+  937 |     .mst3_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:938:6: Instance pin connected by name with empty reference: 'mst3_arcache'
+  938 |     .mst3_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:940:6: Instance pin connected by name with empty reference: 'mst3_arqos'
+  940 |     .mst3_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:941:6: Instance pin connected by name with empty reference: 'mst3_arregion'
+  941 |     .mst3_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: rtl/soc/p2_soc_top.sv:85:31: Instance pin connected by name with empty reference: 'dbg_regs'
+   85 |         .status(cpu_status), .dbg_regs(),
+      |                               ^~~~~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_bus_perf.sv:29:5: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                   : ... Suggest assign a label with 'begin : gen_<label_name>'
+   29 |     for (genvar i=0;i<NB_BUS;i++) begin
+      |     ^~~
+                     ... For warning description see https://verilator.org/warn/GENUNNAMED?v=5.050
+                     ... Use "/* verilator lint_off GENUNNAMED */" and lint_on around source to disable this message.
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_memfy.sv:473:5: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                 : ... Suggest assign a label with 'begin : gen_<label_name>'
+  473 |     for (genvar i=1;i<NB_INT_REG;i++) begin
+      |     ^~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_memfy.sv:494:5: Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)
+                                                                 : ... Suggest assign a label with 'begin : gen_<label_name>'
+  494 |     for (genvar i=0;i<NB_INT_REG;i++) begin
+      |     ^~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:215:44: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                                : ... Suggest assign a label with 'begin : gen_<label_name>'
+  215 |     generate if (NO_CPL_BACKPRESSURE == 0) begin
+      |                                            ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:245:14: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                                : ... Suggest assign a label with 'begin : gen_<label_name>'
+  245 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:157:5: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                         : ... Suggest assign a label with 'begin : gen_<label_name>'
+  157 |     for (genvar i=0; i<NB_TAG; i=i+1) begin
+      |     ^~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:277:23: Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  277 |     if (FAST_FWD_CPL) begin
+      |                       ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:284:26: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  284 |         if (CPL_PAYLOAD) begin
+      |                          ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:287:18: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  287 |         end else begin
+      |                  ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:312:14: Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  312 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:316:26: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  316 |         if (CPL_PAYLOAD) begin
+      |                          ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:319:18: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  319 |         end else begin
+      |                  ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:328:23: Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  328 |     if (AXI_ID_FIXED) begin
+      |                       ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:330:14: Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  330 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_memctrl.sv:252:14: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  252 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_cache_memctrl.sv:408:14: Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)
+                                                                          : ... Suggest assign a label with 'begin : gen_<label_name>'
+  408 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_m_ext.sv:116:5: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                 : ... Suggest assign a label with 'begin : gen_<label_name>'
+  116 |     for (genvar i=0;i<NB_INT_REG;i++) begin
+      |     ^~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_rambe.sv:44:29: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                 : ... Suggest assign a label with 'begin : gen_<label_name>'
+   44 |     generate if (FFD_EN==1) begin
+      |                             ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_rambe.sv:48:14: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                 : ... Suggest assign a label with 'begin : gen_<label_name>'
+   48 |     end else begin
+      |              ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_ram.sv:39:29: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                               : ... Suggest assign a label with 'begin : gen_<label_name>'
+   39 |     generate if (FFD_EN==1) begin
+      |                             ^~~~~
+%Warning-GENUNNAMED: third_party/friscv/rtl/friscv_ram.sv:43:14: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                               : ... Suggest assign a label with 'begin : gen_<label_name>'
+   43 |     end else begin
+      |              ^~~~~
+%Warning-VARHIDDEN: third_party/friscv/rtl/friscv_registers.sv:242:26: Declaration of signal hides declaration in upper scope: 'i'
+  242 |                 for (int i=0;i<NB_ALU_UNIT;i=i+1) begin: PROCESING_ARESETN_REG_IFS
+      |                          ^
+                    third_party/friscv/rtl/friscv_registers.sv:141:12: ... Location of original declaration
+  141 |     genvar i;
+      |            ^
+                    ... For warning description see https://verilator.org/warn/VARHIDDEN?v=5.050
+                    ... Use "/* verilator lint_off VARHIDDEN */" and lint_on around source to disable this message.
+%Warning-VARHIDDEN: third_party/friscv/rtl/friscv_registers.sv:250:26: Declaration of signal hides declaration in upper scope: 'i'
+  250 |                 for (int i=0;i<NB_ALU_UNIT;i=i+1) begin: PROCESING_SRST_REG_IFS
+      |                          ^
+                    third_party/friscv/rtl/friscv_registers.sv:141:12: ... Location of original declaration
+  141 |     genvar i;
+      |            ^
+%Warning-VARHIDDEN: third_party/friscv/rtl/friscv_registers.sv:258:26: Declaration of signal hides declaration in upper scope: 'i'
+  258 |                 for (int i=0;i<NB_ALU_UNIT;i=i+1) begin: PROCESING_SYNC_REG_IFS
+      |                          ^
+                    third_party/friscv/rtl/friscv_registers.sv:141:12: ... Location of original declaration
+  141 |     genvar i;
+      |            ^
+%Warning-VARHIDDEN: third_party/friscv/rtl/friscv_scfifo.sv:62:28: Declaration of signal hides declaration in upper scope: 'data_fifo'
+   62 |     logic [DATA_WIDTH-1:0] data_fifo;
+      |                            ^~~~~~~~~
+                    third_party/friscv/rtl/friscv_cache_pusher.sv:231:5: ... Location of original declaration
+  231 |     data_fifo
+      |     ^~~~~~~~~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_div.sv:111:29: Operator EQ expects 32 or 6 bits on the LHS, but LHS's VARREF 'step_cnt' generates 5 bits.
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext.div32'
+  111 |                 if (step_cnt==(WIDTH-1)) begin
+      |                             ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.050
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_memctrl.sv:349:22: Operator EQ expects 32 bits on the RHS, but RHS's VARREF 'wr_strb_pos' generates 2 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.mem_ctrl'
+  349 |                 if (i==wr_strb_pos) begin: WSTRB_ON
+      |                      ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:155:34: Operator OR expects 8 bits on the LHS, but LHS's VARREF 'req_tag_pt' generates 3 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.wr_ooo_mgt'
+  155 |     assign next_tag = req_tag_pt | AXI_ID_MASK;
+      |                                  ^
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:213:32: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.wr_ooo_mgt'
+  213 |                     cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
+      |                                ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.050
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:218:32: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.wr_ooo_mgt'
+  218 |                     cpl_ram[i] <= {2'b0, {XLEN{1'b0}}};
+      |                                ^~
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:224:36: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.wr_ooo_mgt'
+  224 |                         cpl_ram[i] <= {cpl2_resp, cpl2_data};
+      |                                    ^~
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:229:36: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 34 bits.
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.wr_ooo_mgt'
+  229 |                         cpl_ram[i] <= {cpl1_resp, cpl1_data};
+      |                                    ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:215:32: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's CONST '2'h0' generates 2 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  215 |                     cpl_ram[i] <= 2'b0;
+      |                                ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:220:32: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's CONST '2'h0' generates 2 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  220 |                     cpl_ram[i] <= 2'b0;
+      |                                ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:226:36: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's VARREF 'cpl2_resp' generates 2 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  226 |                         cpl_ram[i] <= cpl2_resp;
+      |                                    ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:231:36: Operator ASSIGNDLY expects 34 bits on the Assign RHS, but Assign RHS's VARREF 'cpl1_resp' generates 2 bits.
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  231 |                         cpl_ram[i] <= cpl1_resp;
+      |                                    ^~
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_m_ext.sv:132:37: Operator COND expects 64 bits on the Conditional True, but Conditional True's SEL generates 32 bits.
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  132 |     assign mul32 = (funct3==3'b000) ? mul[0 +:32] :
+      |                                     ^
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_m_ext.sv:132:37: Operator COND expects 64 bits on the Conditional False, but Conditional False's SEL generates 32 bits.
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  132 |     assign mul32 = (funct3==3'b000) ? mul[0 +:32] :
+      |                                     ^
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_m_ext.sv:138:17: Operator ASSIGNW expects 31 bits on the Assign RHS, but Assign RHS's REPLICATE generates 32 bits.
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  138 |     assign remu = {XLEN{1'b0}};
+      |                 ^
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_m_ext.sv:151:22: Operator ASSIGNW expects 64 bits on the Assign RHS, but Assign RHS's REPLICATE generates 32 bits.
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  151 |         assign mul64 = {XLEN{1'b0}};
+      |                      ^
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_m_ext.sv:247:83: Operator COND expects 64 bits on the Conditional True, but Conditional True's VARREF 'quot' generates 32 bits.
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  247 |                 m_rd_val <= (rd_wr_div && (funct3_r==3'b100 || funct3_r==3'b101)) ? quot :
+      |                                                                                   ^
+%Warning-WIDTHEXPAND: third_party/friscv/rtl/friscv_m_ext.sv:248:83: Operator COND expects 64 bits on the Conditional True, but Conditional True's VARREF 'rem' generates 32 bits.
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  248 |                             (rd_wr_div && (funct3_r==3'b110 || funct3_r==3'b111)) ? rem :
+      |                                                                                   ^
+%Warning-WIDTHTRUNC: third_party/friscv/rtl/friscv_m_ext.sv:247:26: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's COND generates 64 bits.
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+  247 |                 m_rd_val <= (rd_wr_div && (funct3_r==3'b100 || funct3_r==3'b101)) ? quot :
+      |                          ^~
+%Warning-BLKSEQ: tb/soc_system_test.sv:82:26: Blocking assignment '=' in sequential logic process
+                                            : ... note: In instance 'soc_system_test'
+                                            : ... Suggest using delayed assignment '<='
+   82 |             uart_capture = {uart_capture, ch};
+      |                          ^
+                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.050
+                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: tb/soc_system_test.sv:84:67: Blocking assignment '=' in sequential logic process
+                                            : ... note: In instance 'soc_system_test'
+                                            : ... Suggest using delayed assignment '<='
+   84 |             if (uart_capture == "P2_DMA_PASS\n") uart_marker_seen = 1;
+      |                                                                   ^
+%Warning-PROCASSINIT: tb/soc_system_test.sv:13:17: Procedural assignment to declaration with initial value: 'clk'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   13 |     logic clk = 1'b0;
+      |                 ^~~~
+                      tb/soc_system_test.sv:14:15: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   14 |     always #5 clk = ~clk;
+      |               ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.050
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Warning-PROCASSINIT: tb/soc_system_test.sv:16:17: Procedural assignment to declaration with initial value: 'rtc'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   16 |     logic rtc = 1'b0;
+      |                 ^~~~
+                      tb/soc_system_test.sv:17:17: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   17 |     always #500 rtc = ~rtc;
+      |                 ^~~
+%Warning-UNUSEDSIGNAL: tb/soc_system_test.sv:18:25: Signal is not used: 'uart_rts'
+                                                  : ... note: In instance 'soc_system_test'
+   18 |     wire logic uart_tx, uart_rts, dma_irq, timer_irq;
+      |                         ^~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.050
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: tb/soc_system_test.sv:18:35: Signal is not used: 'dma_irq'
+                                                  : ... note: In instance 'soc_system_test'
+   18 |     wire logic uart_tx, uart_rts, dma_irq, timer_irq;
+      |                                   ^~~~~~~
+%Warning-UNUSEDSIGNAL: tb/soc_system_test.sv:18:44: Signal is not used: 'timer_irq'
+                                                  : ... note: In instance 'soc_system_test'
+   18 |     wire logic uart_tx, uart_rts, dma_irq, timer_irq;
+      |                                            ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: tb/soc_system_test.sv:19:23: Signal is not used: 'gpio_out'
+                                                  : ... note: In instance 'soc_system_test'
+   19 |     wire logic [31:0] gpio_out;
+      |                       ^~~~~~~~
+%Warning-UNUSEDSIGNAL: tb/soc_system_test.sv:20:22: Signal is not used: 'cpu_status'
+                                                  : ... note: In instance 'soc_system_test'
+   20 |     wire logic [7:0] cpu_status;
+      |                      ^~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:35:21: Procedural assignment to declaration with initial value: 'dma_reads'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   35 |     int dma_reads = 0;
+      |                     ^
+                      tb/soc_system_test.sv:48:44: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   48 |                 if (ram_bus.arid == 8'h20) dma_reads <= dma_reads + 1;
+      |                                            ^~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:36:22: Procedural assignment to declaration with initial value: 'dma_writes'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   36 |     int dma_writes = 0;
+      |                      ^
+                      tb/soc_system_test.sv:57:44: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   57 |                 if (ram_bus.awid == 8'h20) dma_writes <= dma_writes + 1;
+      |                                            ^~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:37:35: Procedural assignment to declaration with initial value: 'cpu_dst_reads_after_dma'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   37 |     int cpu_dst_reads_after_dma = 0;
+      |                                   ^
+                      tb/soc_system_test.sv:54:21: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   54 |                     cpu_dst_reads_after_dma <= cpu_dst_reads_after_dma + 1;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:38:26: Procedural assignment to declaration with initial value: 'cpu_src_writes'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   38 |     int cpu_src_writes = 0;
+      |                          ^
+                      tb/soc_system_test.sv:60:21: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   60 |                     cpu_src_writes <= cpu_src_writes + 1;
+      |                     ^~~~~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:39:36: Procedural assignment to declaration with initial value: 'cpu_ram_reads_during_dma'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   39 |     int cpu_ram_reads_during_dma = 0;
+      |                                    ^
+                      tb/soc_system_test.sv:50:21: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   50 |                     cpu_ram_reads_during_dma <= cpu_ram_reads_during_dma + 1;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:40:23: Procedural assignment to declaration with initial value: 'timer_reads'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   40 |     int timer_reads = 0;
+      |                       ^
+                      tb/soc_system_test.sv:65:17: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   65 |                 timer_reads <= timer_reads + 1;
+      |                 ^~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:41:24: Procedural assignment to declaration with initial value: 'timer_writes'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   41 |     int timer_writes = 0;
+      |                        ^
+                      tb/soc_system_test.sv:63:17: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   63 |                 timer_writes <= timer_writes + 1;
+      |                 ^~~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:42:27: Procedural assignment to declaration with initial value: 'uart_capture'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   42 |     string uart_capture = "";
+      |                           ^~
+                      tb/soc_system_test.sv:82:13: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   82 |             uart_capture = {uart_capture, ch};
+      |             ^~~~~~~~~~~~
+%Warning-PROCASSINIT: tb/soc_system_test.sv:43:28: Procedural assignment to declaration with initial value: 'uart_marker_seen'
+                                                 : ... note: In instance 'soc_system_test'
+                                                 : ... Location of variable initialization
+   43 |     bit uart_marker_seen = 0;
+      |                            ^
+                      tb/soc_system_test.sv:84:50: ... Location of variable process write
+                                                 : ... Perhaps should initialize instead using a reset in this process
+   84 |             if (uart_capture == "P2_DMA_PASS\n") uart_marker_seen = 1;
+      |                                                  ^~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_soc_upstream_overlay/rtl/friscv_io_subsystem.sv:41:43: Signal is not used: 'slv_awprot'
+                                                                                     : ... note: In instance 'soc_system_test.dut.upstream_io'
+   41 |         input  wire  [3             -1:0] slv_awprot,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_soc_upstream_overlay/rtl/friscv_io_subsystem.sv:54:43: Signal is not used: 'slv_arprot'
+                                                                                     : ... note: In instance 'soc_system_test.dut.upstream_io'
+   54 |         input  wire  [3             -1:0] slv_arprot,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_control.sv:23:19: Parameter is not used: 'RV32E'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.control'
+   23 |         parameter RV32E = 0,
+      |                   ^~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.050
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_control.sv:25:19: Parameter is not used: 'HYPERVISOR_MODE'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.control'
+   25 |         parameter HYPERVISOR_MODE = 0,
+      |                   ^~~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_control.sv:27:19: Parameter is not used: 'SUPERVISOR_MODE'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.control'
+   27 |         parameter SUPERVISOR_MODE = 0,
+      |                   ^~~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_control.sv:31:19: Parameter is not used: 'MPU_SUPPORT'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.control'
+   31 |         parameter MPU_SUPPORT = 0,
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:71:43: Signal is not used: 'rresp'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.control'
+   71 |         input  wire  [2             -1:0] rresp,
+      |                                           ^~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:77:43: Signal is not used: 'proc_fenceinfo'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.control'
+   77 |         input  wire  [4             -1:0] proc_fenceinfo,
+      |                                           ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:78:64: Bits of signal are not used: 'proc_exceptions'[63:0]
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.control'
+   78 |         input  wire  [0 + 32 + 32 + 32 + 1 + 1 + 1 + 1   -1:0] proc_exceptions,
+      |                                                                ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:96:43: Bits of signal are not used: 'mpu_allow'[1:0]
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.control'
+   96 |         input  wire  [4             -1:0] mpu_allow,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:98:184: Bits of signal are not used: 'csr_sb'[767:737,639:0]
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+   98 |         input  wire  [0 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 1 + 1 + 1 + 1 + 1 + 1     -1:0] csr_sb,
+      |                                                                                                                                                                                        ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:123:24: Signal is not used: 'pred'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  123 |     logic [4     -1:0] pred;
+      |                        ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:124:24: Signal is not used: 'succ'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  124 |     logic [4     -1:0] succ;
+      |                        ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:156:29: Bits of signal are not used: 'pc_jalr'[0]
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  156 |     logic signed [XLEN-1:0] pc_jalr;
+      |                             ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:179:29: Signal is not driven, nor used: 'regs_rsvd'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  179 |     logic                   regs_rsvd;
+      |                             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:184:29: Signal is not used: 'fifo_full'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  184 |     logic                   fifo_full;
+      |                             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:186:29: Signal is not used: 'fifo_empty'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  186 |     logic                   fifo_empty;
+      |                             ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:192:29: Bits of signal are not used: 'sb_mstatus'[16:15,12:11,8,6,4,2,0]
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  192 |     logic [XLEN       -1:0] sb_mstatus;
+      |                             ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:193:29: Signal is not used: 'sb_mcounteren'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  193 |     logic [XLEN       -1:0] sb_mcounteren;
+      |                             ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_control.sv:223:29: Signal is not used: 'wfi_tw'
+                                                                      : ... note: In instance 'soc_system_test.dut.cpu.control'
+  223 |     logic                   wfi_tw;
+      |                             ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_icache.sv:128:36: Signal is not used: 'memctrl_rresp'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache'
+  128 |     logic [2                 -1:0] memctrl_rresp;
+      |                                    ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_icache.sv:132:35: Signal is not driven, nor used: 'flush_ack_fetcher'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache'
+  132 |     logic                         flush_ack_fetcher;
+      |                                   ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_icache.sv:133:35: Signal is not driven, nor used: 'flush_ack_memctrl'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache'
+  133 |     logic                         flush_ack_memctrl;
+      |                                   ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:39:19: Parameter is not used: 'MAX_PMP_REGION'
+                                                                : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+   39 |         parameter MAX_PMP_REGION = 16,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:62:19: Parameter is not used: 'MMU_SUPPORT'
+                                                                : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+   62 |         parameter MMU_SUPPORT = 0
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:73:40: Signal is not used: 'priv'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+   73 |         input  wire  [4          -1:0] priv,
+      |                                        ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:77:43: Bits of signal are not used: 'instbus'[154:81,68:37,26:22,16:10]
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+   77 |                    32 + 32 + 2*2 + 1-1:0] instbus,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_csr.sv:87:181: Bits of signal are not driven: 'csr_sb'[767:737]
+                                                              : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+   87 |         output logic [0 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 1 + 1 + 1 + 1 + 1 + 1  -1:0] csr_sb,
+      |                                                                                                                                                                                     ^~~~~~
+                   ... For warning description see https://verilator.org/warn/UNDRIVEN?v=5.050
+                   ... Use "/* verilator lint_off UNDRIVEN */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:106:9: Signal is not driven, nor used: 'cfsm'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  106 |     fsm cfsm;
+      |         ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:109:22: Signal is not used: 'opcode'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  109 |     logic [7   -1:0] opcode;
+      |                      ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:117:30: Signal is not driven, nor used: 'csr_rden'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  117 |     logic                    csr_rden;
+      |                              ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:131:30: Bits of signal are not used: 'ctrl_mepc'[1:0]
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  131 |     logic  [XLEN       -1:0] ctrl_mepc;
+      |                              ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:148:32: Bits of function variable are not used: 'data'[31:23,16:15,10:9,6,4,2,0]
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  148 |         input logic [XLEN-1:0] data
+      |                                ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:238:16: Parameter is not used: 'MEDELEG'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  238 |     localparam MEDELEG      = 12'h302;
+      |                ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:239:16: Parameter is not used: 'MIDELEG'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  239 |     localparam MIDELEG      = 12'h303;
+      |                ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:276:16: Parameter is not used: 'SSTATUS'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  276 |     localparam SSTATUS      = 12'h100;
+      |                ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:277:16: Parameter is not used: 'SIE'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  277 |     localparam SIE          = 12'h104;
+      |                ^~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:278:16: Parameter is not used: 'STVEC'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  278 |     localparam STVEC        = 12'h105;
+      |                ^~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:279:16: Parameter is not used: 'SCOUNTEREN'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  279 |     localparam SCOUNTEREN   = 12'h100;
+      |                ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:281:16: Parameter is not used: 'SENVCFG'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  281 |     localparam SENVCFG      = 12'h10A;
+      |                ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:283:16: Parameter is not used: 'SSCRATCH'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  283 |     localparam SSCRATCH     = 12'h140;
+      |                ^~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:284:16: Parameter is not used: 'SEPC'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  284 |     localparam SEPC         = 12'h141;
+      |                ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:285:16: Parameter is not used: 'SCAUSE'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  285 |     localparam SCAUSE       = 12'h142;
+      |                ^~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:286:16: Parameter is not used: 'STVAL'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  286 |     localparam STVAL        = 12'h143;
+      |                ^~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:287:16: Parameter is not used: 'SIP'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  287 |     localparam SIP          = 12'h144;
+      |                ^~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:289:16: Parameter is not used: 'SATP'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  289 |     localparam SATP         = 12'h180;
+      |                ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_csr.sv:291:16: Parameter is not used: 'SCONTEXT'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  291 |     localparam SCONTEXT     = 12'h5A8;
+      |                ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:329:22: Signal is not driven, nor used: 'medeleg'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  329 |     logic [XLEN-1:0] medeleg;        
+      |                      ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_csr.sv:330:22: Signal is not driven, nor used: 'mideleg'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.csrs'
+  330 |     logic [XLEN-1:0] mideleg;        
+      |                      ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:28:44: Signal is not used: 'aclk'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   28 |         input  wire                        aclk,
+      |                                            ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:29:44: Signal is not used: 'aresetn'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   29 |         input  wire                        aresetn,
+      |                                            ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:30:44: Signal is not used: 'srst'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   30 |         input  wire                        srst,
+      |                                            ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:32:43: Signal is not used: 'imem_addr'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   32 |         input  wire  [AXI_ADDR_W    -1:0] imem_addr,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:35:43: Signal is not used: 'dmem_addr'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   35 |         input  wire  [AXI_ADDR_W    -1:0] dmem_addr,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:38:184: Bits of signal are not used: 'csr_sb'[805:128]
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   38 |         input  wire  [0 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 32 + 1 + 1 + 1 + 1 + 1 + 1     -1:0] csr_sb
+      |                                                                                                                                                                                        ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:74:31: Signal is not used: 'imem_pmp_matchs'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   74 |     logic [NB_PMP_REGION-1:0] imem_pmp_matchs;
+      |                               ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:75:31: Signal is not used: 'dmem_pmp_matchs'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   75 |     logic [NB_PMP_REGION-1:0] dmem_pmp_matchs;
+      |                               ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:76:31: Signal is not driven, nor used: 'pmp_active'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   76 |     logic [NB_PMP_REGION-1:0] pmp_active;
+      |                               ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:77:31: Signal is not driven, nor used: 'mpu_off'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   77 |     logic                     mpu_off;
+      |                               ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_mpu.sv:79:36: Signal is not driven: 'pmp_base'
+                                                             : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   79 |     logic [NB_PMP_REGION*RLEN-1:0] pmp_base;
+      |                                    ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_mpu.sv:80:36: Signal is not driven: 'pmp_mask'
+                                                             : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   80 |     logic [NB_PMP_REGION*RLEN-1:0] pmp_mask;
+      |                                    ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:82:11: Signal is not used: 'imem_match'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   82 |     logic imem_match;
+      |           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:83:11: Signal is not used: 'dmem_match'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   83 |     logic dmem_match;
+      |           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:85:13: Signal is not used: 'imem_match_i'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   85 |     integer imem_match_i;
+      |             ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:86:13: Signal is not used: 'dmem_match_i'
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+   86 |     integer dmem_match_i;
+      |             ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:214:24: Signal is not used: 'pmp_cfg0'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  214 |     logic [8    - 1:0] pmp_cfg0;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:215:24: Signal is not used: 'pmp_cfg1'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  215 |     logic [8    - 1:0] pmp_cfg1;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:216:24: Signal is not used: 'pmp_cfg2'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  216 |     logic [8    - 1:0] pmp_cfg2;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:217:24: Signal is not used: 'pmp_cfg3'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  217 |     logic [8    - 1:0] pmp_cfg3;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:218:24: Signal is not used: 'pmp_cfg4'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  218 |     logic [8    - 1:0] pmp_cfg4;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:219:24: Signal is not used: 'pmp_cfg5'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  219 |     logic [8    - 1:0] pmp_cfg5;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:220:24: Signal is not used: 'pmp_cfg6'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  220 |     logic [8    - 1:0] pmp_cfg6;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:221:24: Signal is not used: 'pmp_cfg7'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  221 |     logic [8    - 1:0] pmp_cfg7;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:222:24: Signal is not used: 'pmp_cfg8'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  222 |     logic [8    - 1:0] pmp_cfg8;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:223:24: Signal is not used: 'pmp_cfg9'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  223 |     logic [8    - 1:0] pmp_cfg9;
+      |                        ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:224:24: Signal is not used: 'pmp_cfg10'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  224 |     logic [8    - 1:0] pmp_cfg10;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:225:24: Signal is not used: 'pmp_cfg11'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  225 |     logic [8    - 1:0] pmp_cfg11;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:226:24: Signal is not used: 'pmp_cfg12'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  226 |     logic [8    - 1:0] pmp_cfg12;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:227:24: Signal is not used: 'pmp_cfg13'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  227 |     logic [8    - 1:0] pmp_cfg13;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:228:24: Signal is not used: 'pmp_cfg14'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  228 |     logic [8    - 1:0] pmp_cfg14;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:229:24: Signal is not used: 'pmp_cfg15'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  229 |     logic [8    - 1:0] pmp_cfg15;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:230:24: Signal is not used: 'pmp_base0'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  230 |     logic [RLEN - 1:0] pmp_base0;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:231:24: Signal is not used: 'pmp_base1'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  231 |     logic [RLEN - 1:0] pmp_base1;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:232:24: Signal is not used: 'pmp_base2'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  232 |     logic [RLEN - 1:0] pmp_base2;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:233:24: Signal is not used: 'pmp_base3'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  233 |     logic [RLEN - 1:0] pmp_base3;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:234:24: Signal is not used: 'pmp_base4'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  234 |     logic [RLEN - 1:0] pmp_base4;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:235:24: Signal is not used: 'pmp_base5'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  235 |     logic [RLEN - 1:0] pmp_base5;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:236:24: Signal is not used: 'pmp_base6'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  236 |     logic [RLEN - 1:0] pmp_base6;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:237:24: Signal is not used: 'pmp_base7'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  237 |     logic [RLEN - 1:0] pmp_base7;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:238:24: Signal is not used: 'pmp_base8'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  238 |     logic [RLEN - 1:0] pmp_base8;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:239:24: Signal is not used: 'pmp_base9'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  239 |     logic [RLEN - 1:0] pmp_base9;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:240:24: Signal is not used: 'pmp_base10'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  240 |     logic [RLEN - 1:0] pmp_base10;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:241:24: Signal is not used: 'pmp_base11'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  241 |     logic [RLEN - 1:0] pmp_base11;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:242:24: Signal is not used: 'pmp_base12'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  242 |     logic [RLEN - 1:0] pmp_base12;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:243:24: Signal is not used: 'pmp_base13'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  243 |     logic [RLEN - 1:0] pmp_base13;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:244:24: Signal is not used: 'pmp_base14'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  244 |     logic [RLEN - 1:0] pmp_base14;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:245:24: Signal is not used: 'pmp_base15'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  245 |     logic [RLEN - 1:0] pmp_base15;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:246:24: Signal is not used: 'pmp_mask0'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  246 |     logic [RLEN - 1:0] pmp_mask0;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:247:24: Signal is not used: 'pmp_mask1'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  247 |     logic [RLEN - 1:0] pmp_mask1;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:248:24: Signal is not used: 'pmp_mask2'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  248 |     logic [RLEN - 1:0] pmp_mask2;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:249:24: Signal is not used: 'pmp_mask3'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  249 |     logic [RLEN - 1:0] pmp_mask3;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:250:24: Signal is not used: 'pmp_mask4'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  250 |     logic [RLEN - 1:0] pmp_mask4;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:251:24: Signal is not used: 'pmp_mask5'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  251 |     logic [RLEN - 1:0] pmp_mask5;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:252:24: Signal is not used: 'pmp_mask6'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  252 |     logic [RLEN - 1:0] pmp_mask6;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:253:24: Signal is not used: 'pmp_mask7'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  253 |     logic [RLEN - 1:0] pmp_mask7;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:254:24: Signal is not used: 'pmp_mask8'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  254 |     logic [RLEN - 1:0] pmp_mask8;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:255:24: Signal is not used: 'pmp_mask9'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  255 |     logic [RLEN - 1:0] pmp_mask9;
+      |                        ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:256:24: Signal is not used: 'pmp_mask10'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  256 |     logic [RLEN - 1:0] pmp_mask10;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:257:24: Signal is not used: 'pmp_mask11'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  257 |     logic [RLEN - 1:0] pmp_mask11;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:258:24: Signal is not used: 'pmp_mask12'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  258 |     logic [RLEN - 1:0] pmp_mask12;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:259:24: Signal is not used: 'pmp_mask13'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  259 |     logic [RLEN - 1:0] pmp_mask13;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:260:24: Signal is not used: 'pmp_mask14'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  260 |     logic [RLEN - 1:0] pmp_mask14;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_mpu.sv:261:24: Signal is not used: 'pmp_mask15'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.mpu'
+  261 |     logic [RLEN - 1:0] pmp_mask15;
+      |                        ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_processing.sv:16:19: Parameter is not used: 'F_EXTENSION'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.processing'
+   16 |         parameter F_EXTENSION       = 0,
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_processing.sv:31:19: Parameter is not used: 'MAX_UNIT'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.processing'
+   31 |         parameter MAX_UNIT          = 4,
+      |                   ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_processing.sv:140:34: Signal is not used: 'memfy_pending_write'
+                                                                         : ... note: In instance 'soc_system_test.dut.cpu.processing'
+  140 |     logic                        memfy_pending_write;
+      |                                  ^~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_dcache.sv:163:36: Signal is not driven, nor used: 'pusher_cache_rdata'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache'
+  163 |     logic [ILEN              -1:0] pusher_cache_rdata;
+      |                                    ^~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_dcache.sv:245:36: Signal is not used: 'block_fill'
+                                                                     : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache'
+  245 |     logic                          block_fill;
+      |                                    ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_uart.sv:25:45: Bits of signal are not used: 'slv_wdata'[31:16]
+                                                                  : ... note: In instance 'soc_system_test.dut.upstream_io.uart'
+   25 |         input  wire  [XLEN            -1:0] slv_wdata,
+      |                                             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_uart.sv:26:45: Bits of signal are not used: 'slv_strb'[3:2]
+                                                                  : ... note: In instance 'soc_system_test.dut.upstream_io.uart'
+   26 |         input  wire  [XLEN/8          -1:0] slv_strb,
+      |                                             ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_alu.sv:21:46: Bits of signal are not used: 'alu_instbus'[154:86,80:49,36:32]
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.processing.alu'
+   21 |                    32 + 32 + 2*2 + 1   -1:0] alu_instbus,
+      |                                              ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_alu.sv:43:22: Bits of signal are not used: 'funct7'[6,4:0]
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.processing.alu'
+   43 |     logic [7   -1:0] funct7;
+      |                      ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:24:46: Bits of signal are not used: 'm_instbus'[154:32]
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   24 |                    32 + 32 + 2*2 + 1   -1:0] m_instbus,
+      |                                              ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:46:22: Signal is not used: 'opcode'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   46 |     logic [7   -1:0] opcode;
+      |                      ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:49:22: Signal is not used: 'funct7'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   49 |     logic [7   -1:0] funct7;
+      |                      ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:56:30: Signal is not driven, nor used: 'mulw'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   56 |     logic [2*XLEN      -1:0] mulw;
+      |                              ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:58:30: Signal is not used: 'mul64'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   58 |     logic [2*XLEN      -1:0] mul64;
+      |                              ^~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:63:30: Signal is not used: 'quotu'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   63 |     logic [XLEN        -1:0] quotu;
+      |                              ^~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_m_ext.sv:65:30: Signal is not used: 'remu'
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext'
+   65 |     logic [XLEN        -2:0] remu;
+      |                              ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:24:19: Parameter is not used: 'NAME'
+                                                                                : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.fetcher'
+   24 |         parameter NAME = "block-fetcher",
+      |                   ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:28:19: Parameter is not used: 'XLEN'
+                                                                                : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.fetcher'
+   28 |         parameter XLEN = 32,
+      |                   ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:82:16: Parameter is not used: 'ADDR_LSB_W'
+                                                                                : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.fetcher'
+   82 |     localparam ADDR_LSB_W = $clog2(AXI_DATA_W/8);
+      |                ^~~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:96:31: Signal is not driven: 'arprot_ffd'
+                                                                             : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.fetcher'
+   96 |     logic [3            -1:0] arprot_ffd;
+      |                               ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_prefetcher.sv:24:19: Parameter is not used: 'NAME'
+                                                                             : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   24 |         parameter NAME = "prefetcher",
+      |                   ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_prefetcher.sv:28:19: Parameter is not used: 'XLEN'
+                                                                             : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   28 |         parameter XLEN = 32,
+      |                   ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_prefetcher.sv:61:43: Signal is not used: 'mem_cpl_rid'
+                                                                              : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   61 |         input  wire  [AXI_ID_W      -1:0] mem_cpl_rid,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_prefetcher.sv:64:43: Signal is not used: 'cache_ren'
+                                                                              : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   64 |         input  wire                       cache_ren,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_prefetcher.sv:68:43: Signal is not used: 'cache_rdata'
+                                                                              : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   68 |         input  wire  [ILEN          -1:0] cache_rdata,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_prefetcher.sv:69:43: Signal is not used: 'cache_hit'
+                                                                              : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   69 |         input  wire                       cache_hit,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_prefetcher.sv:91:31: Bits of signal are not used: 'araddr_ffd'[3:0]
+                                                                              : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.prefetcher'
+   91 |     logic [AXI_ADDR_W   -1:0] araddr_ffd;
+      |                               ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_blocks.sv:24:19: Parameter is not used: 'NAME'
+                                                                         : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   24 |         parameter NAME = "blocks",
+      |                   ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:39:47: Bits of signal are not used: 'p1_waddr'[3:0]
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   39 |         input  wire  [ADDR_W            -1:0] p1_waddr,
+      |                                               ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:43:47: Bits of signal are not used: 'p1_raddr'[1:0]
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   43 |         input  wire  [ADDR_W            -1:0] p1_raddr,
+      |                                               ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:48:47: Bits of signal are not used: 'p2_waddr'[3:0]
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   48 |         input  wire  [ADDR_W            -1:0] p2_waddr,
+      |                                               ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:52:47: Bits of signal are not used: 'p2_raddr'[3:0]
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   52 |         input  wire  [ADDR_W            -1:0] p2_raddr,
+      |                                               ^~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_blocks.sv:76:16: Parameter is not used: 'NB_INST_PER_BLK'
+                                                                         : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   76 |     localparam NB_INST_PER_BLK = CACHE_BLOCK_W / WLEN;
+      |                ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:97:33: Signal is not driven, nor used: 'p1_wblock'
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+   97 |     logic [FULL_BLOCK_W   -1:0] p1_wblock;
+      |                                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:100:33: Signal is not driven, nor used: 'p2_wblock'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  100 |     logic [FULL_BLOCK_W   -1:0] p2_wblock;
+      |                                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:105:33: Signal is not driven, nor used: 'p1_rblock'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  105 |     logic [CACHE_BLOCK_W  -1:0] p1_rblock;
+      |                                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:106:33: Signal is not driven, nor used: 'p1_rset'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  106 |     logic                       p1_rset;
+      |                                 ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:110:33: Signal is not driven, nor used: 'p2_rblock'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  110 |     logic [CACHE_BLOCK_W  -1:0] p2_rblock;
+      |                                 ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:111:33: Signal is not driven, nor used: 'p2_rset'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  111 |     logic                       p2_rset;
+      |                                 ^~~~~~~
+%Warning-UNUSEDGENVAR: third_party/friscv/rtl/friscv_cache_blocks.sv:118:12: Genvar is not used: 'i'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  118 |     genvar i;
+      |            ^
+                       ... For warning description see https://verilator.org/warn/UNUSEDGENVAR?v=5.050
+                       ... Use "/* verilator lint_off UNUSEDGENVAR */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_blocks.sv:119:13: Signal is not driven, nor used: 'j'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  119 |     integer j;
+      |             ^
+%Warning-UNUSEDGENVAR: third_party/friscv/rtl/friscv_cache_blocks.sv:120:12: Genvar is not used: 'k'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.cache_blocks'
+  120 |     genvar k;
+      |            ^
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_flusher.sv:23:19: Parameter is not used: 'NAME'
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.flusher'
+   23 |         parameter NAME = "Cache-Flusher",
+      |                   ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:70:43: Bits of signal are not used: 'mst_arcache'[3:2,0]
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   70 |         input  wire  [4             -1:0] mst_arcache,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:82:43: Signal is not used: 'mst_awvalid'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   82 |         input  wire                       mst_awvalid,
+      |                                           ^~~~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_memctrl.sv:83:43: Signal is not driven: 'mst_awready'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   83 |         output logic                      mst_awready,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:84:43: Signal is not used: 'mst_awaddr'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   84 |         input  wire  [AXI_ADDR_W    -1:0] mst_awaddr,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:85:43: Signal is not used: 'mst_awprot'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   85 |         input  wire  [3             -1:0] mst_awprot,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:86:43: Signal is not used: 'mst_awcache'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   86 |         input  wire  [4             -1:0] mst_awcache,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:87:43: Signal is not used: 'mst_awid'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   87 |         input  wire  [AXI_ID_W      -1:0] mst_awid,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:88:43: Signal is not used: 'mst_wvalid'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   88 |         input  wire                       mst_wvalid,
+      |                                           ^~~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_memctrl.sv:89:43: Signal is not driven: 'mst_wready'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   89 |         output logic                      mst_wready,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:90:43: Signal is not used: 'mst_wdata'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   90 |         input  wire  [XLEN          -1:0] mst_wdata,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:91:43: Signal is not used: 'mst_wstrb'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   91 |         input  wire  [XLEN/8        -1:0] mst_wstrb,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_memctrl.sv:92:43: Signal is not driven: 'mst_bid'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   92 |         output logic [AXI_ID_W      -1:0] mst_bid,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_memctrl.sv:93:43: Signal is not driven: 'mst_bresp'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   93 |         output logic [2             -1:0] mst_bresp,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/rtl/friscv_cache_memctrl.sv:94:43: Signal is not driven: 'mst_bvalid'
+                                                                       : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   94 |         output logic                      mst_bvalid,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:95:43: Signal is not used: 'mst_bready'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   95 |         input  wire                       mst_bready,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:98:43: Signal is not used: 'mem_awready'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+   98 |         input  wire                       mem_awready,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:110:43: Signal is not used: 'mem_wready'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  110 |         input  wire                       mem_wready,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:114:43: Signal is not used: 'mem_bvalid'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  114 |         input  wire                       mem_bvalid,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:116:43: Signal is not used: 'mem_bid'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  116 |         input  wire  [AXI_ID_W      -1:0] mem_bid,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:117:43: Signal is not used: 'mem_bresp'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  117 |         input  wire  [2             -1:0] mem_bresp,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:136:43: Signal is not used: 'mem_rlast'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  136 |         input  wire                       mem_rlast
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_memctrl.sv:148:16: Parameter is not used: 'ADDR_LSB_W'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  148 |     localparam ADDR_LSB_W = $clog2(AXI_DATA_W/8);
+      |                ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:161:28: Signal is not used: 'wch_full'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  161 |     logic                  wch_full;
+      |                            ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:163:28: Signal is not used: 'wch_empty'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  163 |     logic                  wch_empty;
+      |                            ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:164:28: Signal is not used: 'wch_aempty'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  164 |     logic                  wch_aempty;
+      |                            ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:165:28: Signal is not used: 'push_woffset'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  165 |     logic                  push_woffset;
+      |                            ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:166:28: Signal is not used: 'push_woffset_r'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  166 |     logic                  push_woffset_r;
+      |                            ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:167:28: Signal is not used: 'pull_woffset'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  167 |     logic                  pull_woffset;
+      |                            ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:169:28: Signal is not used: 'wr_strb_pos'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  169 |     logic [OFFSET_W  -1:0] wr_strb_pos;
+      |                            ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:170:28: Signal is not used: 'woffset'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  170 |     logic [OFFSET_W  -1:0] woffset;
+      |                            ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:171:28: Signal is not used: 'woffset_r'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  171 |     logic [OFFSET_W  -1:0] woffset_r;
+      |                            ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:173:28: Signal is not used: 'arid_m'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  173 |     logic [AXI_ID_W  -1:0] arid_m;
+      |                            ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_memctrl.sv:174:28: Signal is not used: 'rid_m'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_ICACHE.icache.mem_ctrl'
+  174 |     logic [AXI_ID_W  -1:0] rid_m;
+      |                            ^~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_memfy.sv:59:19: Parameter is not used: 'HYPERVISOR_MODE'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+   59 |         parameter HYPERVISOR_MODE = 0,
+      |                   ^~~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_memfy.sv:61:19: Parameter is not used: 'SUPERVISOR_MODE'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+   61 |         parameter SUPERVISOR_MODE = 0,
+      |                   ^~~~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_memfy.sv:65:19: Parameter is not used: 'MPU_SUPPORT'
+                                                                  : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+   65 |         parameter MPU_SUPPORT = 0,
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:85:48: Bits of signal are not used: 'memfy_instbus'[85:49,36:32,16:10]
+                                                                   : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+   85 |                    32 + 32 + 2*2 + 1     -1:0] memfy_instbus,
+      |                                                ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:100:45: Bits of signal are not used: 'mpu_allow'[3:2]
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  100 |         input  wire  [4               -1:0] mpu_allow,
+      |                                             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:114:45: Signal is not used: 'bid'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  114 |         input  wire  [AXI_ID_W        -1:0] bid,
+      |                                             ^~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:115:45: Signal is not used: 'bresp'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  115 |         input  wire  [2               -1:0] bresp,
+      |                                             ^~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:124:45: Signal is not used: 'rid'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  124 |         input  wire  [AXI_ID_W        -1:0] rid,
+      |                                             ^~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:125:45: Signal is not used: 'rresp'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  125 |         input  wire  [2               -1:0] rresp,
+      |                                             ^~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:154:31: Signal is not used: 'mpp'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  154 |     logic        [2     -1:0] mpp;
+      |                               ^~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_memfy.sv:155:37: Signal is not used: 'mprv'
+                                                                    : ... note: In instance 'soc_system_test.dut.cpu.processing.memfy'
+  155 |     logic                           mprv;
+      |                                     ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:61:43: Signal is not used: 'mst_rready'
+                                                                                 : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.block_fetcher'
+   61 |         input  wire                       mst_rready,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:118:31: Signal is not used: 'rdc_empty'
+                                                                                  : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.block_fetcher'
+  118 |     logic                     rdc_empty;
+      |                               ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:119:31: Signal is not used: 'push_rdc'
+                                                                                  : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.block_fetcher'
+  119 |     logic                     push_rdc;
+      |                               ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_block_fetcher.sv:120:31: Signal is not used: 'pull_rdc'
+                                                                                  : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.block_fetcher'
+  120 |     logic                     pull_rdc;
+      |                               ^~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_io_fetcher.sv:24:19: Parameter is not used: 'NAME'
+                                                                             : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.IO_FECTHER_INSTANCE.io_fetcher'
+   24 |         parameter NAME = "io-fetcher",
+      |                   ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:50:19: Parameter is not used: 'AXI_DATA_W'
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+   50 |         parameter AXI_DATA_W = 128,
+      |                   ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:73:43: Signal is not used: 'slv_addr'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+   73 |         input  wire  [AXI_ADDR_W    -1:0] slv_addr,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:75:43: Signal is not used: 'slv_acache'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+   75 |         input  wire  [4             -1:0] slv_acache,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:103:22: Parameter is not used: 'RSVD'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  103 |     localparam [1:0] RSVD = 2'b01;
+      |                      ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:104:22: Parameter is not used: 'RCVD'
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  104 |     localparam [1:0] RCVD = 2'b11;
+      |                      ^~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_ooo_mgt.sv:119:26: Signal is not used: 'meta_ram'
+                                                                            : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.RD_OOO_INSTANCE.rd_ooo_mgt'
+  119 |     logic [META_W  -1:0] meta_ram[NB_TAG-1:0];
+      |                          ^~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_pusher.sv:15:19: Parameter is not used: 'NAME'
+                                                                         : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+   15 |         parameter NAME = "pusher",
+      |                   ^~~~
+%Warning-UNUSEDPARAM: third_party/friscv/rtl/friscv_cache_pusher.sv:30:19: Parameter is not used: 'AXI_DATA_W'
+                                                                         : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+   30 |         parameter AXI_DATA_W = 8,
+      |                   ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_pusher.sv:51:48: Signal is not used: 'mst_awprot'
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+   51 |         input  wire  [3                  -1:0] mst_awprot,
+      |                                                ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_pusher.sv:52:48: Bits of signal are not used: 'mst_awcache'[3:2,0]
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+   52 |         input  wire  [4                  -1:0] mst_awcache,
+      |                                                ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_pusher.sv:59:48: Signal is not used: 'mst_bready'
+                                                                          : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+   59 |         input  wire                            mst_bready,
+      |                                                ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_pusher.sv:117:33: Bits of signal are not used: 'cpl_id_m'[7:3]
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+  117 |     logic [AXI_ID_W       -1:0] cpl_id_m;
+      |                                 ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_cache_pusher.sv:118:33: Bits of signal are not used: 'req_id_m'[7:3]
+                                                                           : ... note: In instance 'soc_system_test.dut.cpu.USE_DCACHE.dcache.pusher'
+  118 |     logic [AXI_ID_W       -1:0] req_id_m;
+      |                                 ^~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:59:19: Parameter is not used: 'TIMEOUT_VALUE'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+   59 |         parameter TIMEOUT_VALUE = 10000,
+      |                   ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:107:19: Parameter is not used: 'MST0_RW'
+                                                                                          : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+  107 |         parameter MST0_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:119:19: Parameter is not used: 'MST1_RW'
+                                                                                          : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+  119 |         parameter MST1_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:131:19: Parameter is not used: 'MST2_RW'
+                                                                                          : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+  131 |         parameter MST2_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:143:19: Parameter is not used: 'MST3_RW'
+                                                                                          : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+  143 |         parameter MST3_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:374:43: Signal is not used: 'slv2_aruser'
+                                                                                           : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst'
+  374 |         input  wire  [AXI_AUSER_W   -1:0] slv2_aruser,
+      |                                           ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/rtl/friscv_div.sv:55:47: Bits of signal are not used: 'rem_sub'[32]
+                                                                 : ... note: In instance 'soc_system_test.dut.cpu.processing.M_EXTENSION_SUPPORT.m_ext.div32'
+   55 |     logic [WIDTH           :0] acc, acc_next, rem_sub;   
+      |                                               ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:18:19: Parameter is not used: 'SLV_NB'
+                                                                                   : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   18 |         parameter SLV_NB = 4,
+      |                   ^~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:23:19: Parameter is not used: 'STRB_MODE'
+                                                                                   : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   23 |         parameter STRB_MODE = 1,
+      |                   ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:53:43: Signal is not used: 'i_aclk'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   53 |         input  wire                       i_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:54:43: Signal is not used: 'i_aresetn'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   54 |         input  wire                       i_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:55:43: Signal is not used: 'i_srst'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   55 |         input  wire                       i_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:59:43: Signal is not used: 'i_awlen'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   59 |         input  wire  [8             -1:0] i_awlen,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:60:43: Signal is not used: 'i_awsize'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   60 |         input  wire  [3             -1:0] i_awsize,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:61:43: Signal is not used: 'i_awburst'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   61 |         input  wire  [2             -1:0] i_awburst,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:62:43: Signal is not used: 'i_awlock'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   62 |         input  wire  [2             -1:0] i_awlock,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:63:43: Signal is not used: 'i_awcache'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   63 |         input  wire  [4             -1:0] i_awcache,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:65:43: Signal is not used: 'i_awqos'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   65 |         input  wire  [4             -1:0] i_awqos,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:66:43: Signal is not used: 'i_awregion'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   66 |         input  wire  [4             -1:0] i_awregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:68:43: Signal is not used: 'i_awuser'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   68 |         input  wire  [AXI_AUSER_W   -1:0] i_awuser,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:71:43: Signal is not used: 'i_wlast'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   71 |         input  wire                       i_wlast,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:74:43: Signal is not used: 'i_wuser'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   74 |         input  wire  [AXI_WUSER_W   -1:0] i_wuser,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:79:43: Signal is not driven: 'i_buser'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   79 |         output logic [AXI_BUSER_W   -1:0] i_buser,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:83:43: Signal is not used: 'i_arlen'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   83 |         input  wire  [8             -1:0] i_arlen,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:84:43: Signal is not used: 'i_arsize'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   84 |         input  wire  [3             -1:0] i_arsize,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:85:43: Signal is not used: 'i_arburst'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   85 |         input  wire  [2             -1:0] i_arburst,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:86:43: Signal is not used: 'i_arlock'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   86 |         input  wire  [2             -1:0] i_arlock,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:87:43: Signal is not used: 'i_arcache'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   87 |         input  wire  [4             -1:0] i_arcache,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:89:43: Signal is not used: 'i_arqos'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   89 |         input  wire  [4             -1:0] i_arqos,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:90:43: Signal is not used: 'i_arregion'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   90 |         input  wire  [4             -1:0] i_arregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:92:43: Signal is not used: 'i_aruser'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   92 |         input  wire  [AXI_AUSER_W   -1:0] i_aruser,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:99:43: Signal is not driven: 'i_ruser'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   99 |         output logic [AXI_RUSER_W   -1:0] i_ruser,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:101:43: Signal is not used: 'o_aclk'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  101 |         input  wire                       o_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:102:43: Signal is not used: 'o_aresetn'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  102 |         input  wire                       o_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_if.sv:103:43: Signal is not used: 'o_srst'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  103 |         input  wire                       o_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:20:19: Parameter is not used: 'STRB_MODE'
+                                                                                   : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   20 |         parameter STRB_MODE = 1,
+      |                   ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:55:43: Signal is not used: 'i_aclk'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   55 |         input  wire                       i_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:56:43: Signal is not used: 'i_aresetn'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   56 |         input  wire                       i_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:57:43: Signal is not used: 'i_srst'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   57 |         input  wire                       i_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:76:43: Signal is not used: 'o_aclk'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   76 |         input  wire                       o_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:77:43: Signal is not used: 'o_aresetn'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   77 |         input  wire                       o_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:78:43: Signal is not used: 'o_srst'
+                                                                                    : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   78 |         input  wire                       o_srst,
+      |                                           ^~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:82:43: Signal is not driven: 'o_awlen'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   82 |         output logic [8             -1:0] o_awlen,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:83:43: Signal is not driven: 'o_awsize'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   83 |         output logic [3             -1:0] o_awsize,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:84:43: Signal is not driven: 'o_awburst'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   84 |         output logic [2             -1:0] o_awburst,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:85:43: Signal is not driven: 'o_awlock'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   85 |         output logic [2             -1:0] o_awlock,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:86:43: Signal is not driven: 'o_awcache'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   86 |         output logic [4             -1:0] o_awcache,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:88:43: Signal is not driven: 'o_awqos'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   88 |         output logic [4             -1:0] o_awqos,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:89:43: Signal is not driven: 'o_awregion'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   89 |         output logic [4             -1:0] o_awregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:91:43: Signal is not driven: 'o_awuser'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   91 |         output logic [AXI_AUSER_W   -1:0] o_awuser,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:97:43: Signal is not driven: 'o_wuser'
+                                                                                : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   97 |         output logic [AXI_WUSER_W   -1:0] o_wuser,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:102:43: Signal is not used: 'o_buser'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  102 |         input  wire  [AXI_BUSER_W   -1:0] o_buser,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:106:43: Signal is not driven: 'o_arlen'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  106 |         output logic [8             -1:0] o_arlen,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:107:43: Signal is not driven: 'o_arsize'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  107 |         output logic [3             -1:0] o_arsize,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:108:43: Signal is not driven: 'o_arburst'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  108 |         output logic [2             -1:0] o_arburst,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:109:43: Signal is not driven: 'o_arlock'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  109 |         output logic [2             -1:0] o_arlock,
+      |                                           ^~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:110:43: Signal is not driven: 'o_arcache'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  110 |         output logic [4             -1:0] o_arcache,
+      |                                           ^~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:112:43: Signal is not driven: 'o_arqos'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  112 |         output logic [4             -1:0] o_arqos,
+      |                                           ^~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:113:43: Signal is not driven: 'o_arregion'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  113 |         output logic [4             -1:0] o_arregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNDRIVEN: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:115:43: Signal is not driven: 'o_aruser'
+                                                                                 : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  115 |         output logic [AXI_AUSER_W   -1:0] o_aruser,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:121:43: Signal is not used: 'o_rlast'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  121 |         input  wire                       o_rlast,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_if.sv:122:43: Signal is not used: 'o_ruser'
+                                                                                     : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  122 |         input  wire  [AXI_RUSER_W   -1:0] o_ruser
+      |                                           ^~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:25:19: Parameter is not used: 'TIMEOUT_ENABLE'
+                                                                                       : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+   25 |         parameter TIMEOUT_ENABLE = 1,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:111:28: Signal is not used: 'slv1_start_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  111 |     logic [AXI_ADDR_W-1:0] slv1_start_addr = SLV1_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:112:28: Signal is not used: 'slv1_end_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  112 |     logic [AXI_ADDR_W-1:0] slv1_end_addr =   SLV1_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:113:28: Signal is not used: 'slv2_start_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  113 |     logic [AXI_ADDR_W-1:0] slv2_start_addr = SLV2_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:114:28: Signal is not used: 'slv2_end_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  114 |     logic [AXI_ADDR_W-1:0] slv2_end_addr =   SLV2_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:115:28: Signal is not used: 'slv3_start_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  115 |     logic [AXI_ADDR_W-1:0] slv3_start_addr = SLV3_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:116:28: Signal is not used: 'slv3_end_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  116 |     logic [AXI_ADDR_W-1:0] slv3_end_addr =   SLV3_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:134:28: Signal is not used: 'routes'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  134 |     logic [SLV_NB    -1:0] routes = MST_ROUTES;
+      |                            ^~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:109:28: Signal is not used: 'slv0_start_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[3].slv_switch'
+  109 |     logic [AXI_ADDR_W-1:0] slv0_start_addr = SLV0_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_slv_switch.sv:110:28: Signal is not used: 'slv0_end_addr'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[3].slv_switch'
+  110 |     logic [AXI_ADDR_W-1:0] slv0_end_addr =   SLV0_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_switch.sv:13:19: Parameter is not used: 'AXI_DATA_W'
+                                                                                       : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch'
+   13 |         parameter AXI_DATA_W = 8,
+      |                   ^~~~~~~~~~
+%Warning-UNUSEDPARAM: third_party/friscv/dep/axi-crossbar/rtl/axicb_mst_switch.sv:19:19: Parameter is not used: 'TIMEOUT_ENABLE'
+                                                                                       : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch'
+   19 |         parameter TIMEOUT_ENABLE = 1,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_round_robin.sv:47:11: Signal is not used: 'p0'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   47 |     logic p0 = REQ0_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_round_robin.sv:48:11: Signal is not used: 'p1'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   48 |     logic p1 = REQ1_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_round_robin.sv:49:11: Signal is not used: 'p2'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   49 |     logic p2 = REQ2_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: third_party/friscv/dep/axi-crossbar/rtl/axicb_round_robin.sv:50:11: Signal is not used: 'p3'
+                                                                                         : ... note: In instance 'soc_system_test.dut.fabric.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   50 |     logic p3 = REQ3_PRIORITY;
+      |           ^~
+%Warning-UNSIGNED: third_party/friscv/rtl/friscv_apb_interconnect.sv:108:30: Comparison is constant due to unsigned arithmetic
+                                                                           : ... note: In instance 'soc_system_test.dut.upstream_io.apb_interconnect'
+  108 |                 if (slv_addr >= SLV0_ADDR && slv_addr < SLV0_RANGE) begin
+      |                              ^~
+                   ... For warning description see https://verilator.org/warn/UNSIGNED?v=5.050
+                   ... Use "/* verilator lint_off UNSIGNED */" and lint_on around source to disable this message.
+%Warning-UNSIGNED: build/p2_soc_upstream_overlay/rtl/friscv_io_subsystem.sv:135:21: Comparison is constant due to unsigned arithmetic
+                                                                                  : ... note: In instance 'soc_system_test.dut.upstream_io'
+  135 |         if (mst_addr>=SLV0_ADDR && mst_addr<(SLV0_ADDR+SLV0_SIZE)) begin
+      |                     ^~
+%Warning-SYNCASYNCNET: third_party/friscv/rtl/friscv_rv32i_core.sv:140:43: Signal flopped as both synchronous and async: 'soc_system_test.dut.__Vcellinp__cpu__aresetn'
+                       third_party/friscv/rtl/friscv_rv32i_core.sv:140:43: ... Location of async usage
+  140 |         input  wire                       aresetn,
+      |                                           ^~~~~~~
+                       third_party/friscv/rtl/friscv_cache_memctrl.sv:286:41: ... Location of sync usage
+  286 |         if (mem_rvalid && rch_empty && (aresetn && !srst))
+      |                                         ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/SYNCASYNCNET?v=5.050
+                       ... Use "/* verilator lint_off SYNCASYNCNET */" and lint_on around source to disable this message.
+make[1]: Entering directory '<repo>/build/p2_soc_obj'
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/local/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vsoc_system_test__pch.h -o Vsoc_system_test__pch.h.fast.gch
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vsoc_system_test__pch.h -o Vsoc_system_test__pch.h.slow.gch
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test___024root__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test___024root__1.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test___024root__2.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test_p2_axil_if__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.fast -c Vsoc_system_test__main.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test__ConstPool__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test___024root__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test___024root__1__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test_p2_axil_if__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test_p2_axil_if__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vsoc_system_test__pch.h.slow -c Vsoc_system_test__Syms__Slow.cpp
+g++    verilated.o verilated_timing.o verilated_threads.o Vsoc_system_test__ALL.a    -pthread -lpthread -latomic   -o Vsoc_system_test
+rm Vsoc_system_test__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '<repo>/build/p2_soc_obj'
+- V e r i l a t i o n   R e p o r t: Verilator 5.050 2026-07-01 rev v5.050
+- Verilator: Built from 23.411 MB sources in 59 modules, into 3.438 MB in 13 C++ files needing 0.003 MB
+- Verilator: Walltime 28.472 s (elab=0.437, cvt=2.335, bld=19.670); cpu 2.731 s on 4 threads; allocated 338.180 MB

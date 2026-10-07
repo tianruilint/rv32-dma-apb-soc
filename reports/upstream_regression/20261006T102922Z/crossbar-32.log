@@ -1,0 +1,95 @@
+INFO: Start AXI-Crossbar Random Testsuite
+PID: 6787
+
+       ______    ____  ________
+      / ___/ |  / / / / /_  __/
+      \__ \| | / / / / / / /  
+     ___/ /| |/ / /_/ / / /   
+    /____/ |___/\____/ /_/
+
+    v1.10.0
+
+SVUT (@ 18:41:43) Run with Icarus Verilog
+
+INFO: Copy up-to-date version of svut_h.sv
+SVUT (@ 18:41:43) Testbench executable not found. Will build it
+
+SVUT (@ 18:41:43) Start axicb_crossbar_top_testbench.sv
+
+SVUT (@ 18:41:43) iverilog -g2012 -Wall -o svut.out -DOR_TIMEOUT=500 -DAXI_ADDR_W=32 -DAXI_ID_W=8 -DAXI_DATA_W=32 -DMST_PIPELINE=1 -DSLV_PIPELINE=1 -DAXI_SIGNALING=0 -DUSER_SUPPORT=0 -DMST0_CDC=0 -DMST1_CDC=0 -DMST2_CDC=0 -DMST3_CDC=0 -DSLV0_CDC=0 -DSLV1_CDC=0 -DSLV2_CDC=0 -DSLV3_CDC=0 -DMST0_OSTDREQ_NUM=0 -DMST0_OSTDREQ_SIZE=0 -DMST0_PRIORITY=0 -DMST1_OSTDREQ_NUM=0 -DMST1_OSTDREQ_SIZE=0 -DMST1_PRIORITY=0 -DMST2_OSTDREQ_NUM=0 -DMST2_OSTDREQ_SIZE=0 -DMST2_PRIORITY=0 -DMST3_OSTDREQ_NUM=0 -DMST3_OSTDREQ_SIZE=0 -DMST3_PRIORITY=0 -DSLV0_START_ADDR=0 -DSLV0_END_ADDR=4095 -DSLV1_START_ADDR=4096 -DSLV1_END_ADDR=8191 -DSLV2_START_ADDR=8192 -DSLV2_END_ADDR=12287 -DSLV3_START_ADDR=12288 -DSLV3_END_ADDR=16383 -DSLV0_OSTDREQ_NUM=0 -DSLV0_OSTDREQ_SIZE=0 -DSLV1_OSTDREQ_NUM=0 -DSLV1_OSTDREQ_SIZE=0 -DSLV2_OSTDREQ_NUM=0 -DSLV2_OSTDREQ_SIZE=0 -DSLV3_OSTDREQ_NUM=0 -DSLV3_OSTDREQ_SIZE=0 -DMST0_ROUTES=15 -DMST1_ROUTES=15 -DMST2_ROUTES=15 -DMST3_ROUTES=15 -DTIMEOUT=2000000 -DMAX_TRAFFIC=1024 -DTSNAME=p2-width-32 -DNOVCD=1 -f files.f  src/axicb_crossbar_top_testbench.sv 
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- compilation unit
+
+SVUT (@ 18:41:43) vvp svut.out 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Testbench Configuration:
+------------------------
+
+  - Configuration: p2-width-32
+  - Testbench timeout: 2000000 cycles
+  - Outstanding request timeout: 500 cycles
+  - Maximum traffic: 1024
+  - AXI_ADDR_W: 32
+  - AXI_DATA_W: 32
+  - AXI_ID_W: 8
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+[0;34mINFO: Start testsuite << p2-width-32 >> (@ 0.0ns) (src/axicb_crossbar_top_testbench.sv:1682)[0m
+
+[0;34mINFO: Starting << Test 0: Single Master Driver vs a Single Slave Monitor >> (@ 0.0ns) (src/axicb_crossbar_top_testbench.sv:1685)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 12258.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 0: Single Master Driver vs a Single Slave Monitor >> pass (@ 12338.0ns) (src/axicb_crossbar_top_testbench.sv:1694)[0m
+
+[0;34mINFO: Starting << Test 1: Single Master Driver vs Two Slave Monitors >> (@ 12338.0ns) (src/axicb_crossbar_top_testbench.sv:1696)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 24638.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 1: Single Master Driver vs Two Slave Monitors >> pass (@ 24718.0ns) (src/axicb_crossbar_top_testbench.sv:1705)[0m
+
+[0;34mINFO: Starting << Test 2: Two Master Drivers vs a Single Slave Monitor >> (@ 24718.0ns) (src/axicb_crossbar_top_testbench.sv:1707)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 44142.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 2: Two Master Drivers vs a Single Slave Monitor >> pass (@ 44222.0ns) (src/axicb_crossbar_top_testbench.sv:1716)[0m
+
+[0;34mINFO: Starting << Test 3: Three Master Drivers vs a Single Slave Monitor >> (@ 44222.0ns) (src/axicb_crossbar_top_testbench.sv:1718)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 70898.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 3: Three Master Drivers vs a Single Slave Monitor >> pass (@ 70978.0ns) (src/axicb_crossbar_top_testbench.sv:1727)[0m
+
+[0;34mINFO: Starting << Test 4: Four Master Drivers vs a Single Slave Monitor >> (@ 70978.0ns) (src/axicb_crossbar_top_testbench.sv:1730)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 106002.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 4: Four Master Drivers vs a Single Slave Monitor >> pass (@ 106082.0ns) (src/axicb_crossbar_top_testbench.sv:1739)[0m
+
+[0;34mINFO: Starting << Test 5: Two Master Drivers vs Two Slave Monitors >> (@ 106082.0ns) (src/axicb_crossbar_top_testbench.sv:1741)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 124842.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 5: Two Master Drivers vs Two Slave Monitors >> pass (@ 124922.0ns) (src/axicb_crossbar_top_testbench.sv:1750)[0m
+
+[0;34mINFO: Starting << Test 6: Three Master Drivers vs Two Slave Monitors >> (@ 124922.0ns) (src/axicb_crossbar_top_testbench.sv:1752)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 150894.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 6: Three Master Drivers vs Two Slave Monitors >> pass (@ 150974.0ns) (src/axicb_crossbar_top_testbench.sv:1761)[0m
+
+[0;34mINFO: Starting << Test 7: Four Master Drivers vs Two Slave Monitors >> (@ 150974.0ns) (src/axicb_crossbar_top_testbench.sv:1763)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 185366.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 7: Four Master Drivers vs Two Slave Monitors >> pass (@ 185446.0ns) (src/axicb_crossbar_top_testbench.sv:1772)[0m
+
+[0;34mINFO: Starting << Test 8: Four Master Drivers vs Four Slave Monitors >> (@ 185446.0ns) (src/axicb_crossbar_top_testbench.sv:1774)[0m
+[0;34mINFO: Full traffic has been injected by the drivers (@ 219854.0ns) (src/axicb_crossbar_top_testbench.sv:1637)[0m
+[0;32mSUCCESS: << Test 8: Four Master Drivers vs Four Slave Monitors >> pass (@ 219934.0ns) (src/axicb_crossbar_top_testbench.sv:1783)[0m
+
+[0;34mINFO: Stop testsuite 'p2-width-32' (@ 219934.0ns) (src/axicb_crossbar_top_testbench.sv:1785)[0m
+  [1;33m- Warning number:  0[0m
+  [1;35m- Critical number: 0[0m
+  [1;31m- Error number:    0[0m
+  [0;32m- STATUS: 9/9 test(s) passed[0m
+
+src/axicb_crossbar_top_testbench.sv:1807: $finish called at 219934000 (1ps)
+
+SVUT (@ 18:42:11) Stop axicb_crossbar_top_testbench.sv
+
+SVUT (@ 18:42:11) Elapsed time: 0:00:27.615459
+
+
+INFO: Check testsuite status
+[0;32mINFO: Testsuites executed successfully![0m

@@ -1,0 +1,98 @@
+INFO: Start Apps Testsuite
+PID: 6712
+Apps support Verilator only. Will use it
+INFO: Compile applications
+INFO: Compile tests/coremark/
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+riscv64-unknown-elf-objcopy -O ihex coremark.elf coremark.hex
+riscv64-unknown-elf-objcopy -O binary coremark.elf coremark.bin
+riscv64-unknown-elf-objcopy -O verilog coremark.elf coremark.v
+riscv64-unknown-elf-objdump -S -d coremark.elf > coremark.asm
+riscv64-unknown-elf-nm *.elf > coremark.symbols
+done
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+INFO: Compile tests/repl/
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/repl'
+riscv64-unknown-elf-nm *.elf > repl.symbols
+done
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/repl'
+Start testsuite execution
+INFO: Check design changes
+INFO: Sources didn't change, will not compile the testbench
+[0;34mINFO: Execute tests/coremark.v[0m
+  - Config file:      config.cfg
+  - BOOT_ADDR:        65536
+  - TIMEOUT:          0
+  - MIN_PC:           65692
+  - TB_CHOICE:        1 (0=CORE, 1=PLATFORM)
+  - TCNAME:           coremark
+  - SIMULATOR:        verilator
+  - NO_VCD:           1
+  - INTERACTIVE:      1
+  - RAM_MODE:         performance
+
+       ______    ____  ________
+      / ___/ |  / / / / /_  __/
+      \__ \| | / / / / / / /  
+     ___/ /| |/ / /_/ / / /   
+    /____/ |___/\____/ /_/
+
+    v1.10.0
+
+SVUT (@ 18:40:54) Run with Verilator
+
+SVUT (@ 18:40:54) Start friscv_testbench.sv
+
+SVUT (@ 18:40:54) build/Vfriscv_testbench
+[0;34mINFO: No VCD trace will be created (@ 1) (friscv_testbench.sv:769)[0m
+[0;34mINFO: Boot address: 0x00010000 (@ 100.0ps) (friscv_testbench.sv:794)[0m
+%Warning: test.v:65536: $readmem file ended before specified final address (IEEE 1800-2023 21.4)
+2K performance run parameters for coremark.
+CoreMark Size    : 666
+Total ticks      : 11556424
+Total time (ms): 23
+num_contexts   : 1
+Iterations   : 10
+Iterations/Sec   : 0
+Iterations       : 10
+Compiler version : GCC13.2.0
+Compiler flags   : -O0 -g   
+Memory location  : STACK
+seedcrc          : 0xe9f5
+[0]crclist       : 0xe714
+[0]crcmatrix     : 0x1fd7
+[0]crcstate      : 0x8e3a
+[0]crcfinal      : 0xfcaf
+Correct operation validated. See README[0;34mINFO: PC=0x112bc (@ 2330464100.0ps) (friscv_testbench.sv:803)[0m
+[0;34mINFO: X31=0x0 (@ 2330464100.0ps) (friscv_testbench.sv:809)[0m
+[0;34mINFO: Halt on EBREAK (@ 2330464100.0ps) (friscv_testbench.sv:816)[0m
+pc:       000112bc	x16/a6:   00000004
+x1/ra:    000112bc	x17/a7:   00000004
+x2/sp:    0000f7a0	x18/s2:   00080000
+x3/gp:    00000000	x19/s3:   00012e80
+x4/tp:    00000000	x20/s4:   00b05648
+x5/t0:    00000000	x21/s5:   0000e9f5
+x6/t1:    00012ee4	x22/s6:   00080000
+x7/t2:    0000fb9c	x23/s7:   00012c94
+x8/s0/fp: 00000001	x24/s8:   00012c60
+x9/s1:    00000000	x25/s9:   00012c30
+x10/a0:   0000ffce	x26/s10:  00001000
+x11/a1:   00000066	x27/s11:  00000000
+x12/a2:   0000f369	x28/t3:   0000f2f0
+x13/a3:   00100010	x29/t4:   00013028
+x14/a4:   00000000	x30/t5:   00000030
+x15/a5:   0000082e	x31/t6:   00000000
+[0;32mSUCCESS: Test passed (@ 2330464100.0ps) (friscv_testbench.sv:947)[0m
+- friscv_testbench.sv:952: Verilog $finish
+INFO: Verilator executed successfully
+
+SVUT (@ 18:41:43) Stop friscv_testbench.sv
+
+SVUT (@ 18:41:43) Elapsed time: 0:00:48.823401
+
+
+Check status:
+  ✅ coremark
+
+[0;32mSUCCESS: Testsuite successfully terminated ^^[0m
+[0;32mSUCCESS: Apps testsuite successfully terminated ^^[0m

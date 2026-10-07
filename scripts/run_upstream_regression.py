@@ -37,7 +37,8 @@ def main():
         args.svut = ROOT / "build/deps/svut"
         if not args.svut.exists():
             args.svut.parent.mkdir(parents=True, exist_ok=True)
-            subprocess.run(["git", "clone", "--no-checkout", "https://github.com/dpretet/svut.git", str(args.svut)], check=True)
+            subprocess.run(["git", "clone", "--no-checkout", "https://github.com/dpretet/svut.git",
+                            str(args.svut)], check=True)
             subprocess.run(["git", "-C", str(args.svut), "checkout", "--detach", SVUT_SHA], check=True)
     upstream = ROOT / "third_party/friscv"
     for path, sha in [(upstream, FRISCV_SHA), (upstream / "dep/axi-crossbar", XBAR_SHA), (args.svut, SVUT_SHA)]:

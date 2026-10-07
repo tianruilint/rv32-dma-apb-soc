@@ -1,0 +1,13 @@
+PASS dma_256b_lanes_stalls_irq_w1c
+PASS dma_aw_w_skew
+PASS dma_invalid_length_overlap_range
+PASS dma_4k_sequence_crossing
+PASS dma_busy_start
+PASS dma_resp_and_id_errors
+PASS dma_byte_strobe_and_busy_register_protection
+PASS dma_reset_abort
+PASS soc_dma_tb 8 groups
+- tb/soc_dma_tb.sv:659: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 12us; walltime 0.002 s; speed 5.122 ms/s
+- Verilator: cpu 0.002 s on 1 threads; allocated 8 MB

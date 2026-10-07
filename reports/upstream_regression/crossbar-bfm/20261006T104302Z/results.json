@@ -1,0 +1,116 @@
+[
+  {
+    "name": "128-original-monitor-red",
+    "exit_code": 1,
+    "expected_pass": false,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/p2-width-128.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  },
+  {
+    "name": "128-contract-fixed",
+    "exit_code": 0,
+    "expected_pass": true,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/p2-width-128.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  },
+  {
+    "name": "32-contract-fixed",
+    "exit_code": 0,
+    "expected_pass": true,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/axi4lite_-cdc_-or_-priority_+pipe_-route.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  },
+  {
+    "name": "negative-lite-attribute",
+    "exit_code": 1,
+    "expected_pass": false,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/p2-width-128.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  },
+  {
+    "name": "negative-arprot",
+    "exit_code": 1,
+    "expected_pass": false,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/p2-width-128.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  },
+  {
+    "name": "negative-unknown",
+    "exit_code": 1,
+    "expected_pass": false,
+    "passed": true,
+    "missing": [],
+    "command": [
+      "bash",
+      "./run.sh",
+      "--tc",
+      "./tb_config/p2-width-128.cfg",
+      "--max-traffic",
+      "1024",
+      "--timeout",
+      "2000000",
+      "--no-vcd",
+      "--no-debug-log"
+    ]
+  }
+]

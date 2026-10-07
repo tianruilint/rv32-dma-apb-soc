@@ -1,0 +1,2 @@
+FATAL: tb/upstream_friscv/friscv_memfy_fault_tb.sv:32: MEMFY_FAULT_FAIL error response raises LOAD access fault
+       Time: 101000  Scope: friscv_memfy_fault_tb.check

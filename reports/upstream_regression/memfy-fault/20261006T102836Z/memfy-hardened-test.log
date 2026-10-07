@@ -1,0 +1,2 @@
+MEMFY_FAULT_PASS checks=39
+tb/upstream_friscv/friscv_memfy_fault_tb.sv:110: $finish called at 591000 (1ps)

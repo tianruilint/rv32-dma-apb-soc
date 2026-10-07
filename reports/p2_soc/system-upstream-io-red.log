@@ -1,0 +1,17 @@
+SOC_RAM_INIT build/p2_soc_fw/p2_dma_demo.mem
+SOC_RAM_READ addr=00010000 id=80
+SOC_RAM_READ addr=00010010 id=80
+SOC_RAM_READ addr=00010020 id=80
+SOC_RAM_READ addr=00010030 id=81
+SOC_RAM_READ addr=00010070 id=82
+SOC_RAM_READ addr=00010080 id=82
+SOC_RAM_WRITE addr=0007fffc strb=f000 id=10
+SOC_RAM_READ addr=00010090 id=82
+SOC_RAM_READ addr=000100a0 id=82
+SOC_RAM_READ addr=000100b0 id=82
+SOC_RAM_WRITE addr=000c1f00 strb=000f id=14
+SOC_RAM_READ addr=000100c0 id=82
+SOC_RAM_READ addr=000100d0 id=82
+[5000120000] %Fatal: soc_system_test.sv:102: Assertion failed in soc_system_test.run_test: SOC timeout result=00000000 UART= DMA R/W=0/0
+%Error: tb/soc_system_test.sv:102: Verilog $stop
+Aborting...

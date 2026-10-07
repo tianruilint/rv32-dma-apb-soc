@@ -1,0 +1,6 @@
+SOC_BRIDGE_PASS: lanes, AW/W skew, APB waits/errors, B/R stalls, reset, round-robin
+IP_BRIDGE_STRESS_PASS seed=20260925 random_write_read_pairs=160
+- tb/soc_bridge_test.sv:309: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01
+- Verilator: $finish at 53us; walltime 0.002 s; speed 25.880 ms/s
+- Verilator: cpu 0.002 s on 1 threads; allocated 6 MB

@@ -1,0 +1,17 @@
+--- after/friscv_control.sv
++++ before/friscv_control.sv
+@@ -1441,13 +1441,7 @@
+ 
+     // Trigger the trap handling execution in main FSM
+ 
+-    // A queued fault belongs to an older memory instruction. Deliver it before
+-    // an interrupt, keeping the interrupt pending for MRET. The control CSR
+-    // writes commit one cycle later; do not re-enter while MSTATUS is pending.
+-    assign async_trap_occuring =
+-        (sb_msip&sb_msie | sb_mtip&sb_mtie | sb_meip&sb_meie&!clr_meip) &
+-        sb_mie & !mstatus_wr &
+-        !(load_access_fault | store_access_fault | load_misaligned | store_misaligned);
++    assign async_trap_occuring = (sb_msip&sb_msie | sb_mtip&sb_mtie | sb_meip&sb_meie&!clr_meip) & sb_mie;
+ 
+     assign sync_trap_occuring = csr_ro_wr            |
+                                 inst_addr_misaligned |

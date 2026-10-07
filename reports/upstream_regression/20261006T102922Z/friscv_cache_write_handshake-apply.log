@@ -1,0 +1,3 @@
+patching file rtl/friscv_dcache.sv
+Hunk #1 succeeded at 512 (offset 3 lines).
+patching file rtl/friscv_cache_pusher.sv

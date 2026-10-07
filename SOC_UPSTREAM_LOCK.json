@@ -1,5 +1,6 @@
 {
   "schema_version": 2,
+  "recorded_on": "2026-10-05",
   "selected_soc_source": {
     "name": "dpretet/friscv",
     "url": "https://github.com/dpretet/friscv.git",
@@ -67,6 +68,20 @@
     "io_map": "128'h000C1FFF_000C0000_001000FF_00100000",
     "ram_implementation_in_tests": "1 MiB behavioral simulation model",
     "release_test_command": "bash scripts/run_release.sh (make verify)",
-    "memory_retirement": "serialized for precise exceptions"
-  }
+    "release_test_build": "fresh hashed RTL overlay and firmware; fresh isolated upstream regression source copy",
+    "release_test_exit_code": 0,
+    "release_test_log": "reports/p2_soc/final-verify.log",
+    "system_build_warnings": 481,
+    "upstream_crossbar_directed_build_warnings": 142,
+    "memory_retirement": "serialized for precise exceptions",
+    "verification_manifest": "reports/p2_soc/verification-manifest.json",
+    "system_scenarios_passed": 9,
+    "upstream_configuration_executions_passed": 89,
+    "cpu_data_fault_scenarios_passed": 60,
+    "known_unresolved_failures": 0,
+    "irq_fault_collision_scenarios_passed": 48,
+    "irq_fault_exact_red_reproductions": 2,
+    "verification_source_evidence_files": 79
+  },
+  "final_open_source_reuse_release_status": "hardening_simulation_release_verified"
 }

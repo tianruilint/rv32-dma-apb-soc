@@ -1,0 +1,178 @@
+{
+  "passed": true,
+  "failures": [],
+  "results": [
+    {
+      "name": "wba-original",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tb",
+        "platform",
+        "--simulator",
+        "icarus",
+        "--novcd"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/original/test/wba_testsuite",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 11,
+      "observed": 11,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 115.827
+    },
+    {
+      "name": "wba-patched",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tb",
+        "platform",
+        "--simulator",
+        "icarus",
+        "--novcd"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/test/wba_testsuite",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 11,
+      "observed": 11,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 110.254
+    },
+    {
+      "name": "isa-rv32ui",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tb",
+        "platform",
+        "--simulator",
+        "icarus",
+        "--tc",
+        "./tests/rv32ui-p*.v",
+        "--novcd"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/test/riscv-tests",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 39,
+      "observed": 39,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 348.772
+    },
+    {
+      "name": "isa-rv32um",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tb",
+        "platform",
+        "--simulator",
+        "icarus",
+        "--tc",
+        "./tests/rv32um-p*.v",
+        "--novcd"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/test/riscv-tests",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 8,
+      "observed": 8,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 69.415
+    },
+    {
+      "name": "app-repl",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tc",
+        "tests/repl.v"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/test/apps",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 1,
+      "observed": 1,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 47.277
+    },
+    {
+      "name": "app-coremark",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tc",
+        "tests/coremark.v"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/test/apps",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 1,
+      "observed": 1,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 49.388
+    },
+    {
+      "name": "crossbar-32",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tc",
+        "./tb_config/p2-width-32.cfg",
+        "--max-traffic",
+        "1024",
+        "--timeout",
+        "2000000",
+        "--no-vcd",
+        "--no-debug-log"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/dep/axi-crossbar/test/svut",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 9,
+      "observed": 9,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 27.709
+    },
+    {
+      "name": "crossbar-128",
+      "command": [
+        "bash",
+        "./run.sh",
+        "--tc",
+        "./tb_config/p2-width-128.cfg",
+        "--max-traffic",
+        "1024",
+        "--timeout",
+        "2000000",
+        "--no-vcd",
+        "--no-debug-log"
+      ],
+      "cwd": "build/upstream_regression/20261006T102922Z/fixed/dep/axi-crossbar/test/svut",
+      "exit_code": 0,
+      "timeout": false,
+      "expected": 9,
+      "observed": 9,
+      "error_markers": 0,
+      "missing": [],
+      "passed": true,
+      "elapsed_s": 51.49
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-.PHONY: verify p2-ip-units p2-ip-stress upstream-crossbar io-red-green cache-red-green cpu-fault-red-green soc-system warning-gate-selftest upstream-regression crossbar-monitor-red-green evidence
+.PHONY: verify p2-ip-units p2-ip-stress upstream-crossbar io-red-green cache-red-green cpu-fault-red-green soc-system warning-gate-selftest upstream-regression crossbar-monitor-red-green checker-selftest evidence
 .NOTPARALLEL:
 
-verify: p2-ip-units p2-ip-stress upstream-crossbar io-red-green cache-red-green cpu-fault-red-green soc-system warning-gate-selftest upstream-regression crossbar-monitor-red-green
+verify: checker-selftest p2-ip-units p2-ip-stress upstream-crossbar io-red-green cache-red-green cpu-fault-red-green soc-system warning-gate-selftest upstream-regression crossbar-monitor-red-green
 
 p2-ip-units:
 	bash scripts/run_soc_units.sh
@@ -39,3 +39,6 @@ crossbar-monitor-red-green:
 
 evidence:
 	python3 scripts/render_evidence.py
+
+checker-selftest:
+	python3 scripts/test_soc_protocol_checker.py

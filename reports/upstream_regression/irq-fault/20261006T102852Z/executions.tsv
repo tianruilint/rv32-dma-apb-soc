@@ -1,0 +1,4 @@
+before-csr-window	1	0
+before-priority	1	0
+after-pipe0	0	24
+after-pipe1	0	24

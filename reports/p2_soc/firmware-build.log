@@ -1,0 +1,17 @@
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/firmware/soc'
+mkdir -p ../../build/p2_soc_fw
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -mcmodel=medany -msmall-data-limit=0 -c crt0.S -o ../../build/p2_soc_fw/crt0.o
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -mcmodel=medany -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-pic -fno-pie -Wall -Wextra -Werror -std=c11 -c main.c -o ../../build/p2_soc_fw/main.o
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -mcmodel=medany -msmall-data-limit=0 -nostdlib -nostartfiles -static -Wl,--no-relax,--fatal-warnings -T linker.ld -Wl,-Map,../../build/p2_soc_fw/p2_dma_demo.map ../../build/p2_soc_fw/crt0.o ../../build/p2_soc_fw/main.o -o ../../build/p2_soc_fw/p2_dma_demo.elf
+riscv64-unknown-elf-objdump -d ../../build/p2_soc_fw/p2_dma_demo.elf > ../../build/p2_soc_fw/p2_dma_demo.dis
+riscv64-unknown-elf-objcopy -O binary ../../build/p2_soc_fw/p2_dma_demo.elf ../../build/p2_soc_fw/p2_dma_demo.bin
+python3 bin_to_mem128.py ../../build/p2_soc_fw/p2_dma_demo.bin ../../build/p2_soc_fw/p2_dma_demo.mem --base 0x10000
+MEM128_OK base=0x00010000 bytes=912 words=57
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -mcmodel=medany -msmall-data-limit=0 -O2 -ffreestanding -fno-builtin -fno-pic -fno-pie -Wall -Wextra -Werror -std=c11 -DP2_INTERRUPT_DEMO -c main.c -o ../../build/p2_soc_fw/main_irq.o
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -mcmodel=medany -msmall-data-limit=0 -nostdlib -nostartfiles -static -Wl,--no-relax,--fatal-warnings -T linker.ld -Wl,-Map,../../build/p2_soc_fw/p2_irq_demo.map ../../build/p2_soc_fw/crt0.o ../../build/p2_soc_fw/main_irq.o -o ../../build/p2_soc_fw/p2_irq_demo.elf
+riscv64-unknown-elf-objdump -d ../../build/p2_soc_fw/p2_irq_demo.elf > ../../build/p2_soc_fw/p2_irq_demo.dis
+riscv64-unknown-elf-objcopy -O binary ../../build/p2_soc_fw/p2_irq_demo.elf ../../build/p2_soc_fw/p2_irq_demo.bin
+python3 bin_to_mem128.py ../../build/p2_soc_fw/p2_irq_demo.bin ../../build/p2_soc_fw/p2_irq_demo.mem --base 0x10000
+MEM128_OK base=0x00010000 bytes=1344 words=84
+rm ../../build/p2_soc_fw/p2_irq_demo.bin ../../build/p2_soc_fw/p2_dma_demo.bin
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/firmware/soc'

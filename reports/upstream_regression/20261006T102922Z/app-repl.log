@@ -1,0 +1,171 @@
+INFO: Start Apps Testsuite
+PID: 6427
+Apps support Verilator only. Will use it
+INFO: Compile applications
+INFO: Compile tests/coremark/
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+make port_prebuild
+make[2]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+make[2]: Nothing to be done for 'port_prebuild'.
+make[2]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+make link
+make[2]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+riscv64-unknown-elf-gcc -c -O0 -g -Ibarebones -I. -DFLAGS_STR=\""-O0 -g   "\" -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O1 -g -I./ -I./barebones -I"/opt/homebrew/Cellar/riscv-gnu-toolchain/main/riscv64-unknown-elf/include/" -mcmodel=medany -static -std=gnu99  -DITERATIONS=10 -o ctr0.o ./crt0.S -D__ASSEMBLY__=1
+riscv64-unknown-elf-gcc -O0 -g -Ibarebones -I. -DFLAGS_STR=\""-O0 -g   "\" -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O1 -g -I./ -I./barebones -I"/opt/homebrew/Cellar/riscv-gnu-toolchain/main/riscv64-unknown-elf/include/" -mcmodel=medany -static -std=gnu99  -DITERATIONS=10  core_list_join.c core_main.c core_matrix.c core_state.c core_util.c barebones/core_portme.c barebones/ee_printf.c ctr0.o -o ./coremark.elf  -nostartfiles -e _start -T linker.ld -Wl,-Map,.//coremark.map -Wl,--print-memory-usage
+Memory region         Used Size  Region Size  %age Used
+           STACK:         64 KB        64 KB    100.00%
+             ROM:       13088 B       256 KB      4.99%
+             RAM:          32 B       256 KB      0.01%
+Link performed along with compile
+make[2]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+make port_postbuild
+make[2]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+make[2]: Nothing to be done for 'port_postbuild'.
+make[2]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+riscv64-unknown-elf-objcopy -O ihex coremark.elf coremark.hex
+riscv64-unknown-elf-objcopy -O binary coremark.elf coremark.bin
+riscv64-unknown-elf-objcopy -O verilog coremark.elf coremark.v
+riscv64-unknown-elf-objdump -S -d coremark.elf > coremark.asm
+riscv64-unknown-elf-nm *.elf > coremark.symbols
+done
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/coremark'
+INFO: Compile tests/repl/
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/repl'
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o benchmark.o benchmark.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o chacha20.o chacha20.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o clint.o clint.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o echo.o echo.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o main.o main.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o pool_arena.o pool_arena.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o printf.o printf.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o sleep.o sleep.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o top.o top.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o trap.o trap.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o tty.o tty.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o xoshiro128plusplus.o xoshiro128plusplus.c
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o crt0.o crt0.S -D__ASSEMBLY__=1
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o irq.o irq.S -D__ASSEMBLY__=1
+riscv64-unknown-elf-gcc -c -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o system.o system.S -D__ASSEMBLY__=1
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -specs=picolibc.specs -mabi=ilp32 -O0 -g -I./ -mcmodel=medany -static -std=gnu99  -o repl.elf benchmark.o chacha20.o clint.o echo.o main.o pool_arena.o printf.o sleep.o top.o trap.o tty.o xoshiro128plusplus.o benchmark.h chacha20.h clint.h echo.h irq.h malloc.h pool_arena.h printf.h sleep.h soc_mapping.h system.h top.h tty.h uart.h xoshiro128plusplus.h crt0.o irq.o system.o -nostartfiles -e _start -T linker.ld -Wl,-Map,./repl.map -Wl,--print-memory-usage
+Memory region         Used Size  Region Size  %age Used
+           STACK:         64 KB        64 KB    100.00%
+             ROM:       22756 B       256 KB      8.68%
+             RAM:        1240 B       256 KB      0.47%
+riscv64-unknown-elf-objcopy -O ihex repl.elf repl.hex
+riscv64-unknown-elf-objdump -S -d repl.elf > repl.asm
+riscv64-unknown-elf-objcopy -O verilog repl.elf repl.v
+riscv64-unknown-elf-nm *.elf > repl.symbols
+done
+rm irq.o top.o echo.o printf.o clint.o xoshiro128plusplus.o system.o sleep.o trap.o benchmark.o tty.o main.o crt0.o pool_arena.o chacha20.o
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/tests/repl'
+Start testsuite execution
+INFO: Check design changes
+No precompiled RTL found
+INFO: Compile testbench and sources
+[0;34mINFO: Execute tests/repl.v[0m
+  - Config file:      config.cfg
+  - BOOT_ADDR:        65536
+  - TIMEOUT:          0
+  - MIN_PC:           65692
+  - TB_CHOICE:        1 (0=CORE, 1=PLATFORM)
+  - TCNAME:           repl
+  - SIMULATOR:        verilator
+  - NO_VCD:           1
+  - INTERACTIVE:      1
+  - RAM_MODE:         performance
+
+       ______    ____  ________
+      / ___/ |  / / / / /_  __/
+      \__ \| | / / / / / / /  
+     ___/ /| |/ / /_/ / / /   
+    /____/ |___/\____/ /_/
+
+    v1.10.0
+
+SVUT (@ 18:40:08) Run with Verilator
+
+INFO: Copy up-to-date version of svut_h.sv
+SVUT (@ 18:40:08) Testbench executable not found. Will build it
+
+SVUT (@ 18:40:08) Start friscv_testbench.sv
+
+SVUT (@ 18:40:08) verilator -Wall --Mdir build +1800-2012ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN -Wno-PINCONNECTEMPTY -Wpedantic -Wno-VARHIDDEN -Wno-lint -DFRISV_SIM=1 -DUSE_SVL=0 -DXLEN=32 -DCACHE_EN=1 -DCACHE_BLOCK_W=128 -DGEN_EIRQ=0 -DERROR_STATUS_X31=0 -DUSER_MODE=0 -DCONTROL_VERBOSITY=0 -DCONTROL_ROUTE=2 -DBOOT_ADDR=65536 -DTIMEOUT=0 -DMIN_PC=65692 -DTB_CHOICE=1 -DTCNAME=repl -DINTERACTIVE=1 -DRAM_MODE_PERF=1 -DNO_VCD=1 --trace -f files.f  +incdir+../../dep/svlogger +incdir+../../rtl +incdir+../../dep/axi-crossbar/rtl -cc --exe --build -j --top-module friscv_testbench friscv_testbench.sv sim_main.cpp
+make[1]: Entering directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/build'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -Os  -c -o sim_main.o ../sim_main.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -x c++-header Vfriscv_testbench__pch.h -o Vfriscv_testbench__pch.h.fast.gch
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench___024root__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench___024root__1.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench___024root__2.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench___024root__3.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench___024unit__03a__03asvlogger__Vclpkg__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench__Trace__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.fast -c Vfriscv_testbench__Trace__1.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -x c++-header Vfriscv_testbench__pch.h -o Vfriscv_testbench__pch.h.slow.gch
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench__ConstPool__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench___024root__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench___024root__1__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench___024unit__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench___024unit__03a__03asvlogger__Vclpkg__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench__Syms__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench__Trace__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench__Trace__1__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable      -include Vfriscv_testbench__pch.h.slow -c Vfriscv_testbench__TraceDecls__0__Slow.cpp
+g++    sim_main.o verilated.o verilated_vcd_c.o verilated_threads.o Vfriscv_testbench__ALL.a    -pthread -lpthread -latomic   -o Vfriscv_testbench
+rm Vfriscv_testbench__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/terrylin/work/rv32-dma-apb-soc/build/upstream_regression/20261006T102922Z/fixed/test/apps/build'
+- V e r i l a t i o n   R e p o r t: Verilator 5.050 2026-07-01 rev v5.050
+- Verilator: Built from 23.390 MB sources in 57 modules, into 8.117 MB in 18 C++ files needing 0.002 MB
+- Verilator: Walltime 30.389 s (elab=0.195, cvt=1.234, bld=28.751); cpu 1.639 s on 0 threads; allocated 85.648 MB
+
+SVUT (@ 18:40:38) build/Vfriscv_testbench
+[0;34mINFO: No VCD trace will be created (@ 1) (friscv_testbench.sv:769)[0m
+[0;34mINFO: Boot address: 0x00010000 (@ 100.0ps) (friscv_testbench.sv:794)[0m
+%Warning: test.v:65536: $readmem file ended before specified final address (IEEE 1800-2023 21.4)
+[0;32m
+
+Welcome to FRISCV
+[0m
+> Executing repl.script
+echo 1
+1 
+echo 2
+2 
+shutdown
+[0;32mExiting... See you![0m[0;34mINFO: PC=0x1273c (@ 4563100.0ps) (friscv_testbench.sv:803)[0m
+[0;34mINFO: X31=0x0 (@ 4563100.0ps) (friscv_testbench.sv:809)[0m
+[0;34mINFO: Halt on EBREAK (@ 4563100.0ps) (friscv_testbench.sv:816)[0m
+pc:       0001273c	x16/a6:   00000000
+x1/ra:    00012a44	x17/a7:   00000000
+x2/sp:    0000ff70	x18/s2:   00000000
+x3/gp:    00000000	x19/s3:   00000000
+x4/tp:    00000000	x20/s4:   00000000
+x5/t0:    00014abc	x21/s5:   00000000
+x6/t1:    00000000	x22/s6:   00000000
+x7/t2:    00000000	x23/s7:   00000000
+x8/s0/fp: 0000ff80	x24/s8:   00000000
+x9/s1:    00000000	x25/s9:   00000000
+x10/a0:   00000000	x26/s10:  00000000
+x11/a1:   000152a0	x27/s11:  00000000
+x12/a2:   00000007	x28/t3:   00000000
+x13/a3:   0000006e	x29/t4:   00000000
+x14/a4:   0000006d	x30/t5:   00000000
+x15/a5:   00000000	x31/t6:   00000000
+[0;32mSUCCESS: Test passed (@ 4563100.0ps) (friscv_testbench.sv:947)[0m
+- friscv_testbench.sv:952: Verilog $finish
+INFO: Verilator executed successfully
+
+SVUT (@ 18:40:54) Stop friscv_testbench.sv
+
+SVUT (@ 18:40:54) Elapsed time: 0:00:46.037630
+
+
+Check status:
+  ✅ repl
+
+[0;32mSUCCESS: Testsuite successfully terminated ^^[0m
+[0;32mSUCCESS: Apps testsuite successfully terminated ^^[0m

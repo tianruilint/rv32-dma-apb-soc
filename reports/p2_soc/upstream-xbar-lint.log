@@ -1,0 +1,493 @@
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:340:6: Instance pin connected by name with empty reference: 'awfull'
+  340 |     .awfull  (),
+      |      ^~~~~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.050
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:346:6: Instance pin connected by name with empty reference: 'arempty'
+  346 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:372:6: Instance pin connected by name with empty reference: 'awfull'
+  372 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:378:6: Instance pin connected by name with empty reference: 'arempty'
+  378 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:404:6: Instance pin connected by name with empty reference: 'awfull'
+  404 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:410:6: Instance pin connected by name with empty reference: 'arempty'
+  410 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:436:6: Instance pin connected by name with empty reference: 'awfull'
+  436 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:442:6: Instance pin connected by name with empty reference: 'arempty'
+  442 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:468:6: Instance pin connected by name with empty reference: 'awfull'
+  468 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:474:6: Instance pin connected by name with empty reference: 'arempty'
+  474 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:204:6: Instance pin connected by name with empty reference: 'awfull'
+  204 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:210:6: Instance pin connected by name with empty reference: 'arempty'
+  210 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:236:6: Instance pin connected by name with empty reference: 'awfull'
+  236 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:242:6: Instance pin connected by name with empty reference: 'arempty'
+  242 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:268:6: Instance pin connected by name with empty reference: 'awfull'
+  268 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:274:6: Instance pin connected by name with empty reference: 'arempty'
+  274 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:300:6: Instance pin connected by name with empty reference: 'awfull'
+  300 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:306:6: Instance pin connected by name with empty reference: 'arempty'
+  306 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:332:6: Instance pin connected by name with empty reference: 'awfull'
+  332 |     .awfull  (),
+      |      ^~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:338:6: Instance pin connected by name with empty reference: 'arempty'
+  338 |     .arempty ()
+      |      ^~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:620:6: Instance pin connected by name with empty reference: 'slv0_rlast'
+  620 |     .slv0_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:667:6: Instance pin connected by name with empty reference: 'slv1_rlast'
+  667 |     .slv1_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:714:6: Instance pin connected by name with empty reference: 'slv2_rlast'
+  714 |     .slv2_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:761:6: Instance pin connected by name with empty reference: 'slv3_rlast'
+  761 |     .slv3_rlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:769:6: Instance pin connected by name with empty reference: 'mst0_awlen'
+  769 |     .mst0_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:770:6: Instance pin connected by name with empty reference: 'mst0_awsize'
+  770 |     .mst0_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:771:6: Instance pin connected by name with empty reference: 'mst0_awburst'
+  771 |     .mst0_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:772:6: Instance pin connected by name with empty reference: 'mst0_awlock'
+  772 |     .mst0_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:773:6: Instance pin connected by name with empty reference: 'mst0_awcache'
+  773 |     .mst0_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:775:6: Instance pin connected by name with empty reference: 'mst0_awqos'
+  775 |     .mst0_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:776:6: Instance pin connected by name with empty reference: 'mst0_awregion'
+  776 |     .mst0_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:781:6: Instance pin connected by name with empty reference: 'mst0_wlast'
+  781 |     .mst0_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:793:6: Instance pin connected by name with empty reference: 'mst0_arlen'
+  793 |     .mst0_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:794:6: Instance pin connected by name with empty reference: 'mst0_arsize'
+  794 |     .mst0_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:795:6: Instance pin connected by name with empty reference: 'mst0_arburst'
+  795 |     .mst0_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:796:6: Instance pin connected by name with empty reference: 'mst0_arlock'
+  796 |     .mst0_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:797:6: Instance pin connected by name with empty reference: 'mst0_arcache'
+  797 |     .mst0_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:799:6: Instance pin connected by name with empty reference: 'mst0_arqos'
+  799 |     .mst0_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:800:6: Instance pin connected by name with empty reference: 'mst0_arregion'
+  800 |     .mst0_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:816:6: Instance pin connected by name with empty reference: 'mst1_awlen'
+  816 |     .mst1_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:817:6: Instance pin connected by name with empty reference: 'mst1_awsize'
+  817 |     .mst1_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:818:6: Instance pin connected by name with empty reference: 'mst1_awburst'
+  818 |     .mst1_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:819:6: Instance pin connected by name with empty reference: 'mst1_awlock'
+  819 |     .mst1_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:820:6: Instance pin connected by name with empty reference: 'mst1_awcache'
+  820 |     .mst1_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:822:6: Instance pin connected by name with empty reference: 'mst1_awqos'
+  822 |     .mst1_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:823:6: Instance pin connected by name with empty reference: 'mst1_awregion'
+  823 |     .mst1_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:828:6: Instance pin connected by name with empty reference: 'mst1_wlast'
+  828 |     .mst1_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:840:6: Instance pin connected by name with empty reference: 'mst1_arlen'
+  840 |     .mst1_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:841:6: Instance pin connected by name with empty reference: 'mst1_arsize'
+  841 |     .mst1_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:842:6: Instance pin connected by name with empty reference: 'mst1_arburst'
+  842 |     .mst1_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:843:6: Instance pin connected by name with empty reference: 'mst1_arlock'
+  843 |     .mst1_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:844:6: Instance pin connected by name with empty reference: 'mst1_arcache'
+  844 |     .mst1_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:846:6: Instance pin connected by name with empty reference: 'mst1_arqos'
+  846 |     .mst1_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:847:6: Instance pin connected by name with empty reference: 'mst1_arregion'
+  847 |     .mst1_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:863:6: Instance pin connected by name with empty reference: 'mst2_awlen'
+  863 |     .mst2_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:864:6: Instance pin connected by name with empty reference: 'mst2_awsize'
+  864 |     .mst2_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:865:6: Instance pin connected by name with empty reference: 'mst2_awburst'
+  865 |     .mst2_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:866:6: Instance pin connected by name with empty reference: 'mst2_awlock'
+  866 |     .mst2_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:867:6: Instance pin connected by name with empty reference: 'mst2_awcache'
+  867 |     .mst2_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:869:6: Instance pin connected by name with empty reference: 'mst2_awqos'
+  869 |     .mst2_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:870:6: Instance pin connected by name with empty reference: 'mst2_awregion'
+  870 |     .mst2_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:875:6: Instance pin connected by name with empty reference: 'mst2_wlast'
+  875 |     .mst2_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:887:6: Instance pin connected by name with empty reference: 'mst2_arlen'
+  887 |     .mst2_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:888:6: Instance pin connected by name with empty reference: 'mst2_arsize'
+  888 |     .mst2_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:889:6: Instance pin connected by name with empty reference: 'mst2_arburst'
+  889 |     .mst2_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:890:6: Instance pin connected by name with empty reference: 'mst2_arlock'
+  890 |     .mst2_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:891:6: Instance pin connected by name with empty reference: 'mst2_arcache'
+  891 |     .mst2_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:893:6: Instance pin connected by name with empty reference: 'mst2_arqos'
+  893 |     .mst2_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:894:6: Instance pin connected by name with empty reference: 'mst2_arregion'
+  894 |     .mst2_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:910:6: Instance pin connected by name with empty reference: 'mst3_awlen'
+  910 |     .mst3_awlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:911:6: Instance pin connected by name with empty reference: 'mst3_awsize'
+  911 |     .mst3_awsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:912:6: Instance pin connected by name with empty reference: 'mst3_awburst'
+  912 |     .mst3_awburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:913:6: Instance pin connected by name with empty reference: 'mst3_awlock'
+  913 |     .mst3_awlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:914:6: Instance pin connected by name with empty reference: 'mst3_awcache'
+  914 |     .mst3_awcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:916:6: Instance pin connected by name with empty reference: 'mst3_awqos'
+  916 |     .mst3_awqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:917:6: Instance pin connected by name with empty reference: 'mst3_awregion'
+  917 |     .mst3_awregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:922:6: Instance pin connected by name with empty reference: 'mst3_wlast'
+  922 |     .mst3_wlast    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:934:6: Instance pin connected by name with empty reference: 'mst3_arlen'
+  934 |     .mst3_arlen    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:935:6: Instance pin connected by name with empty reference: 'mst3_arsize'
+  935 |     .mst3_arsize   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:936:6: Instance pin connected by name with empty reference: 'mst3_arburst'
+  936 |     .mst3_arburst  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:937:6: Instance pin connected by name with empty reference: 'mst3_arlock'
+  937 |     .mst3_arlock   (),
+      |      ^~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:938:6: Instance pin connected by name with empty reference: 'mst3_arcache'
+  938 |     .mst3_arcache  (),
+      |      ^~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:940:6: Instance pin connected by name with empty reference: 'mst3_arqos'
+  940 |     .mst3_arqos    (),
+      |      ^~~~~~~~~~
+%Warning-PINCONNECTEMPTY: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_lite_top.sv:941:6: Instance pin connected by name with empty reference: 'mst3_arregion'
+  941 |     .mst3_arregion (),
+      |      ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:59:19: Parameter is not used: 'TIMEOUT_VALUE'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+   59 |         parameter TIMEOUT_VALUE = 10000,
+      |                   ^~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.050
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:107:19: Parameter is not used: 'MST0_RW'
+                                                                                                  : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+  107 |         parameter MST0_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:119:19: Parameter is not used: 'MST1_RW'
+                                                                                                  : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+  119 |         parameter MST1_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:131:19: Parameter is not used: 'MST2_RW'
+                                                                                                  : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+  131 |         parameter MST2_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:143:19: Parameter is not used: 'MST3_RW'
+                                                                                                  : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+  143 |         parameter MST3_RW = 0,
+      |                   ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_crossbar_top.sv:374:43: Signal is not used: 'slv2_aruser'
+                                                                                                   : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst'
+  374 |         input  wire  [AXI_AUSER_W   -1:0] slv2_aruser,
+      |                                           ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.050
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:18:19: Parameter is not used: 'SLV_NB'
+                                                                                           : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   18 |         parameter SLV_NB = 4,
+      |                   ^~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:23:19: Parameter is not used: 'STRB_MODE'
+                                                                                           : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   23 |         parameter STRB_MODE = 1,
+      |                   ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:53:43: Signal is not used: 'i_aclk'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   53 |         input  wire                       i_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:54:43: Signal is not used: 'i_aresetn'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   54 |         input  wire                       i_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:55:43: Signal is not used: 'i_srst'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   55 |         input  wire                       i_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:59:43: Signal is not used: 'i_awlen'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   59 |         input  wire  [8             -1:0] i_awlen,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:60:43: Signal is not used: 'i_awsize'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   60 |         input  wire  [3             -1:0] i_awsize,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:61:43: Signal is not used: 'i_awburst'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   61 |         input  wire  [2             -1:0] i_awburst,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:62:43: Signal is not used: 'i_awlock'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   62 |         input  wire  [2             -1:0] i_awlock,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:63:43: Signal is not used: 'i_awcache'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   63 |         input  wire  [4             -1:0] i_awcache,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:65:43: Signal is not used: 'i_awqos'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   65 |         input  wire  [4             -1:0] i_awqos,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:66:43: Signal is not used: 'i_awregion'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   66 |         input  wire  [4             -1:0] i_awregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:68:43: Signal is not used: 'i_awuser'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   68 |         input  wire  [AXI_AUSER_W   -1:0] i_awuser,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:71:43: Signal is not used: 'i_wlast'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   71 |         input  wire                       i_wlast,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:74:43: Signal is not used: 'i_wuser'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   74 |         input  wire  [AXI_WUSER_W   -1:0] i_wuser,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:83:43: Signal is not used: 'i_arlen'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   83 |         input  wire  [8             -1:0] i_arlen,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:84:43: Signal is not used: 'i_arsize'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   84 |         input  wire  [3             -1:0] i_arsize,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:85:43: Signal is not used: 'i_arburst'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   85 |         input  wire  [2             -1:0] i_arburst,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:86:43: Signal is not used: 'i_arlock'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   86 |         input  wire  [2             -1:0] i_arlock,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:87:43: Signal is not used: 'i_arcache'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   87 |         input  wire  [4             -1:0] i_arcache,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:89:43: Signal is not used: 'i_arqos'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   89 |         input  wire  [4             -1:0] i_arqos,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:90:43: Signal is not used: 'i_arregion'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   90 |         input  wire  [4             -1:0] i_arregion,
+      |                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:92:43: Signal is not used: 'i_aruser'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+   92 |         input  wire  [AXI_AUSER_W   -1:0] i_aruser,
+      |                                           ^~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:101:43: Signal is not used: 'o_aclk'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  101 |         input  wire                       o_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:102:43: Signal is not used: 'o_aresetn'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  102 |         input  wire                       o_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_if.sv:103:43: Signal is not used: 'o_srst'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.slv3_if'
+  103 |         input  wire                       o_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:20:19: Parameter is not used: 'STRB_MODE'
+                                                                                           : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   20 |         parameter STRB_MODE = 1,
+      |                   ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:55:43: Signal is not used: 'i_aclk'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   55 |         input  wire                       i_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:56:43: Signal is not used: 'i_aresetn'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   56 |         input  wire                       i_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:57:43: Signal is not used: 'i_srst'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   57 |         input  wire                       i_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:76:43: Signal is not used: 'o_aclk'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   76 |         input  wire                       o_aclk,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:77:43: Signal is not used: 'o_aresetn'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   77 |         input  wire                       o_aresetn,
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:78:43: Signal is not used: 'o_srst'
+                                                                                            : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+   78 |         input  wire                       o_srst,
+      |                                           ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:102:43: Signal is not used: 'o_buser'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  102 |         input  wire  [AXI_BUSER_W   -1:0] o_buser,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:121:43: Signal is not used: 'o_rlast'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  121 |         input  wire                       o_rlast,
+      |                                           ^~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_if.sv:122:43: Signal is not used: 'o_ruser'
+                                                                                             : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.mst0_if'
+  122 |         input  wire  [AXI_RUSER_W   -1:0] o_ruser
+      |                                           ^~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:25:19: Parameter is not used: 'TIMEOUT_ENABLE'
+                                                                                               : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+   25 |         parameter TIMEOUT_ENABLE = 1,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:111:28: Signal is not used: 'slv1_start_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  111 |     logic [AXI_ADDR_W-1:0] slv1_start_addr = SLV1_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:112:28: Signal is not used: 'slv1_end_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  112 |     logic [AXI_ADDR_W-1:0] slv1_end_addr =   SLV1_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:113:28: Signal is not used: 'slv2_start_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  113 |     logic [AXI_ADDR_W-1:0] slv2_start_addr = SLV2_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:114:28: Signal is not used: 'slv2_end_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  114 |     logic [AXI_ADDR_W-1:0] slv2_end_addr =   SLV2_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:115:28: Signal is not used: 'slv3_start_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  115 |     logic [AXI_ADDR_W-1:0] slv3_start_addr = SLV3_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:116:28: Signal is not used: 'slv3_end_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  116 |     logic [AXI_ADDR_W-1:0] slv3_end_addr =   SLV3_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:134:28: Signal is not used: 'routes'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[2].slv_switch'
+  134 |     logic [SLV_NB    -1:0] routes = MST_ROUTES;
+      |                            ^~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:109:28: Signal is not used: 'slv0_start_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[3].slv_switch'
+  109 |     logic [AXI_ADDR_W-1:0] slv0_start_addr = SLV0_START_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_slv_switch.sv:110:28: Signal is not used: 'slv0_end_addr'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.SLV_SWITCHS_GEN[3].slv_switch'
+  110 |     logic [AXI_ADDR_W-1:0] slv0_end_addr =   SLV0_END_ADDR[0+:AXI_ADDR_W];
+      |                            ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_switch.sv:13:19: Parameter is not used: 'AXI_DATA_W'
+                                                                                               : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch'
+   13 |         parameter AXI_DATA_W = 8,
+      |                   ^~~~~~~~~~
+%Warning-UNUSEDPARAM: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_mst_switch.sv:19:19: Parameter is not used: 'TIMEOUT_ENABLE'
+                                                                                               : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch'
+   19 |         parameter TIMEOUT_ENABLE = 1,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_round_robin.sv:47:11: Signal is not used: 'p0'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   47 |     logic p0 = REQ0_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_round_robin.sv:48:11: Signal is not used: 'p1'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   48 |     logic p1 = REQ1_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_round_robin.sv:49:11: Signal is not used: 'p2'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   49 |     logic p2 = REQ2_PRIORITY;
+      |           ^~
+%Warning-UNUSEDSIGNAL: build/p2_upstream_hardened/dep/axi-crossbar/rtl/axicb_round_robin.sv:50:11: Signal is not used: 'p3'
+                                                                                                 : ... note: In instance 'soc_upstream_xbar_tb.dut.upstream_crossbar.axi4lite_crossbar_inst.switchs.MST_SWITCHS_GEN[3].mst_switch.arch_round_robin'
+   50 |     logic p3 = REQ3_PRIORITY;
+      |           ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.050 2026-07-01 rev v5.050
+- Verilator: Built from 1.903 MB sources in 24 modules, into 1.582 MB in 12 C++ files needing 0.000 MB
+- Verilator: Walltime 0.254 s (elab=0.037, cvt=0.173, bld=0.000); cpu 0.254 s on 1 threads; allocated 43.590 MB

@@ -1,0 +1,7 @@
+{
+  "before_control_sha256": "ac2e897541613d9eab591e7f9352d32fba00de9bee30444182562bb0bea49a05",
+  "after_control_sha256": "ef4825c9042d01d4c35245312b2122c39f8674f313cd94d2bdd0c26120cc87ad",
+  "testbench_sha256": "e021d2065086a69bdc916b93849dbf44f0ba3f6a9af67448a4c5fd92f7ff849b",
+  "red_scope": "only the new enabled-IRQ/queued-fault selection fix removed; CSR commit window and old store fault are checked separately",
+  "green_cases": 48
+}

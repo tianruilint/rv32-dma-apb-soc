@@ -1,5 +1,14 @@
 # Verilator warning audit
 
+The first system build had 520 Verilator warnings (161 more in the crossbar
+wiring test), mostly in the third-party CPU. Instead of waiving them as a
+block, I went through them one by one. Several pointed at real bugs.
+
+All 681 original diagnostics, with their disposition, are in
+[initial_inventory.json](../reports/warning_audit/initial_inventory.json).
+The raw initial build logs are kept next to it; the local checkout path in
+their `make` directory lines is shown as `<repo>`.
+
 ## Warnings that were real bugs
 
 | Warning | Cause | Fix and test |
@@ -16,6 +25,18 @@ these change behaviour on a valid path.
 
 ## The gate
 
+After the fixes, the patched system build has 481 diagnostics and the
+crossbar test has 142:
+
+| Category | System | Crossbar | Meaning |
+| --- | ---: | ---: | --- |
+| UNUSEDSIGNAL | 218 | 47 | fields unused in this configuration |
+| PINCONNECTEMPTY | 161 | 84 | outputs left unconnected on purpose |
+| UNUSEDPARAM | 50 | 11 | parameters for other configurations |
+| GENUNNAMED / UNUSEDGENVAR / VARHIDDEN | 27 | 0 | naming style |
+| PROCASSINIT / BLKSEQ | 21 | 0 | testbench only |
+| UNSIGNED / SYNCASYNCNET | 4 | 0 | zero-base range compare, reset gating, UART sampling |
+
 `scripts/check_warnings.py` compares every lint diagnostic against
 `docs/warning_waivers.json`. The match is on type, file, line, column, full
 message and count, plus the SHA-256 of every involved source file. A new
@@ -28,3 +49,7 @@ python3 scripts/check_warnings.py system reports/p2_soc/system-lint.log
 python3 scripts/check_warnings.py upstream-crossbar reports/p2_soc/upstream-xbar-lint.log
 python3 scripts/test_warning_gate.py   # 4 negative tests the gate must reject
 ```
+
+When the IRQ fix changed `friscv_control.sv`, the gate rejected its new
+source hash. The 481 diagnostics were unchanged, so only that one hash was
+updated.

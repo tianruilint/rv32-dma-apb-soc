@@ -1,0 +1,2 @@
+FATAL: tb/upstream_friscv/masked_irq_priority_tb.sv:44: MASKED_IRQ_PRIORITY_FAIL expected=00000001 got=80000007
+       Time: 70000  Scope: masked_irq_priority_tb.$ivl_for_loop1

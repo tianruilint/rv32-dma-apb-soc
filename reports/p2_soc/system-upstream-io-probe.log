@@ -1,0 +1,45 @@
+SOC_RAM_INIT build/p2_soc_fw/p2_dma_demo.mem
+SOC_RAM_READ addr=00010000 id=80
+SOC_RAM_READ addr=00010010 id=80
+SOC_RAM_READ addr=00010020 id=80
+SOC_RAM_READ addr=00010030 id=81
+SOC_RAM_READ addr=00010070 id=82
+XBAR_CPU_AW addr=0007fffc id=10
+XBAR_CPU_W strb=f000
+SOC_RAM_READ addr=00010080 id=82
+SOC_RAM_WRITE addr=0007fffc strb=f000 id=10
+XBAR_CPU_B id=10 resp=0
+XBAR_CPU_AW addr=00100008 id=11
+XBAR_CPU_W strb=0f00
+SOC_RAM_READ addr=00010090 id=82
+XBAR_IO_AW addr=00000008 id=11
+XBAR_IO_W strb=0f00
+XBAR_CPU_AW addr=0010000c id=12
+XBAR_CPU_W strb=f000
+XBAR_IO_B id=11 resp=0
+XBAR_CPU_B id=11 resp=0
+XBAR_IO_AW addr=0000000c id=12
+XBAR_IO_W strb=f000
+XBAR_CPU_AW addr=00100008 id=13
+XBAR_CPU_W strb=0f00
+SOC_RAM_READ addr=000100a0 id=82
+XBAR_IO_AW addr=00000008 id=13
+XBAR_IO_W strb=0f00
+XBAR_IO_B id=13 resp=0
+XBAR_CPU_B id=13 resp=0
+XBAR_CPU_AW addr=000c1f00 id=14
+XBAR_CPU_W strb=000f
+XBAR_CPU_AW addr=00100084 id=15
+XBAR_CPU_W strb=00f0
+SOC_RAM_READ addr=000100b0 id=82
+XBAR_TIMER_AW addr=00100084 id=15
+SOC_RAM_WRITE addr=000c1f00 strb=000f id=14
+XBAR_TIMER_W strb=00f0
+XBAR_CPU_B id=14 resp=0
+XBAR_TIMER_B id=15 resp=0
+XBAR_CPU_B id=15 resp=0
+SOC_RAM_READ addr=000100c0 id=82
+SOC_RAM_READ addr=000100d0 id=82
+[5000120000] %Fatal: soc_system_test.sv:102: Assertion failed in soc_system_test.run_test: SOC timeout result=00000000 UART= DMA R/W=0/0
+%Error: tb/soc_system_test.sv:102: Verilog $stop
+Aborting...
