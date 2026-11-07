@@ -76,18 +76,19 @@ On 2026-11-07 I re-ran these tests against FRISCV master (`6919b1f`).
 All of the bugs above are still present there, so I reported them to
 [dpretet/friscv](https://github.com/dpretet/friscv):
 
-| Bug | Upstream |
-| --- | --- |
-| IO subsystem: no B for same-cycle AW/W | issue [#5](https://github.com/dpretet/friscv/issues/5), fix PR [#11](https://github.com/dpretet/friscv/pull/11) |
-| D-cache updates the line before B | [#6](https://github.com/dpretet/friscv/issues/6) |
-| D-cache drops AWPROT | [#7](https://github.com/dpretet/friscv/issues/7) |
-| D-cache AW/W handshake deadlock | comment on the maintainer's [#4](https://github.com/dpretet/friscv/issues/4) |
-| Load/store bus errors ignored, precise faults | [#8](https://github.com/dpretet/friscv/issues/8) |
-| Fetch bus errors executed and cached | [#9](https://github.com/dpretet/friscv/issues/9) |
-| `mcause` ignores `mstatus.MIE` | [#10](https://github.com/dpretet/friscv/issues/10) |
+| Bug | Upstream | Status |
+| --- | --- | --- |
+| IO subsystem: no B for same-cycle AW/W | issue [#5](https://github.com/dpretet/friscv/issues/5) | **fixed** by my PR [#11](https://github.com/dpretet/friscv/pull/11), merged |
+| D-cache drops AWPROT | issue [#7](https://github.com/dpretet/friscv/issues/7) | **fixed** by my PR [#12](https://github.com/dpretet/friscv/pull/12), merged |
+| `mcause` ignores `mstatus.MIE` | issue [#10](https://github.com/dpretet/friscv/issues/10) | **fixed** by the maintainer in [`772db87`](https://github.com/dpretet/friscv/commit/772db8744449e93d) |
+| D-cache updates the line before B | issue [#6](https://github.com/dpretet/friscv/issues/6) | open |
+| Load/store bus errors ignored, precise faults | issue [#8](https://github.com/dpretet/friscv/issues/8) | open; maintainer asked for a memfy-only fix |
+| Fetch bus errors executed and cached | issue [#9](https://github.com/dpretet/friscv/issues/9) | open |
+| D-cache AW/W handshake deadlock | comment on the maintainer's [#4](https://github.com/dpretet/friscv/issues/4) | open |
 
-Upstream has restructured the D-cache, memfy and control since `5bf6d1d`,
-so only the IO patch applies to master unchanged.
+Status as of 2026-11-08. Upstream has restructured the D-cache, memfy and
+control since `5bf6d1d`, so the remaining patches would need porting to
+master; the pinned build here still uses the patches above.
 
 Write-ups: [IP audit](docs/IP_BUG_AUDIT.md),
 [upstream regression and fault fixes](docs/UPSTREAM_REGRESSION.md),
