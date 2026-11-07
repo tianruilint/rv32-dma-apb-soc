@@ -68,6 +68,26 @@ and passes after the patch. Summary:
 | Load/store unit | RRESP/BRESP ignored; failed load writes the register | precise load/store access faults with the right `mepc`/`mtval` |
 | Control | younger JAL/EBREAK/FENCE.I retire before an older faulting load/store | wait for outstanding memory ops before redirecting |
 | Control | enabled interrupt preempts an older queued memory fault; one-cycle re-entry window on MSTATUS write | older synchronous fault first; IRQ stays pending and is taken after `MRET` |
+| Control | `mcause` uses an interrupt code for a synchronous trap while `mstatus.MIE`=0 | interrupt cause selected only when the interrupt is taken |
+
+### Reported upstream
+
+On 2026-11-07 I re-ran these tests against FRISCV master (`6919b1f`).
+All of the bugs above are still present there, so I reported them to
+[dpretet/friscv](https://github.com/dpretet/friscv):
+
+| Bug | Upstream |
+| --- | --- |
+| IO subsystem: no B for same-cycle AW/W | issue [#5](https://github.com/dpretet/friscv/issues/5), fix PR [#11](https://github.com/dpretet/friscv/pull/11) |
+| D-cache updates the line before B | [#6](https://github.com/dpretet/friscv/issues/6) |
+| D-cache drops AWPROT | [#7](https://github.com/dpretet/friscv/issues/7) |
+| D-cache AW/W handshake deadlock | comment on the maintainer's [#4](https://github.com/dpretet/friscv/issues/4) |
+| Load/store bus errors ignored, precise faults | [#8](https://github.com/dpretet/friscv/issues/8) |
+| Fetch bus errors executed and cached | [#9](https://github.com/dpretet/friscv/issues/9) |
+| `mcause` ignores `mstatus.MIE` | [#10](https://github.com/dpretet/friscv/issues/10) |
+
+Upstream has restructured the D-cache, memfy and control since `5bf6d1d`,
+so only the IO patch applies to master unchanged.
 
 Write-ups: [IP audit](docs/IP_BUG_AUDIT.md),
 [upstream regression and fault fixes](docs/UPSTREAM_REGRESSION.md),
